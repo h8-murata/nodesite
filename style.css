@@ -1,0 +1,14 @@
+@charset "utf-8";
+
+/* 基本色 */
+:root{
+    --main-color: #5d9ab2;
+    --accent-color: #bf6a7a;
+    --dark-color: #2b5566;
+}
+
+body {
+    color: #666;
+    background-color: var(--main-color);
+    
+}
