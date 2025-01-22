@@ -13,6 +13,65 @@ body {
     margin: 0;
 }
 
+/* ここからヘッダー */
+header {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.head-img {
+    display: inline-block;
+    line-height: 70px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #5D9AB2;
+    background-color: var(--main-color);
+    color: #fff;
+    color: var(--text-bright-color);
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.head-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.head-nav a {
+    display: block;
+    padding: 15px;
+    color: inherit;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.headB a:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .head-nav ul {
+        display: flex;
+    }
+}
+
+
 /* video {
     margin: 0;
     padding: 0;
@@ -76,4 +135,125 @@ body {
         position: absolute;
         z-index: -1;
     }
+}
+
+/* ここからフッター */
+footer {
+    color: #fff;
+    color: var(--text-bright-color);
+    background-color: #2B5566;
+    background-color: var(--dark-color);
+}
+
+/* フッター内の余白サイズを指定する 115P */
+footer .container {
+    padding: 40px 20px;
+}
+
+/* サイト情報とフッターメニューを横に並べる(1) 135P*/
+@media (min-width: 768px) {
+    footer .container {
+        display: flex;
+        flex-wrap: wrap;
+
+        /* コンテンツと横幅を揃える 137P */
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* サイト情報とフッターメニューを横に並べる(2) 136P*/
+    .footA {
+        flex: 0 0 40%;
+    }
+
+    .footB {
+        flex: 0 0 60%;
+    }
+
+    .footC {
+        flex: 0 0 100%;
+    }
+}
+
+/* 見出しに下線を付けたデザインにする 120P */
+.footA {
+    margin-bottom: 30px;
+}
+
+/* 見出しと段落のデザインを指定する 112P */
+.footA h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: "ロボト", sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.2em;
+}
+
+.footA p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+/* リンクのデザインを指定する 113P */
+.footA a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* フッターメニューの上下の間隔ｗ調整する 126P */
+.footB div {
+    margin-bottom: 20px;
+}
+
+/* 見出しに下線を付けたデザインにする 120P */
+.footB h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: solid 1px currentColor;
+    font-size: 14px;
+}
+
+/* メニューの項目のデザインを指定する 121P*/
+.footB ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footB a {
+    /* リンクを大きくする 123P */
+    display: block;
+    padding: 5px;
+    color: inherit;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footB a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* フッターメニューを横に並べる 127P */
+@media (min-width: 768px) {
+    .footB {
+        display: flex;
+    }
+
+    .footB div {
+        flex: 1;
+    }
+
+    .footB div:not(:first-child) {
+        margin-left: 40px;
+    }
+}
+
+/* コピーライトのデザインを指定する 133P */
+.footC {
+    font-size: 12px;
+    text-align: center;
+    font-family: "ロボト", sans-serif;
 }
