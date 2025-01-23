@@ -10,7 +10,38 @@ body {
     "slnt" 0;
     top: 0;
     left: 0;
+    margin: 0;
 }
+
+/* 背景のグラデーション配置
+#bgc-grad {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+.bg1 {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 100px;
+}
+
+.bg2 {
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    position: absolute;
+    height: 60vh;
+}
+
+.bg3 {
+    bottom: 0;
+    right: 0;
+    height: 60vh;
+} */
+
+
 
 /* ここからヘッダー */
 header {
@@ -46,14 +77,14 @@ header {
     margin: 15px;
 }
 
-a{
+.head-nav a{
 	position: relative;
 	text-decoration: none;
 	color: #000000;
 	transition: 0.3s;
 }
 
-a::before{
+.head-nav a::before{
     content: "";
 	position: absolute;
 	left: 0;
@@ -64,7 +95,7 @@ a::before{
 	transition: 0.3s;
 }
 
-a:hover::before{
+.head-nav a:hover::before{
 	width: 100%;
 }
 
@@ -85,17 +116,7 @@ a:hover::before{
     }
 }
 
-
-/* video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-    background: transparent;
-} */
-
+/* ファーストビュー */
 .hero {
     display: block;
     color: #fff;
@@ -117,9 +138,15 @@ a:hover::before{
     font-size: 42px;
 }
 
+/* 事業部パート */
+.con1 {
+    margin: 0 30px; 
+}
+
 .con1 h2 {
     text-align: center;
     margin: 30px auto 0;
+    font-size: 28px;
 }
 
 .links {
@@ -151,18 +178,61 @@ a:hover::before{
     }
 }
 
+/* その他コンテンツパート */
+.con2 {
+    display: block;
+    width: 70%;
+    margin: 0 auto 40px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    h2 {
+        font-size: 28px;
+    }
+}
+
+.con-object {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 0;
+}
+
+.con-text {
+    display: block;
+    width: 90%;
+    flex: 1;
+}
+
+.con-img {
+    padding: 0;
+    flex: 1;
+
+    img {
+        width: 100%;
+        height: 50vh;
+        object-fit: contain;
+        margin: 0;
+    }
+}
+
 /* ここからフッター */
 footer {
     color: #fff;
     background: rgb(167,240,245);
     background: linear-gradient(180deg, rgba(167,240,245,0.8463760504201681) 0%, rgba(25,25,181,1) 100%);
-    margin-left: 30px;
-    margin-right: 30px;
 }
 
 /* フッター内の余白サイズを指定する 115P */
 footer .container {
     padding: 40px 20px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 /* サイト情報とフッターメニューを横に並べる(1) 135P*/
