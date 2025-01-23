@@ -10,7 +10,6 @@ body {
     "slnt" 0;
     top: 0;
     left: 0;
-    margin: 0;
 }
 
 /* ここからヘッダー */
@@ -155,7 +154,8 @@ a:hover::before{
 /* ここからフッター */
 footer {
     color: #fff;
-    color: var(--text-bright-color);
+    background: rgb(167,240,245);
+    background: linear-gradient(180deg, rgba(167,240,245,0.8463760504201681) 0%, rgba(25,25,181,1) 100%);
     margin-left: 30px;
     margin-right: 30px;
 }
