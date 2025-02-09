@@ -1,0 +1,263 @@
+@charset "utf-8";
+
+
+body {
+    font-family: "Cairo", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+    "slnt" 0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    background: linear-gradient(45deg, #00007b, #ffffff, #ffe08c);
+    background-size: 200% 200%;
+    animation: GradientBackground 20s ease infinite;
+    margin: 0 auto;
+}
+
+@keyframes GradientBackground {
+    0% {
+        background-position: 0% 100%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+
+
+/* ここからヘッダー */
+header {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* position: relative; */
+	text-decoration: none;
+	transition: 0.3s;
+}
+
+.head-img {
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.head-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.head-nav a {
+    display: block;
+    padding: 15px;
+    color: inherit;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 15px;
+}
+
+.head-nav a{
+	position: relative;
+	text-decoration: none;
+	color: #000000;
+	transition: 0.3s;
+}
+
+.head-nav a::before{
+    content: "";
+	position: absolute;
+	left: 0;
+	bottom: -4px;
+	width: 0;
+	height: 4px;
+	background: #2a2a2a;
+	transition: 0.3s;
+}
+
+.head-nav a:hover::before{
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+    header .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .head-nav ul {
+        display: flex;
+    
+    }
+}
+
+/* ここからコンタクトパート */
+.contact {
+    display: block;
+    width: 70%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+
+    h2 {
+        font-size: 28px;
+        padding: 20px 0;
+    }
+}
+
+.con-object {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.con-text {
+    display: block;
+    width: 90%;
+    flex: 1;
+}
+
+
+
+/* ここからフッター */
+footer {
+    color: #fff;
+    background: rgb(22,45,73);
+    background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29192927170868344) 100%);
+}
+
+/* フッター内の余白サイズを指定する 115P */
+footer .container {
+    padding: 40px 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+/* サイト情報とフッターメニューを横に並べる(1) 135P*/
+@media (min-width: 768px) {
+    footer .container {
+        display: flex;
+        flex-wrap: wrap;
+
+        /* コンテンツと横幅を揃える 137P */
+        max-width: 1000px;
+        max-width: var(--large-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* サイト情報とフッターメニューを横に並べる(2) 136P*/
+    .footA {
+        flex: 0 0 40%;
+    }
+
+    .footB {
+        flex: 0 0 60%;
+    }
+
+    .footC {
+        flex: 0 0 100%;
+    }
+}
+
+/* 見出しに下線を付けたデザインにする 120P */
+.footA {
+    margin-bottom: 30px;
+}
+
+/* 見出しと段落のデザインを指定する 112P */
+.footA h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: "ロボト", sans-serif;
+    font-size: 30px;
+    letter-spacing: 0.2em;
+}
+
+.footA p {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+/* リンクのデザインを指定する 113P */
+.footA a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* フッターメニューの上下の間隔ｗ調整する 126P */
+.footB div {
+    margin-bottom: 20px;
+}
+
+/* 見出しに下線を付けたデザインにする 120P */
+.footB h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: solid 1px currentColor;
+    font-size: 14px;
+}
+
+/* メニューの項目のデザインを指定する 121P*/
+.footB ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footB a {
+    /* リンクを大きくする 123P */
+    display: block;
+    padding: 5px;
+    color: inherit;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.footB a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* フッターメニューを横に並べる 127P */
+@media (min-width: 768px) {
+    .footB {
+        display: flex;
+    }
+
+    .footB div {
+        flex: 1;
+    }
+
+    .footB div:not(:first-child) {
+        margin-left: 40px;
+    }
+}
+
+/* コピーライトのデザインを指定する 133P */
+.footC {
+    font-size: 12px;
+    text-align: center;
+    font-family: "ロボト", sans-serif;
+}
