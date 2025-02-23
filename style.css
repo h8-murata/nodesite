@@ -127,25 +127,25 @@ header {
     margin-left: 15svw;
     font-size: 42px;
     color: #2a2a2a;
-    /* 文字影 */
-    /* text-shadow: 5px 7px 10px rgb(255, 255, 255, 0.8); */
-    /* background-color:rgba(255, 255, 255); */
     background-color:rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(3px) contrast(78%) invert(7%) saturate(99%);
     border-radius: 3px;
     padding: 10px 0;
 }
 
-/* .hero .text-bg {
-    width: 70%;
-    height: 270px;
-    background-color:rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(10px) brightness(1.2) contrast(98%) grayscale(35%) hue-rotate(30deg) invert(7%);
-} */
 
-/* 事業部パート */
+/* 事業部 .con1 */
 .con1 {
-    margin: 0 30px; 
+    display: block;
+    width: 100%;
+    margin: 40px auto 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 .con1 h2 {
@@ -159,283 +159,191 @@ header {
     padding: 2rem;
     gap: 1rem;
     height: 25rem;
-
-    a {
-        display: block;
-        flex: 1 1 auto;
-        border-radius: 0.5rem;
-        overflow: hidden;
-        position: relative;
-        transition: flex-grow .4s ease-in-out;
-    }
-
-    a:hover {
-        flex-grow: 8;
-    }
-
-    img {
-        display: block;
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        z-index: -1;
-    }
 }
 
-/* その他コンテンツパート */
+.links a {
+    display: block;
+    flex: 1 1 auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    transition: flex-grow .4s ease-in-out;
+}
+
+.links a:hover {
+    flex-grow: 8;
+}
+
+.links img {
+    display: block;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+/* 会社案内 .con2 */
 .con2 {
     display: block;
     width: 70%;
-    margin: 0 auto 40px;
-    background-color: rgba(255, 255, 255, 0.2);
+    margin: 40px auto 40px;
+    background-color: rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-
-    h2 {
-        font-size: 28px;
-    }
 }
 
-.con-object {
+.con2 h2 {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.con2 .con-object {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px 0;
 }
 
-.con-text {
+.con2 .con-text {
     display: block;
     width: 90%;
     flex: 1;
 }
 
-.con-img {
+.con2 .con-img {
     padding: 0;
     flex: 1;
-
-    img {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-        margin: 0;
-    }
 }
 
-/* その他コンテンツパート */
+.con2 .con-img img {
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+    margin: 0;
+}
+
+
+/* 会社案内 .con3 */
 .con3 {
     display: block;
     width: 70%;
-    margin: 0 auto 40px;
-    background-color: rgba(255, 255, 255);
+    margin: 40px auto 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-
-    h2 {
-        font-size: 28px;
-    }
 }
 
-.con-object {
+.con3 h2 {
+    font-size: 28px;
+    margin-top: 20px;
+}
+
+.con3 .con-object {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px 0;
 }
 
-.con-text {
+.con3 .con-text {
     display: block;
     width: 90%;
     flex: 1;
 }
 
-.con-img {
-    padding: 0;
-    flex: 1;
-
-    img {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-        margin: 0;
-    }
+.con3 p {
+    text-align: left;
 }
 
-/* その他コンテンツパート */
+.con3 .con-img {
+    padding: 0;
+    flex: 1;
+}
+.con3 .con-img img {
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+    margin: 0;
+}
+
+/* 募集要項 .con4 */
 .con4 {
     display: block;
     width: 70%;
-    margin: 0 auto 40px;
-    text-align: center;
-
-    h2 {
-        font-size: 28px;
-    }
-}
-
-.con-object {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px 0;
-}
-
-.con-text {
-    display: block;
-    width: 90%;
-    flex: 1;
-}
-
-.con-img {
-    padding: 0;
-    flex: 1;
-
-    img {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-        margin: 0;
-    }
-}
-
-/* その他コンテンツパート */
-.con5 {
-    display: block;
-    width: 70%;
-    margin: 0 auto 40px;
-    background-color: #e5e5f7;
-    opacity: 0.8;
-    background-image:  linear-gradient(#9ba0ff 0.6000000000000001px, transparent 0.6000000000000001px), linear-gradient(to right, #9ba0ff 0.6000000000000001px, #e5e5f7 0.6000000000000001px);
-    background-size: 12px 12px;
+    margin: 40px auto 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
-
-    h2 {
-        font-size: 28px;
-    }
 }
 
-.con-object {
+.con4 h2 {
+    font-size: 28px;
+    margin: 20px 0 40px;
+
+}
+
+.con4 .con-object {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 20px 0;
 }
 
-.con-text {
+.con4 .con-text {
     display: block;
     width: 90%;
     flex: 1;
+    margin-bottom: 40px;
 }
 
-.con-img {
-    padding: 0;
-    flex: 1;
+/* read more ボタン設定 */
+.read-button {
+    margin-top: 20px;
+    background-color: rgba(24, 43, 141, 0.6);
+    color: #fff;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1em;
+    outline: 0.5px solid;
+    outline-color: rgb(24, 43, 141);
+    outline-offset: 0px;
+    display: inline-block;
+    transition: .3s;
+}
 
-    img {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-        margin: 0;
+.read-button:hover {
+    color: #fff;
+    animation: light .8s infinite;
+}
+
+@keyframes light {
+    100% { 
+        outline-color: transparent;
+        outline-offset: 10px;
     }
 }
 
-/* その他コンテンツパート */
-.con6 {
-    display: block;
-    width: 70%;
-    margin: 0 auto 40px;
-    background-color: #ffffff;
-opacity: 0.8;
-background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ffffff 4px ), repeating-linear-gradient( #b0b0b055, #b0b0b0 );
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-
-    h2 {
-        font-size: 28px;
-    }
+.con1 .read-button {
+    margin-bottom: 40px;
 }
 
-.con-object {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px 0;
+.con4 .read-button {
+    margin-bottom: 40px;
 }
 
-.con-text {
-    display: block;
-    width: 90%;
-    flex: 1;
-}
-
-.con-img {
-    padding: 0;
-    flex: 1;
-
-    img {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-        margin: 0;
-    }
-}
-
-/* その他コンテンツパート */
-.con7 {
-    display: block;
-    width: 70%;
-    margin: 0 auto 40px;
-    background-color: #ffffff;
-    opacity: 0.8;
-    background-image:  linear-gradient(135deg, #b0b0b0 25%, transparent 25%), linear-gradient(225deg, #b0b0b0 25%, transparent 25%), linear-gradient(45deg, #b0b0b0 25%, transparent 25%), linear-gradient(315deg, #b0b0b0 25%, #ffffff 25%);
-    background-position:  9px 0, 9px 0, 0 0, 0 0;
-    background-size: 18px 18px;
-    background-repeat: repeat;
-    border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-
-    h2 {
-        font-size: 28px;
-    }
-}
-
-.con-object {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px 0;
-}
-
-.con-text {
-    display: block;
-    width: 90%;
-    flex: 1;
-}
-
-.con-img {
-    padding: 0;
-    flex: 1;
-
-    img {
-        width: 100%;
-        height: 50vh;
-        object-fit: contain;
-        margin: 0;
-    }
-}
 
 /* ここからフッター */
 footer {

@@ -106,21 +106,16 @@ header {
     }
 }
 
+/* ヒーローセクション */
 .hero {
-    background: url('img/ben-o-bro-wpU4veNGnHg-unsplash.jpg') no-repeat center/cover;
     text-align: center;
+    background: url('img/ben-o-bro-wpU4veNGnHg-unsplash.jpg') no-repeat center/cover;
     color: white;
-    padding: 100px 20px;
+    padding: 60px 20px;
 }
 
 .hero h1 {
     font-size: 36px;
-    margin: 0;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-top: 10px;
 }
 
 main {

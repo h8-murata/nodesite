@@ -105,6 +105,17 @@ header {
     
     }
 }
+/* ヒーローセクション */
+.hero {
+    text-align: center;
+    background: url('img/ben-o-bro-wpU4veNGnHg-unsplash.jpg') no-repeat center/cover;
+    color: white;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 36px;
+}
 
 
 /* その他コンテンツパート */
