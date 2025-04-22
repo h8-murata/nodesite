@@ -52,6 +52,14 @@ header {
     padding-right: 20px;
 }
 
+h1.logo {
+    font-family: "Dela Gothic One";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 25px;
+    display: inline-block;
+}
+
 .head-nav ul {
     margin: 0;
     padding: 0;
