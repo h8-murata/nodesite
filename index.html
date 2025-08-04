@@ -18,12 +18,17 @@
 
 <body>
     <!-- ここからヘッダー -->
-    <header>
-        <div class="container">
-            <div class="head-img">
-                <h1 class="logo">ユニオンポイントシステムズのロゴ</h1>
-                <!-- <img src="img/group_logo2.png" alt="ロゴ"> -->
+<header>
+    <div class="container">
+        <div class="head-img">
+            <h1 class="logo">ユニオンポイントシステムズのロゴ</h1>
             </div>
+        <button class="nav-button" type="button" aria-label="メニュー">
+            <span class="nav-button-bar"></span>
+            <span class="nav-button-bar"></span>
+            <span class="nav-button-bar"></span>
+        </button>
+        <div class="nav-wrapper">
             <nav class="head-nav">
                 <ul>
                     <li><a href="index.html">HOME</a></li>
@@ -34,7 +39,8 @@
                 </ul>
             </nav>
         </div>
-    </header>
+    </div>
+</header>
     <!-- ここからファーストビュー -->
     <section class="hero">
         <div class="container">
@@ -167,6 +173,14 @@
 
         </div>
     </footer>
+    <script>
+    const navButton = document.querySelector('.nav-button');
+    const body = document.querySelector('body');
+
+    navButton.addEventListener('click', () => {
+        body.classList.toggle('nav-open');
+    });
+</script>
 </body>
 
 </html>
