@@ -41,11 +41,10 @@ header .container {
     height: 80px;
 }
 
-h1.logo {
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 22px; /* ← フォントサイズを小さく調整 */
-    font-weight: 400;
-    margin: 0;
+.head-img img {
+  max-width: 250px;
+  min-width: 150px;
+  height: auto;
 }
 
 .head-nav ul {
@@ -222,23 +221,24 @@ h1.logo {
 footer {
     color: #fff;
     background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%);
-    padding: 40px 20px;
+    padding: 40px 0; /* 左右のパディングを 20px から 0 に変更 */
 }
 
 footer .container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 0 30px; /* header .container と揃えるため、左右に30pxのパディングを追加 */
 }
 
 .footA {
     margin-bottom: 30px;
 }
 
-.footA h1 { /* h2からh1に修正 */
-    margin: 0 0 10px;
-    font-family: "Dela Gothic One", sans-serif;
-    font-size: 30px;
-    letter-spacing: 0.2em;
+.foot-img img {
+    width: 250px;
+    min-width: 150px;
+    height: auto;
+    margin-bottom: 30px;
 }
 
 .footA p {
@@ -287,6 +287,7 @@ footer .container {
     footer .container {
         display: flex;
         flex-wrap: wrap;
+        align-items: center;
     }
     .footA {
         flex: 1 1 40%;
@@ -308,9 +309,16 @@ footer .container {
 
 /* タブレット向け中間サイズ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-    h1.logo {
-        font-size: 20px;
-    }
+.head-img img {
+    width: 250px;
+    min-width: 150px;
+    height: auto;
+}
+.foot-img img {
+    width: 250px;
+    min-width: 150px;
+    height: auto;
+}
     .head-nav a {
         padding: 15px 10px;
         font-size: 15px;
@@ -428,7 +436,14 @@ footer .container {
         padding: 15px;
         font-size: 16px;
     }
-    .hero h1 {
-        font-size: 20px;
-    }
+.head-img img {
+    width: 150px;
+    min-width: 150px;
+    height: auto;
+}
+.foot-img img {
+    width: 150px;
+    min-width: 100px;
+    height: auto;
+}
 }
