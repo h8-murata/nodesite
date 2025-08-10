@@ -21,29 +21,29 @@
 
 <body>
     <!-- ここからヘッダー -->
-<header>
-    <div class="container">
-        <div class="head-img">
-            <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
+    <header>
+        <div class="container">
+            <div class="head-img">
+                <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
             </div>
-        <button class="nav-button" type="button" aria-label="メニュー">
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-        </button>
-        <div class="nav-wrapper">
-            <nav class="head-nav">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="AboutUs.html">会社案内</a></li>
-                    <li><a href="department.html">事業内容</a></li>
-                    <li><a href="Recruit.html">募集要項</a></li>
-                    <li><a href="contact.html">問い合わせ</a></li>
-                </ul>
-            </nav>
+            <button class="nav-button" type="button" aria-label="メニュー">
+                <span class="nav-button-bar"></span>
+                <span class="nav-button-bar"></span>
+                <span class="nav-button-bar"></span>
+            </button>
+            <div class="nav-wrapper">
+                <nav class="head-nav">
+                    <ul>
+                        <li><a href="index.html">HOME</a></li>
+                        <li><a href="AboutUs.html">会社案内</a></li>
+                        <li><a href="department.html">事業内容</a></li>
+                        <li><a href="Recruit.html">募集要項</a></li>
+                        <li><a href="contact.html">問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <section class="hero">
         <h1>About us</h1>
@@ -79,48 +79,67 @@
                 <tr>
                     <th>アクセス</th>
                     <td>
+                        都営新宿線、東京メトロ東西線/半蔵門線<br>
+                        「九段下駅」5番出口,7番出口より徒歩3分<br>
+                        東京メトロ東西線<br>
+                        「飯田橋駅」A5出口より徒歩7分<br>
+                        都営大江戸線、東京メトロ有楽町線/南北線<br>
+                        「飯田橋駅」A2出口より徒歩9分<br>
+                        JR 中央・総武線<br>
+                        「水道橋駅」より徒歩9分<br>
+                        JR 中央・総武線<br>
+                        「飯田橋駅」より徒歩11分<br>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.061140202973!2d139.7432951154027!3d35.69558818019079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188caa048fc2a9%3A0x3bcfc5ef1ab35c29!2z44CSMTAwLTAwMTEg5p2x5Lqs6YO95p2x5Lqs5biC5Lmd5qWt5Yy65YWr5LiB6KW_5aCC77yR5LiB55uu77yS4oiS77yZIOeUuuWkp-W6lw!5e0!3m2!1sja!2sjp!4v1691800000000!5m2!1sja!2sjp"
-                            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            width="80%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </td>
                 </tr>
+
                 <tr>
                     <th>設立年月日</th>
                     <td>令和2年9月18日</td>
                 </tr>
+
                 <tr>
                     <th>資本金</th>
                     <td>1,000,000円</td>
                 </tr>
+
                 <tr>
                     <th>代表取締役</th>
                     <td>寺田永史</td>
                 </tr>
+
                 <tr>
                     <th>役員・顧問</th>
                     <td>河住崇人</td>
                 </tr>
+
                 <tr>
                     <th>社員数</th>
                     <td>70名</td>
                 </tr>
+
                 <tr>
                     <th>取引銀行</th>
                     <td>みずほ銀行 青山支店</td>
                 </tr>
+
             </table>
+
         </section>
+
     </main>
 
     <!-- ここからフッター -->
     <footer>
         <div class="container">
             <div class="footA">
-            <div class="foot-img">
-                <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
-            </div>
+                <div class="foot-img">
+                    <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
+                </div>
                 <p>
                     〒160-0023 東京都新宿区西新宿6-15-1<br>
                     セントラルパークタワー ラ・トゥール新宿 409<br>
@@ -164,6 +183,14 @@
 
         </div>
     </footer>
+    <script>
+        const navButton = document.querySelector('.nav-button');
+        const body = document.querySelector('body');
+
+        navButton.addEventListener('click', () => {
+            body.classList.toggle('nav-open');
+        });
+    </script>
 </body>
 
 </html>
