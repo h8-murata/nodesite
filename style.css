@@ -4,7 +4,7 @@
    基本設定 (Basic Settings)
 ================================== */
 body {
-    font-family: "Cairo", sans-serif;
+    font-family: "Cairo", serif;
     font-weight: 600;
     margin: 0;
     background: linear-gradient(45deg, #01cf79, #ffffff, #fff6c4);
@@ -17,6 +17,45 @@ body {
     50% { background-position: 100% 0%; }
     100% { background-position: 0% 100%; }
 }
+
+/* ▼▼▼ ローディング画面のスタイルを追加 ▼▼▼ */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #00814e, #c5c5c5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1s; /* フェードアウトのアニメーション */
+}
+
+#loading img {
+    width: 150px; /* ロゴのサイズ */
+    animation: blink 2s infinite ease-in-out; /* 点滅アニメーション */
+}
+
+/* 点滅アニメーションの定義 */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* 読み込み完了後にローディング画面を非表示にする */
+#loading.loaded {
+    opacity: 0;
+    pointer-events: none; /* クリックイベントを無効化 */
+}
+/* ▲▲▲ ローディング画面のスタイルを追加 ▲▲▲ */
+
 
 /* ==================================
    ヘッダー (Header)
@@ -131,25 +170,82 @@ header .container {
     padding: 2rem;
     gap: 1rem;
     height: 20rem;
+    transition: gap .4s ease-in-out; /* gapの変化をアニメーション */
 }
 
 .links a {
-    flex: 1 1 auto;
+    flex-grow: 1; /* すべての要素が均等に伸びるように設定 */
     border-radius: 0.5rem;
     overflow: hidden;
     position: relative;
-    transition: flex-grow .4s ease-in-out;
-}
-
-.links a:hover {
-    flex-grow: 8;
+    transition: flex-grow .4s ease-in-out; /* flex-growの変化をアニメーション */
+    cursor: pointer;
 }
 
 .links img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform .4s ease-in-out;
 }
+
+.links a:hover img {
+    transform: scale(1.05); /* ホバー時に画像を少し拡大 */
+}
+
+/* ホバー時にグラデーションのオーバーレイを追加 */
+.links a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
+}
+
+.links a:hover::after {
+    opacity: 1;
+}
+
+/* 画像の上に表示するテキストのスタイル */
+.link-text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem;
+    color: #fff;
+    z-index: 1; /* オーバーレイより手前に表示 */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .4s ease-in-out .2s, transform .4s ease-in-out .2s; /* 少し遅れて表示 */
+    box-sizing: border-box;
+}
+
+.links a:hover .link-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.link-text h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+    font-family: "Cairo", sans-serif;
+    text-align: left;
+}
+
+.link-text p {
+    margin: 0;
+    font-size: 1rem;
+    font-family: sans-serif;
+    line-height: 1.4;
+    text-align: left;
+    white-space: normal; /* テキストが折り返されるように */
+}
+
 
 /* --- 会社案内 (con2), 採用情報 (con3), お問い合わせ(con4) --- */
 .con2 .con-object,
@@ -169,7 +265,6 @@ header .container {
     padding-right: 15px;
 }
 
-/* ▼▼▼ 変更箇所 ▼▼▼ */
 /* con2とcon3のpタグのみ折り返しを無効化 */
 .con2 p,
 .con3 p {
@@ -184,7 +279,6 @@ header .container {
     line-height: 1.8;
     white-space: normal;
 }
-/* ▲▲▲ 変更箇所 ▲▲▲ */
 
 .con4 .con-text {
     margin-bottom: 20px;
@@ -323,7 +417,6 @@ footer .container {
 .footC {
     font-size: 12px;
     text-align: center;
-    font-family: "Roboto", sans-serif;
 }
 
 
@@ -331,7 +424,6 @@ footer .container {
    レスポンシブ設定 (Media Queries)
 ================================== */
 
-/* ▼▼▼ 変更箇所 ▼▼▼ */
 /* 画面幅が1200px以下になった場合にテキストの重なりを防ぐ */
 @media (max-width: 1200px) {
     .con2 p,
@@ -340,7 +432,6 @@ footer .container {
     }
     /* con4のpは常に折り返しが許可されているため、ここでの指定は不要 */
 }
-/* ▲▲▲ 変更箇所 ▲▲▲ */
 
 
 /* PC・タブレット向け (768px以上) */
@@ -366,6 +457,13 @@ footer .container {
     .footB > div:not(:first-child) {
         margin-left: 40px;
     }
+
+    /* ▼▼▼ 変更箇所 ▼▼▼ */
+    /* con1 links hover effect for desktop */
+    .links a:hover {
+        flex-grow: 10; /* ホバーされた要素を他の要素より大きくする */
+    }
+    /* ▲▲▲ 変更箇所 ▲▲▲ */
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
@@ -463,6 +561,28 @@ footer .container {
     }
     .links a { height: 15rem; }
     .links a:hover { flex-grow: 1; }
+
+    /* スマホではテキストを常に表示 */
+    .links a::after,
+    .links a:hover::after {
+        opacity: 1;
+    }
+    .link-text,
+    .links a:hover .link-text {
+        opacity: 1;
+        transform: translateY(0);
+        transition: none;
+    }
+    .link-text {
+        padding: 1rem;
+    }
+    .link-text h3 {
+        font-size: 1.2rem;
+    }
+    .link-text p {
+        font-size: 0.9rem;
+    }
+
 
     .con2 .con-object,
     .con3 .con-object,

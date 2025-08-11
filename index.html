@@ -20,6 +20,12 @@
 </head>
 
 <body>
+    <!-- ▼▼▼ ローディング画面を追加 ▼▼▼ -->
+    <div id="loading">
+        <img src="img/rogo_only.png" alt="Loading...">
+    </div>
+    <!-- ▲▲▲ ローディング画面を追加 ▲▲▲ -->
+
     <!-- ここからヘッダー -->
 <header>
     <div class="container">
@@ -47,10 +53,7 @@
     <!-- ここからファーストビュー -->
     <section class="hero">
         <div class="container">
-            <h1>新しい発想を創造し、<br>
-                革新的な技術とサービスを以って<br>
-                社会貢献を実現する。
-            </h1>
+            <h1>人と人、人と企業、<br>人と技術、人とアイデア、<br>人とビジネスを繋ぐ。</h1>
         </div>
     </section>
     <section class="con2">
@@ -74,13 +77,43 @@
     </section>
     <section class="con1">
         <div class="container">
-            <h2>事業内容</h2>
+            <h2>Department</h2>
             <div class="links">
-                <a href="#"><img src="img/DSCF0239.JPG" alt="pic" loading="lazy"></a>
-                <a href="#"><img src="img/DSCF0136.JPG" alt="pic" loading="lazy"></a>
-                <a href="#"><img src="img/DSCF0239.JPG" alt="pic" loading="lazy"></a>
-                <a href="#"><img src="img/DSCF0136.JPG" alt="pic" loading="lazy"></a>
-                <a href="#"><img src="img/DSCF0239.JPG" alt="pic" loading="lazy"></a>
+                <a href="#">
+                    <img src="img/DSCF0239.JPG" alt="pic" loading="lazy">
+                    <div class="link-text">
+                        <h3>システム開発事業部</h3>
+                        <!-- <p>ここに事業内容Aの簡単な説明文が入ります。</p> -->
+                    </div>
+                </a>
+                <a href="#">
+                    <img src="img/DSCF0136.JPG" alt="pic" loading="lazy">
+                    <div class="link-text">
+                        <h3>Webクリエーター事業部</h3>
+                        <!-- <p>ここに事業内容Bの簡単な説明文が入ります。</p> -->
+                    </div>
+                </a>
+                <a href="#">
+                    <img src="img/DSCF0239.JPG" alt="pic" loading="lazy">
+                    <div class="link-text">
+                        <h3>ネットワーク事業部</h3>
+                        <!-- <p>ここに事業内容Cの簡単な説明文が入ります。</p> -->
+                    </div>
+                </a>
+                <a href="#">
+                    <img src="img/DSCF0136.JPG" alt="pic" loading="lazy">
+                    <div class="link-text">
+                        <h3>クラウド・サーバー事業部</h3>
+                        <!-- <p>ここに事業内容Dの簡単な説明文が入ります。</p> -->
+                    </div>
+                </a>
+                <a href="#">
+                    <img src="img/DSCF0239.JPG" alt="pic" loading="lazy">
+                    <div class="link-text">
+                        <h3>エンタメ事業部</h3>
+                        <!-- <p>ここに事業内容Eの簡単な説明文が入ります。</p> -->
+                    </div>
+                </a>
             </div>
             <a href="department.html" class="read-button">read more.</a>
         </div>
@@ -179,12 +212,50 @@
         </div>
     </footer>
     <script>
-    const navButton = document.querySelector('.nav-button');
-    const body = document.querySelector('body');
+        // ハンバーガーメニューのスクリプト
+        const navButton = document.querySelector('.nav-button');
+        const body = document.querySelector('body');
 
-    navButton.addEventListener('click', () => {
-        body.classList.toggle('nav-open');
-    });
+        navButton.addEventListener('click', () => {
+            body.classList.toggle('nav-open');
+        });
+
+        // ▼▼▼ ローディング画面のスクリプトを変更 ▼▼▼
+        document.addEventListener('DOMContentLoaded', () => {
+            const loadingScreen = document.getElementById('loading');
+            
+            // ページがリロードされたかどうかの判定
+            const navigationType = performance.navigation.type;
+
+            // sessionStorageに 'visited' キーがあるかチェック
+            const hasVisited = sessionStorage.getItem('visited');
+
+            // 初回訪問時、またはページがリロードされた場合にローディング画面を表示
+            if (!hasVisited || navigationType === 1) {
+                const startTime = Date.now();
+                window.addEventListener('load', () => {
+                    const elapsedTime = Date.now() - startTime;
+                    const minDisplayTime = 1500; // 最低表示時間 1.5秒
+                    const remainingTime = minDisplayTime - elapsedTime;
+
+                    const hideLoadingScreen = () => {
+                        loadingScreen.classList.add('loaded');
+                        // セッションストレージに訪問記録を保存
+                        sessionStorage.setItem('visited', 'true');
+                    };
+
+                    if (remainingTime > 0) {
+                        setTimeout(hideLoadingScreen, remainingTime);
+                    } else {
+                        hideLoadingScreen();
+                    }
+                });
+            } else {
+                // サイト内遷移の場合はローディング画面を即座に非表示
+                loadingScreen.style.display = 'none';
+            }
+        });
+        // ▲▲▲ ローディング画面のスクリプトを変更 ▲▲▲
     </script>
 </body>
 
