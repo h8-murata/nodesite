@@ -118,21 +118,9 @@ p.company-description {
     width: 80%;
     margin: 80px auto;
     font-size: 22px;
-    white-space: nowrap;
     line-height: 1.6;
-    color: #333;
+    /* color: #333; */
     text-align: center;
-}
-
-main {
-    max-width: 800px;
-    margin: 40px auto;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -141,25 +129,49 @@ h2 {
     font-size: 26px;
 }
 
+/* 会社案内セクション */
+.company-info {
+    max-width: 800px;
+    margin: 40px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.company-info h2{
+    text-align: center;
+}
+
+.job-section {
+    background-color: rgba(255, 255, 255, 0.1); /* 白色を80%の透明度に */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.5); /* 枠線も少し透明に */
+    border-radius: 8px;  
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 軽い影 */
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    margin-top: 10px;
 }
 
-th,
-td {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
+table th, table td {
     border: 1px solid #ddd;
     padding: 10px;
-    text-align: left;
 }
 
 th {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
+    text-align: left;
     width: 25%;
 }
 
@@ -167,62 +179,6 @@ iframe {
     border-radius: 10px;
     margin: 10px;
 }
-
-/* 基本デザインはそのまま */
-
-/* スマホ対応 */
-@media (max-width: 768px) {
-    main {
-        width: 90%;
-        margin: 10px auto;
-        padding: 15px;
-    }
-
-    .company-description {
-        font-size: 14px;
-        margin: 40px auto;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    th,
-    td {
-        display: block;
-        /* スマホでは縦並びに */
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    th {
-        background-color: rgba(255, 255, 255, 0.2);
-        font-weight: bold;
-    }
-
-    td {
-        padding: 25px;
-    }
-
-    iframe {
-        width: 100%;
-        height: 200px;
-        /* 小さい画面用に高さも調整 */
-        margin: 5px 0;
-    }
-}
-
-/* さらに超小型端末対応（例：iPhone SEなど） */
-@media (max-width: 480px) {
-    .company-description {
-        font-size: 13px;
-    }
-
-    main {
-        padding: 10px;
-    }
-}
-
 
 /* ==================================
    フッター (Footer)
@@ -497,4 +453,32 @@ footer .container {
         min-width: 100px;
         height: auto;
     }
+}
+
+/* スマホ表示用（768px以下） 横並び変更*/
+@media (max-width: 768px) {
+    .job-section table,
+    .job-section tbody,
+    .job-section tr,
+    .job-section th,
+    .job-section td {
+        display: block;
+        width: 100%;
+    }
+        .job-section th {
+        background-color: #f5f5f5;
+        padding: 10px;
+        font-weight: bold;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .job-section td {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .job-section tr {
+        margin-bottom: 15px;
+    }
+
 }
