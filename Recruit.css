@@ -7,7 +7,7 @@ body {
     font-weight: 600;
     font-style: normal;
     font-variation-settings:
-    "slnt" 0;
+        "slnt" 0;
     top: 0;
     left: 0;
     margin: 0;
@@ -38,11 +38,16 @@ body {
 ================================== */
 header {
     /* --- スクロール時にヘッダーを固定するための設定 --- */
-    position: -webkit-sticky; /* Safari用の設定 */
-    position: sticky;         /* ヘッダーを固定 */
-    top: 0;                   /* 画面の最上部に配置 */
-    z-index: 1000;            /* 他の要素より手前に表示 */
-    width: 100%;              /* 横幅を画面全体に広げる */
+    position: -webkit-sticky;
+    /* Safari用の設定 */
+    position: sticky;
+    /* ヘッダーを固定 */
+    top: 0;
+    /* 画面の最上部に配置 */
+    z-index: 1000;
+    /* 他の要素より手前に表示 */
+    width: 100%;
+    /* 横幅を画面全体に広げる */
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -57,9 +62,9 @@ header .container {
 }
 
 .head-img img {
-  max-width: 250px;
-  min-width: 150px;
-  height: auto;
+    max-width: 250px;
+    min-width: 150px;
+    height: auto;
 }
 
 .head-nav ul {
@@ -72,9 +77,11 @@ header .container {
 .head-nav a {
     position: relative;
     display: block;
-    padding: 15px 12px; /* ← 左右の余白を少し小さく調整 */
+    padding: 15px 12px;
+    /* ← 左右の余白を少し小さく調整 */
     color: #000;
-    font-size: 16px; /* ← フォントサイズを小さく調整 */
+    font-size: 16px;
+    /* ← フォントサイズを小さく調整 */
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -106,7 +113,7 @@ header .container {
     font-size: 36px;
 }
 
-p.company-description{
+p.company-description {
     width: 80%;
     margin: 80px auto;
     font-size: 22px;
@@ -133,19 +140,22 @@ h2 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.recruit-info h2{
+.recruit-info h2 {
     text-align: center;
 }
 
 .job-section {
-    background-color: rgba(255, 255, 255, 0.1); /* 白色を80%の透明度に */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* 白色を80%の透明度に */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 2px solid rgba(255, 255, 255, 0.5); /* 枠線も少し透明に */
-    border-radius: 8px;  
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    /* 枠線も少し透明に */
+    border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 軽い影 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 軽い影 */
 }
 
 .job-section h3 {
@@ -159,7 +169,8 @@ table {
     margin-top: 10px;
 }
 
-table th, table td {
+table th,
+table td {
     border: 1px solid #ddd;
     padding: 10px;
 }
@@ -169,39 +180,94 @@ table th {
     backdrop-filter: blur(100px);
     -webkit-backdrop-filter: blur(100px);
     text-align: left;
+    width: 120px;
+    /* 全てのthの幅を統一 */
+    font-weight: bold;
+    vertical-align: top;
+    padding: 8px;
 }
 
+/* 背景・枠なしのシンプル箇条書き応募方法 */
+.apply-method {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+    color: #000;
+}
 
+.apply-method h3 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
 
-/* エントリーボタン
-.entry-button {
-    display: block;
-    text-align: center;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
+.apply-method ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.apply-method ul li {
+    margin-bottom: 10px;
+}
+
+/* 応募方法内リンクのデザイン */
+.apply-method a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.apply-method a:hover {
+    color: #0056b3;
+}
+
+.access-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #fff;
+    /* 白背景のボタン */
+    color: #000;
+    /* 黒文字 */
+    font-weight: 600;
+    border-radius: 25px;
+    border: 2px solid #000;
+    /* 黒の枠線 */
     text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* 軽い影 */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
 }
 
-.entry-button:hover {
-    background-color: #0056b3;
-} */
+.access-btn:hover {
+    background-color: #000;
+    /* ホバーで黒背景 */
+    color: #fff;
+    /* ホバーで白文字 */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
 
 /* ==================================
    フッター (Footer)
 ================================== */
 footer {
     color: #fff;
-    background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%);
-    padding: 40px 0; /* 左右のパディングを 20px から 0 に変更 */
+    background: linear-gradient(0deg, rgba(22, 45, 73, 1) 0%, rgba(207, 211, 255, 0.29) 100%);
+    padding: 40px 0;
+    /* 左右のパディングを 20px から 0 に変更 */
 }
 
 footer .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 30px; /* header .container と揃えるため、左右に30pxのパディングを追加 */
+    padding: 0 30px;
+    /* header .container と揃えるため、左右に30pxのパディングを追加 */
 }
 
 .footA {
@@ -263,36 +329,43 @@ footer .container {
         flex-wrap: wrap;
         align-items: center;
     }
+
     .footA {
         flex: 1 1 40%;
     }
+
     .footB {
         display: flex;
         flex: 1 1 60%;
     }
+
     .footC {
         flex: 1 1 100%;
     }
-    .footB > div {
+
+    .footB>div {
         flex: 1;
     }
-    .footB > div:not(:first-child) {
+
+    .footB>div:not(:first-child) {
         margin-left: 40px;
     }
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-.head-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
-}
-.foot-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
-}
+    .head-img img {
+        width: 250px;
+        min-width: 150px;
+        height: auto;
+    }
+
+    .foot-img img {
+        width: 250px;
+        min-width: 150px;
+        height: auto;
+    }
+
     .head-nav a {
         padding: 15px 10px;
         font-size: 15px;
@@ -301,11 +374,13 @@ footer .container {
 
 /* スマホ・タブレット向け (767px以下) */
 @media (max-width: 767px) {
+
     /* --- ヘッダー --- */
     header .container {
         height: 70px;
         padding: 0 15px;
     }
+
     .nav-button {
         display: block;
         width: 40px;
@@ -315,6 +390,7 @@ footer .container {
         cursor: pointer;
         z-index: 101;
     }
+
     .nav-button-bar {
         display: block;
         width: 100%;
@@ -323,9 +399,18 @@ footer .container {
         margin: 8px 0;
         transition: transform 0.3s, opacity 0.3s;
     }
-    .nav-open .nav-button-bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .nav-open .nav-button-bar:nth-child(2) { opacity: 0; }
-    .nav-open .nav-button-bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    .nav-open .nav-button-bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .nav-open .nav-button-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-open .nav-button-bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
 
     .nav-wrapper {
         display: none;
@@ -338,20 +423,25 @@ footer .container {
         z-index: 100;
         padding-top: 80px;
     }
+
     .nav-open .nav-wrapper {
         display: block;
     }
+
     .head-nav {
         width: 100%;
         text-align: center;
     }
+
     .head-nav ul {
         flex-direction: column;
     }
+
     .head-nav a {
         padding: 20px;
         font-size: 18px;
     }
+
     .head-nav a::before {
         display: none;
     }
@@ -365,26 +455,38 @@ footer .container {
     }
 
     /* --- コンテンツ --- */
-    .con1, .con2, .con3, .con4 {
+    .con1,
+    .con2,
+    .con3,
+    .con4 {
         width: 90%;
     }
+
     .links {
         flex-direction: column;
         height: auto;
         gap: 1rem;
         padding: 1rem;
     }
-    .links a { height: 15rem; }
-    .links a:hover { flex-grow: 1; }
+
+    .links a {
+        height: 15rem;
+    }
+
+    .links a:hover {
+        flex-grow: 1;
+    }
 
     .con2 .con-object,
     .con3 .con-object,
     .con4 .con-object {
         flex-direction: column;
     }
+
     .con3 p {
         text-align: center;
     }
+
     .con2 .con-img img,
     .con3 .con-img img {
         height: auto;
@@ -392,14 +494,17 @@ footer .container {
     }
 
     /* --- フッター --- */
-    footer .container, .footB {
+    footer .container,
+    .footB {
         flex-direction: column;
         text-align: center;
     }
-    .footB > div {
+
+    .footB>div {
         margin-bottom: 20px;
     }
-    .footB > div:not(:first-child) {
+
+    .footB>div:not(:first-child) {
         margin-left: 0;
     }
 }
@@ -410,20 +515,23 @@ footer .container {
         padding: 15px;
         font-size: 16px;
     }
-.head-img img {
-    width: 150px;
-    min-width: 150px;
-    height: auto;
-}
-.foot-img img {
-    width: 150px;
-    min-width: 100px;
-    height: auto;
-}
+
+    .head-img img {
+        width: 150px;
+        min-width: 150px;
+        height: auto;
+    }
+
+    .foot-img img {
+        width: 150px;
+        min-width: 100px;
+        height: auto;
+    }
 }
 
 /* スマホ表示用（768px以下） 横並び変更*/
 @media (max-width: 768px) {
+
     .job-section table,
     .job-section tbody,
     .job-section tr,
@@ -438,6 +546,7 @@ footer .container {
         padding: 10px;
         font-weight: bold;
         border-bottom: 1px solid #ccc;
+        width: auto;
     }
 
     .job-section td {
