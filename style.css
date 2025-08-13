@@ -126,13 +126,15 @@ header .container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background: url("img/ben-o-bro-wpU4veNGnHg-unsplash.jpg") center/cover no-repeat;
+    background: url("img/top_image2.jpg") center/cover no-repeat;
     height: 100svh;
 }
 
 .hero h1 {
     font-size: 42px;
-    color: #2a2a2a;
+    /* color: #2a2a2a; */
+    color: #fff;
+    text-shadow:3px 3px 3px rgba(48, 48, 48, 0.8);
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(3px);
     border-radius: 3px;
