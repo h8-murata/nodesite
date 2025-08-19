@@ -34,7 +34,7 @@ body {
 
 
 /* ==================================
-   ヘッダー (Header)
+ヘッダー (Header)
 ================================== */
 header {
     /* --- スクロール時にヘッダーを固定するための設定 --- */
@@ -129,22 +129,9 @@ h2 {
 }
 
 /* 採用情報セクション */
-.recruit-info {
+.job-section {
     max-width: 800px;
     margin: 40px auto;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(50px);
-    -webkit-backdrop-filter: blur(50px);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.recruit-info h2 {
-    text-align: center;
-}
-
-.job-section {
     background-color: rgba(255, 255, 255, 0.1);
     /* 白色を80%の透明度に */
     backdrop-filter: blur(20px);
@@ -185,6 +172,10 @@ table th {
     font-weight: bold;
     vertical-align: top;
     padding: 8px;
+}
+
+table td {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* 背景・枠なしのシンプル箇条書き応募方法 */
