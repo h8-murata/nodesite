@@ -107,29 +107,38 @@ header .container {
 }
 
 .comment {
+    width: 80%;
+    max-width: 900px; /* 横幅が広くなりすぎないように最大幅を指定 */
     margin: 80px auto;
-    text-align: center;
     font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
 }
+
+/* ▼▼▼ 追加したスタイル ▼▼▼ */
+.comment h3 {
+    word-break: keep-all; /* 単語の途中で改行されないようにする */
+}
+/* ▲▲▲ 追加したスタイル ▲▲▲ */
 
 /* その他コンテンツパート */
 .con2 {
     margin: 50px auto;
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        width: 80%;
-        max-width: 800px;
-        justify-content: center;
-        align-items: center;
-        margin: 0 auto;
-    }
+}
+.con2 .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 80%;
+    max-width: 800px;
+    justify-content: center;
+    align-items: stretch; /* 高さを揃える */
+    margin: 0 auto;
 }
 
-.box {
-    flex: 0 0 calc(50% - 10px); /* 2列になるように調整 */
-    padding: 15px;
+/* ▼▼▼ .boxの共通スタイル ▼▼▼ */
+.box1, .box2, .box3, .box4, .box5 {
+    flex: 0 0 calc(50% - 10px);
     height: 300px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
@@ -137,37 +146,165 @@ header .container {
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    h2 {
-        font-size: 20px;
-    }
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.box1 h2, .box2 h2, .box3 h2, .box4 h2, .box5 h2 {
+    font-size: 20px;
+    flex-shrink: 0;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .con-object {
     display: flex;
     gap: 10px;
-    justify-content: center;
-    align-items: center; /* ← 追加 */
-    height: 30vh;
-    padding-bottom: 30px;
+    flex-grow: 1;
+    min-height: 0;
 }
 
 .con-text {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start; 
-}
-
-.con-img {
-    flex: 0 0 50%; /* 画像の幅固定など */
 }
 
 .con-img img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 100%;
     display: block;
 }
+
+/* ==================================
+   各BOXの個別レイアウト
+================================== */
+
+/* --- Box1: テキスト左 / 画像右 (デフォルト) --- */
+.box1 .con-object {
+    flex-direction: row;
+    align-items: center;
+}
+.box1 .con-text {
+    flex: 1;
+    align-items: flex-start;
+}
+.box1 .con-img {
+    flex: 1;
+    min-width: 0;
+}
+.box1 .con-img img {
+    object-fit: cover;
+}
+
+/* --- Box2: 画像左 / テキスト右 --- */
+.box2 .con-object {
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.box2 .con-text {
+    flex: 1;
+    align-items: flex-start;
+}
+.box2 .con-img {
+    flex: 1;
+    min-width: 0;
+}
+.box2 .con-img img {
+    object-fit: cover;
+}
+
+/* --- Box3: 画像上 / テキスト下 --- */
+.box3 .con-object {
+    flex-direction: column;
+    align-items: center;
+}
+.box3 .con-text {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.box3 .con-img {
+    flex: 2;
+    width: 100%;
+    min-height: 0;
+}
+.box3 .con-img img {
+    object-fit: cover;
+}
+
+/* --- Box4: テキスト上 / 画像下 --- */
+.box4 .con-object {
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.box4 .con-text {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.box4 .con-img {
+    flex: 2;
+    width: 100%;
+    min-height: 0;
+}
+.box4 .con-img img {
+    object-fit: cover;
+}
+
+/* --- Box5: 背景画像 / テキストオーバーレイ --- */
+.box5 {
+    position: relative;
+    padding: 0;
+}
+.box5 h2 {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    z-index: 3;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+.box5 .con-object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    gap: 0;
+}
+.box5 .con-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.box5 .con-img img {
+    object-fit: cover;
+    border-radius: 5px;
+}
+.box5 .con-text {
+    position: relative;
+    z-index: 2;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
 
 /* ==================================
    フッター (Footer)
@@ -175,13 +312,13 @@ header .container {
 footer {
     color: #fff;
     background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%);
-    padding: 40px 0; /* 左右のパディングを 20px から 0 に変更 */
+    padding: 40px 0;
 }
 
 footer .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 30px; /* header .container と揃えるため、左右に30pxのパディングを追加 */
+    padding: 0 30px;
 }
 
 .footA {
@@ -258,6 +395,10 @@ footer .container {
     }
     .footB > div:not(:first-child) {
         margin-left: 40px;
+    }
+
+    .con2 .container {
+        justify-content: flex-start; /* PC表示では左揃えにする */
     }
 }
 
@@ -345,31 +486,39 @@ footer .container {
     }
 
     /* --- コンテンツ --- */
-    .con1, .con2, .con3, .con4 {
+    .con2 {
         width: 90%;
     }
-    .links {
-        flex-direction: column;
-        height: auto;
-        gap: 1rem;
-        padding: 1rem;
+    
+    .box1, .box2, .box3, .box4, .box5 {
+        flex: 1 1 100%; /* 1列になるように調整 */
+        height: auto; /* 高さを自動調整 */
+        min-height: 300px;
     }
-    .links a { height: 15rem; }
-    .links a:hover { flex-grow: 1; }
 
-    .con2 .con-object,
-    .con3 .con-object,
-    .con4 .con-object {
-        flex-direction: column;
+    .con-object {
+        flex-direction: column; 
+        height: auto;
+        padding-bottom: 15px;
     }
-    .con3 p {
+
+    .con-text {
+        align-items: center;
         text-align: center;
     }
-    .con2 .con-img img,
-    .con3 .con-img img {
-        height: auto;
-        max-width: 100%;
+
+    .con-img {
+        margin-top: 15px;
     }
+
+    /* スマホ表示用の個別レイアウト調整 */
+    .box2 .con-object, .box4 .con-object {
+        flex-direction: column-reverse;
+    }
+    .box3 .con-object, .box1 .con-object {
+         flex-direction: column;
+    }
+
 
     /* --- フッター --- */
     footer .container, .footB {

@@ -50,12 +50,15 @@
         </div>
     </div>
 </header>
-    <!-- ここからファーストビュー -->
+    <!-- ▼▼▼ ファーストビューの構造を変更 ▼▼▼ -->
     <section class="hero">
+        <div class="slide"></div>
+        <div class="slide"></div>
         <div class="container">
             <h1>人と人、人と企業、<br>人と技術、人とアイデア、<br>人とビジネスを繋ぐ。</h1>
         </div>
     </section>
+    <!-- ▲▲▲ ファーストビューの構造を変更 ▲▲▲ -->
     <section class="con2">
         <div class="container">
             <h2>About us</h2>
@@ -220,27 +223,23 @@
             body.classList.toggle('nav-open');
         });
 
-        // ▼▼▼ ローディング画面のスクリプトを変更 ▼▼▼
+        // ローディング画面のスクリプト
         document.addEventListener('DOMContentLoaded', () => {
             const loadingScreen = document.getElementById('loading');
             
-            // ページがリロードされたかどうかの判定
             const navigationType = performance.navigation.type;
 
-            // sessionStorageに 'visited' キーがあるかチェック
             const hasVisited = sessionStorage.getItem('visited');
 
-            // 初回訪問時、またはページがリロードされた場合にローディング画面を表示
             if (!hasVisited || navigationType === 1) {
                 const startTime = Date.now();
                 window.addEventListener('load', () => {
                     const elapsedTime = Date.now() - startTime;
-                    const minDisplayTime = 1500; // 最低表示時間 1.5秒
+                    const minDisplayTime = 1500;
                     const remainingTime = minDisplayTime - elapsedTime;
 
                     const hideLoadingScreen = () => {
                         loadingScreen.classList.add('loaded');
-                        // セッションストレージに訪問記録を保存
                         sessionStorage.setItem('visited', 'true');
                     };
 
@@ -251,11 +250,9 @@
                     }
                 });
             } else {
-                // サイト内遷移の場合はローディング画面を即座に非表示
                 loadingScreen.style.display = 'none';
             }
         });
-        // ▲▲▲ ローディング画面のスクリプトを変更 ▲▲▲
     </script>
 </body>
 

@@ -122,17 +122,70 @@ header .container {
 /* ==================================
    ファーストビュー (Hero Section)
 ================================== */
+/* ▼▼▼ スライドショーのスタイルに変更 ▼▼▼ */
+.hero {
+    position: relative; /* スライドとテキストの親要素として機能 */
+    height: 100svh;
+    overflow: hidden; /* アニメーション中のはみ出しを隠す */
+}
+
+.hero .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    animation: slideshow 20s infinite; /* アニメーションを20秒で繰り返す */
+    transform: scale(1.1); /* 少し拡大した状態から開始 */
+}
+
+.hero .slide:nth-child(1) {
+    background-image: url("img/top_image1.jpg");
+    animation-delay: 0s; /* 1枚目はすぐに開始 */
+}
+
+.hero .slide:nth-child(2) {
+    background-image: url("img/top_image2.jpg");
+    animation-delay: 10s; /* 2枚目は10秒遅れて開始 */
+}
+
+/* スライドショーのキーフレームアニメーション */
+@keyframes slideshow {
+    0% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    15% {
+        opacity: 1; /* 1.8秒かけてフェードイン */
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1); /* 3秒かけてゆっくりズームアウト */
+    }
+    50% {
+        opacity: 0; /* 1.2秒かけてフェードアウト */
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* テキスト用のコンテナ */
 .hero .container {
+    position: relative;
+    z-index: 2; /* スライドより手前に表示 */
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background: url("img/top_image2.jpg") center/cover no-repeat;
-    height: 100svh;
+    height: 100%;
 }
 
 .hero h1 {
     font-size: 42px;
-    /* color: #2a2a2a; */
     color: #fff;
     text-shadow:3px 3px 3px rgba(48, 48, 48, 0.8);
     background-color: rgba(255, 255, 255, 0.4);
@@ -141,6 +194,7 @@ header .container {
     padding: 10px 20px;
     margin-left: 15vw;
 }
+/* ▲▲▲ スライドショーのスタイルに変更 ▲▲▲ */
 
 /* ==================================
    メインコンテンツ (Main Contents)
@@ -460,12 +514,10 @@ footer .container {
         margin-left: 40px;
     }
 
-    /* ▼▼▼ 変更箇所 ▼▼▼ */
     /* con1 links hover effect for desktop */
     .links a:hover {
         flex-grow: 10; /* ホバーされた要素を他の要素より大きくする */
     }
-    /* ▲▲▲ 変更箇所 ▲▲▲ */
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
