@@ -11,7 +11,7 @@ body {
     top: 0;
     left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #00007b, #ffffff, #ffe08c);
+    background: linear-gradient(45deg, #01cf79, #ffffff, #fff6c4);
     background-size: 200% 200%;
     animation: GradientBackground 20s ease infinite;
     margin: 0 auto;
