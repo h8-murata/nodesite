@@ -161,11 +161,11 @@ header .container {
     15% {
         opacity: 1; /* 1.8秒かけてフェードイン */
     }
-    40% {
+    50% {
         opacity: 1;
         transform: scale(1); /* 3秒かけてゆっくりズームアウト */
     }
-    50% {
+    70% {
         opacity: 0; /* 1.2秒かけてフェードアウト */
         transform: scale(1);
     }
