@@ -549,3 +549,61 @@ footer .container {
         margin-bottom: 15px;
     }
 }
+
+/* ===== タブUI ===== */
+.tabs {
+    max-width: 800px;
+    margin: 0 auto 10px;
+    display: flex;
+    gap: 6px;
+}
+
+.tab {
+    user-select: none;
+    cursor: pointer;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-weight: 600;
+}
+
+.tab.active {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+/* タブ切替の表示/非表示 */
+.job-section {
+    display: none;
+}
+
+.job-section.active {
+    display: block;
+}
+
+/* タブの余白調整 */
+.tabs {
+    margin: 0 auto;
+    /* 上下の余白を削除または調整 */
+    margin-bottom: 0;
+    /* 下の隙間をなくす */
+}
+
+/* タブとセクションを繋げる */
+.tab.active {
+    border-bottom: 1px solid #fff;
+    /* 下線を消してセクションと繋げる */
+}
+
+/* セクション上部の余白をタブに合わせて微調整 */
+.job-section {
+    margin-top: 0;
+    /* 上の隙間を減らす */
+    padding-top: 10px;
+    /* 必要に応じて調整 */
+}
