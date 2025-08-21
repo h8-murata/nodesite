@@ -137,9 +137,9 @@ header .container {
 }
 
 /* ▼▼▼ .boxの共通スタイル ▼▼▼ */
-.box1, .box2, .box3, .box4, .box5 {
+.box4 {
     flex: 0 0 calc(50% - 10px);
-    height: 300px;
+    height: 350px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -152,11 +152,11 @@ header .container {
     box-sizing: border-box;
 }
 
-.box1 h2, .box2 h2, .box3 h2, .box4 h2, .box5 h2 {
+.box4 h2 {
     font-size: 20px;
     flex-shrink: 0;
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .con-object {
@@ -182,59 +182,6 @@ header .container {
    各BOXの個別レイアウト
 ================================== */
 
-/* --- Box1: テキスト左 / 画像右 (デフォルト) --- */
-.box1 .con-object {
-    flex-direction: row;
-    align-items: center;
-}
-.box1 .con-text {
-    flex: 1;
-    align-items: flex-start;
-}
-.box1 .con-img {
-    flex: 1;
-    min-width: 0;
-}
-.box1 .con-img img {
-    object-fit: cover;
-}
-
-/* --- Box2: 画像左 / テキスト右 --- */
-.box2 .con-object {
-    flex-direction: row-reverse;
-    align-items: center;
-}
-.box2 .con-text {
-    flex: 1;
-    align-items: flex-start;
-}
-.box2 .con-img {
-    flex: 1;
-    min-width: 0;
-}
-.box2 .con-img img {
-    object-fit: cover;
-}
-
-/* --- Box3: 画像上 / テキスト下 --- */
-.box3 .con-object {
-    flex-direction: column;
-    align-items: center;
-}
-.box3 .con-text {
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.box3 .con-img {
-    flex: 2;
-    width: 100%;
-    min-height: 0;
-}
-.box3 .con-img img {
-    object-fit: cover;
-}
 
 /* --- Box4: テキスト上 / 画像下 --- */
 .box4 .con-object {
@@ -256,62 +203,16 @@ header .container {
     object-fit: cover;
 }
 
-/* --- Box5: 背景画像 / テキストオーバーレイ --- */
-.box5 {
-    position: relative;
-    padding: 0;
-}
-.box5 h2 {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    z-index: 3;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-}
-.box5 .con-object {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    gap: 0;
-}
-.box5 .con-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-.box5 .con-img img {
-    object-fit: cover;
-    border-radius: 5px;
-}
-.box5 .con-text {
-    position: relative;
-    z-index: 2;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 15px;
-    box-sizing: border-box;
-    border-radius: 5px;
-}
+
 
 
 /* ==================================
    フッター (Footer)
 ================================== */
 footer {
-    color: #fff;
-    background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%);
+    color: #666666;
+    /* background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%); */
+    background: #fff;
     padding: 40px 0;
 }
 

@@ -189,10 +189,10 @@ iframe {
 フッター (Footer)
 ================================== */
 footer {
-    color: #fff;
-    background: linear-gradient(0deg, rgba(22, 45, 73, 1) 0%, rgba(207, 211, 255, 0.29) 100%);
+    color: #666666;
+    /* background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%); */
+    background: #fff;
     padding: 40px 0;
-    /* 左右のパディングを 20px から 0 に変更 */
 }
 
 footer .container {
