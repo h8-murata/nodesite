@@ -205,39 +205,89 @@ table td {
 
 /* 応募方法内リンクのデザイン */
 .apply-method a {
-    color: #007bff;
-    text-decoration: underline;
-}
-
-.apply-method a:hover {
-    color: #0056b3;
+    /* color: #007bff; */
+    text-decoration: none;
 }
 
 .access-btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #fff;
+    background: #fdc200;
     /* 白背景のボタン */
     color: #000;
     /* 黒文字 */
     font-weight: 600;
     border-radius: 25px;
-    border: 2px solid #000;
-    /* 黒の枠線 */
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* 軽い影 */
-    transition: background-color 0.3s ease, color 0.3s ease;
-    cursor: pointer;
+    border: 1px solid #ff7300;
 }
 
 .access-btn:hover {
-    background-color: #000;
-    /* ホバーで黒背景 */
-    color: #fff;
-    /* ホバーで白文字 */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    background: #ffe17e;
 }
+
+/* リクルート入力欄 */
+/* セクション幅をjob-sectionと統一 */
+.recruit-form {
+    max-width: 800px;
+    /* タブと同じ幅 */
+    margin: 0 auto 40px;
+    /* 中央揃え＋下余白 */
+    padding: 20px;
+    background: #fff;
+    /* 背景色を統一 */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.accordion-toggle {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fdc200;
+    cursor: pointer;
+    text-align: center;
+}
+
+.accordion-toggle:hover {
+    background: #ffe17e;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 10px;
+}
+
+.application-form label {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.application-form input,
+.application-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.application-form button[type="submit"] {
+    padding: 10px 15px;
+    background: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.application-form button[type="submit"]:hover {
+    background: #005bb5;
+}
+
+
 
 
 
@@ -572,9 +622,11 @@ footer .container {
 }
 
 .tab.active {
-    background: #fff;
     position: relative;
     z-index: 1;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 /* タブ切替の表示/非表示 */
