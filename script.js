@@ -112,6 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".accordion-toggle");
+    const content = document.querySelector(".accordion-content");
+
+    toggle.addEventListener("click", () => {
+        if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+            // 閉じる
+            content.style.maxHeight = "0px";
+        } else {
+            // 開く（中身の高さに合わせる）
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});
 
 
 document.querySelectorAll('.accordion-toggle').forEach(button => {
