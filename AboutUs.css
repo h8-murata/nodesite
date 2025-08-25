@@ -105,9 +105,11 @@ header .container {
 /* ヒーローセクション */
 .hero {
     text-align: center;
-    background: url('img/ben-o-bro-wpU4veNGnHg-unsplash.jpg') no-repeat center/cover;
+    background: url('img/Company_information_0.png') no-repeat center/cover;
     color: white;
     padding: 60px 20px;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari用 */
 }
 
 .hero h1 {

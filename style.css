@@ -188,8 +188,8 @@ header .container {
 
 .hero h1 {
     font-size: 42px;
-    color: #afeeee;
-    text-shadow:3px 3px 3px rgba(177, 177, 177, 0.8);
+    color: #154360;
+    text-shadow:8px 8px 5px rgba(205, 217, 250, 0.8);
     background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(3px);
     border-radius: 3px;

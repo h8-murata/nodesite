@@ -100,9 +100,11 @@ header .container {
 /* ヒーローセクション */
 .hero {
     text-align: center;
-    background: url('img/ben-o-bro-wpU4veNGnHg-unsplash.jpg') no-repeat center/cover;
+    background: url('img/contact_0.jpg') no-repeat center/cover;
     color: white;
     padding: 60px 20px;
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari用 */
 }
 
 .hero h1 {
@@ -113,6 +115,7 @@ header .container {
 .contact {
     display: block;
     width: 70%;
+    max-width: 800px;
     margin: 50px auto;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
@@ -141,6 +144,33 @@ header .container {
     flex: 1;
 }
 
+/* ▼▼▼ ボタン用のスタイルを追加 ▼▼▼ */
+.con-mail, .con-tell {
+    width: 100%;
+    text-align: center;
+}
+
+.contact-button {
+    display: inline-block;
+    background-color: rgba(24, 43, 141, 0.6);
+    color: #fff;
+    padding: 15px 40px;
+    margin: 20px 0;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid rgba(24, 43, 141, 0.8);
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.contact-button:hover {
+    background-color: rgba(24, 43, 141, 0.8);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* ▲▲▲ ボタン用のスタイルを追加 ▲▲▲ */
 
 
 /* ==================================
