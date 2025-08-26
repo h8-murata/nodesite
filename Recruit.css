@@ -108,7 +108,8 @@ header .container {
     color: white;
     padding: 60px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari用 */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    /* Safari用 */
 }
 
 .hero h1 {
@@ -180,51 +181,72 @@ table td {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* 背景・枠なしのシンプル箇条書き応募方法 */
-.apply-method {
+/* 応募方法の欄CSS */
+.application-process {
     max-width: 800px;
-    margin: 0 auto 40px;
-    padding: 0 20px;
-    color: #000;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.apply-method h3 {
-    border-bottom: 2px solid #007bff;
+.application-process h2 {
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    border-bottom: 2px solid #0073e6;
     padding-bottom: 8px;
-    margin-bottom: 16px;
 }
 
-.apply-method ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    line-height: 1.6;
-    font-size: 16px;
+.application-process ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
 }
 
-.apply-method ul li {
-    margin-bottom: 10px;
+.application-process ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 2px;
+    height: 100%;
+    background: #ccc;
 }
 
-/* 応募方法内リンクのデザイン */
-.apply-method a {
-    /* color: #007bff; */
-    text-decoration: none;
+.application-process li {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 30px;
 }
 
-.access-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background: #fdc200;
-    /* 白背景のボタン */
-    color: #000;
-    /* 黒文字 */
-    font-weight: 600;
-    border-radius: 25px;
-    border: 1px solid #ff7300;
+.application-process .step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #0073e6;
+    color: #0073e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
-.access-btn:hover {
-    background: #ffe17e;
+.application-process .step-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+
+.application-process .step-content p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
 }
 
 /* リクルート入力欄 */
@@ -289,20 +311,6 @@ table td {
     background: #005bb5;
 }
 
-/* ヒントテキスト */
-.hint {
-    font-size: 0.9em;
-    color: #666;
-    margin-top: 5px;
-    display: none;
-    /* 初期は非表示 */
-}
-
-/* 入力欄がフォーカスされたら表示 */
-.application-form input:focus+.hint,
-.application-form textarea:focus+.hint {
-    display: block;
-}
 
 /* ===== タブUI ===== */
 .tabs {
@@ -319,7 +327,7 @@ table td {
     border: 1px solid #ddd;
     border-bottom: none;
     border-radius: 8px 8px 0 0;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.3);
     /* ← 未選択はグレーっぽく */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
@@ -336,7 +344,7 @@ table td {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.5);
     /* 選択中は白で前面 */
     z-index: 2;
     border-bottom: 1px solid #fff;
