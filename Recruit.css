@@ -135,7 +135,7 @@ h2 {
 .job-section {
     max-width: 800px;
     margin: 40px auto;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #fff;
     /* 白色を80%の透明度に */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -144,31 +144,27 @@ h2 {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* 軽い影 */
-}
-
-.job-section h3 {
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
+    ;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    /* セルの線を重ねて一本化 */
+    border-spacing: 0;
+    /* セル間の余白を消す */
     margin-top: 10px;
 }
 
 table th,
 table td {
-    border: 1px solid #ddd;
+    border: 1px solid #0073e6;
     padding: 10px;
+    vertical-align: top;
+    /* テキストを上揃えに */
 }
 
 table th {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
     text-align: left;
     width: 120px;
     /* 全てのthの幅を統一 */
@@ -177,9 +173,7 @@ table th {
     padding: 8px;
 }
 
-table td {
-    background-color: rgba(255, 255, 255, 0.3);
-}
+
 
 /* 応募方法の欄CSS */
 .application-process {
@@ -193,7 +187,7 @@ table td {
 
 .application-process h2 {
     margin-bottom: 30px;
-    font-size: 1.8em;
+    font-size: 26px;
     border-bottom: 2px solid #0073e6;
     padding-bottom: 8px;
 }
@@ -203,6 +197,12 @@ table td {
     margin: 0;
     padding: 0;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* 均等配置 */
+    height: 500px;
+    /* 全体の高さを固定して間隔を均等化 */
 }
 
 .application-process ul::before {
@@ -218,7 +218,6 @@ table td {
 .application-process li {
     position: relative;
     padding-left: 60px;
-    margin-bottom: 30px;
 }
 
 .application-process .step-number {
@@ -254,13 +253,17 @@ table td {
 .recruit-form {
     max-width: 800px;
     /* タブと同じ幅 */
-    margin: 0 auto 40px;
+    margin: 0 auto 60px;
     /* 中央揃え＋下余白 */
     padding: 20px;
     background: #fff;
     /* 背景色を統一 */
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.recruit-form h2 {
+    font-size: 26px;
 }
 
 .accordion-toggle {
@@ -272,6 +275,8 @@ table td {
     background: #fdc200;
     cursor: pointer;
     text-align: center;
+    margin-top: 20px;
+    /* 下に20px余白 */
 }
 
 .accordion-toggle:hover {
@@ -290,12 +295,20 @@ table td {
     margin-bottom: 15px;
 }
 
-.application-form input,
-.application-form textarea {
+.application-form input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.application-form textarea {
+        width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100px; /* 好きな高さに調整 */
+    resize: vertical;  /* ユーザーが高さ変更可能 */
 }
 
 .application-form button[type="submit"] {
@@ -309,6 +322,39 @@ table td {
 
 .application-form button[type="submit"]:hover {
     background: #005bb5;
+}
+
+/* 送信結果ポップアップ */
+.popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+.popup.success {
+    background-color: #28a745;
+}
+
+.popup.error {
+    background-color: #dc3545;
+}
+
+.popup.show {
+    opacity: 1;
+    top: 50px;
+}
+
+.hidden {
+    display: none;
 }
 
 
@@ -362,16 +408,14 @@ table td {
 
 /* タブの余白調整 */
 .tabs {
-    margin: 0 auto;
-    /* 上下の余白を削除または調整 */
-    margin-bottom: 0;
-    /* 下の隙間をなくす */
+    border-radius: 12px; /* 角を丸くする */
 }
 
 /* タブとセクションを繋げる */
 .tab.active {
-    border-bottom: 1px solid #fff;
-    /* 下線を消してセクションと繋げる */
+    border: 1px solid #0073e6;
+    
+    border-radius: 12px; /* 角を丸くする */
 }
 
 /* セクション上部の余白をタブに合わせて微調整 */
@@ -675,16 +719,20 @@ footer .container {
         background-color: #f5f5f5;
         padding: 10px;
         font-weight: bold;
-        border-bottom: 1px solid #ccc;
         width: auto;
     }
 
     .job-section td {
         padding: 10px;
-        border-bottom: 1px solid #ccc;
     }
 
     .job-section tr {
         margin-bottom: 15px;
+    }
+
+    table {
+        border-collapse: collapse;
+        /* 線の重なり防止 */
+        width: 100%;
     }
 }

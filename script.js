@@ -127,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
 document.querySelectorAll('.accordion-toggle').forEach(button => {
     button.addEventListener('click', () => {
         const content = button.nextElementSibling;
@@ -137,6 +136,36 @@ document.querySelectorAll('.accordion-toggle').forEach(button => {
         } else {
             content.style.maxHeight = 0;
         }
-        
+
     });
 });
+
+
+// 応募フォーム送信ポップアップ処理
+const applicationForm = document.querySelector('.application-form');
+const popup = document.getElementById('popup');
+
+applicationForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // ここでサーバー送信処理を実装する
+    // 今はテストとしてランダム成功/失敗
+    const isSuccess = Math.random() > 0.3;
+
+    if (isSuccess) {
+        showPopup('送信完了しました', 'success');
+        applicationForm.reset();
+    } else {
+        showPopup('送信に失敗しました', 'error');
+    }
+});
+
+function showPopup(message, type) {
+    popup.textContent = message;
+    popup.className = `popup show ${type}`;
+
+    setTimeout(() => {
+        popup.classList.remove('show');
+        popup.classList.add('hidden');
+    }, 3000); // 3秒後に非表示
+}
