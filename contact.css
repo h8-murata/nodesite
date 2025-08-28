@@ -124,18 +124,25 @@ header .container {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-
-    h2 {
-        font-size: 28px;
-        padding: 20px 0;
-    }
 }
 
-.con-object {
+.contact h2 {
+    font-size: 24px;
+    padding: 20px 0;
+}
+
+.contact .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px 20px;
+    padding-bottom: 20px;
+}
+
+.con-object {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
 }
 
 .con-text {
@@ -152,23 +159,29 @@ header .container {
 
 .contact-button {
     display: inline-block;
-    background-color: rgba(24, 43, 141, 0.6);
+    background-color: #154360;
     color: #fff;
-    padding: 15px 40px;
-    margin: 20px 0;
+    padding: 10px 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+    border-radius: 3px;
     text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 600;
-    border-radius: 5px;
-    border: 1px solid rgba(24, 43, 141, 0.8);
-    transition: background-color 0.3s, transform 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    outline: 0.5px solid #10354d;
+    outline-offset: 0px;
+    transition: outline-offset 0.3s, outline-color 0.3s;
 }
 
 .contact-button:hover {
-    background-color: rgba(24, 43, 141, 0.8);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: light .8s infinite;
+}
+
+@keyframes light {
+    100% {
+        outline-color: transparent;
+        outline-offset: 10px;
+    }
 }
 /* ▲▲▲ ボタン用のスタイルを追加 ▲▲▲ */
 
@@ -178,7 +191,6 @@ header .container {
 ================================== */
 footer {
     color: #666666;
-    /* background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%); */
     background: #fff;
     padding: 40px 0;
 }
@@ -186,7 +198,7 @@ footer {
 footer .container {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 30px; /* header .container と揃えるため、左右に30pxのパディングを追加 */
+    padding: 0 30px;
 }
 
 .footA {
@@ -197,27 +209,27 @@ footer .container {
     width: 250px;
     min-width: 150px;
     height: auto;
-    margin-bottom: 30px;
 }
 
-.footA p {
+.footB p {
     margin: 0;
     font-size: 14px;
+    line-height: 1.5;
 }
 
-.footB h3 {
+.footC h3 {
     margin: 0 0 10px;
     border-bottom: solid 1px currentColor;
     font-size: 14px;
 }
 
-.footB ul {
+.footC ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.footB a {
+.footC a {
     display: block;
     padding: 5px;
     color: inherit;
@@ -226,14 +238,13 @@ footer .container {
     transition: background-color 0.3s;
 }
 
-.footB a:hover {
+.footC a:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.footC {
+.copyright {
     font-size: 12px;
     text-align: center;
-    font-family: "Roboto", sans-serif;
 }
 
 
@@ -243,27 +254,30 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
-    footer .container {
+    /* ▼▼▼ フッターのレイアウトを修正 ▼▼▼ */
+    .footer-main {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-    .footA {
-        flex: 1 1 40%;
+        align-items: stretch; /* 住所とナビゲーションの高さを揃える */
     }
     .footB {
+        flex: 1;
         display: flex;
-        flex: 1 1 60%;
+        align-items: center; /* 住所テキストを垂直方向に中央揃え */
     }
     .footC {
-        flex: 1 1 100%;
+        flex: 2; /* ナビゲーションが住所より広い幅を持つように */
+        display: flex;
     }
-    .footB > div {
+    .footC > div {
         flex: 1;
     }
-    .footB > div:not(:first-child) {
+    .footC > div:not(:first-child) {
         margin-left: 40px;
     }
+    .copyright {
+        margin-top: 30px;
+    }
+    /* ▲▲▲ フッターのレイアウトを修正 ▲▲▲ */
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
@@ -350,41 +364,32 @@ footer .container {
     }
 
     /* --- コンテンツ --- */
-    .con1, .con2, .con3, .con4 {
+    .contact {
         width: 90%;
     }
-    .links {
-        flex-direction: column;
-        height: auto;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    .links a { height: 15rem; }
-    .links a:hover { flex-grow: 1; }
 
-    .con2 .con-object,
-    .con3 .con-object,
-    .con4 .con-object {
+    /* ▼▼▼ .con-objectを縦並びにするためのスタイルを追加 ▼▼▼ */
+    .contact .container {
         flex-direction: column;
     }
-    .con3 p {
-        text-align: center;
+    .con-object {
+        padding: 0 20px;
     }
-    .con2 .con-img img,
-    .con3 .con-img img {
-        height: auto;
-        max-width: 100%;
-    }
+    /* ▲▲▲ .con-objectを縦並びにするためのスタイルを追加 ▲▲▲ */
+
 
     /* --- フッター --- */
-    footer .container, .footB {
+    footer .container, .footC {
         flex-direction: column;
         text-align: center;
     }
-    .footB > div {
+    .footB {
+        margin-bottom: 30px;
+    }
+    .footC > div {
         margin-bottom: 20px;
     }
-    .footB > div:not(:first-child) {
+    .footC > div:not(:first-child) {
         margin-left: 0;
     }
 }

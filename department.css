@@ -136,7 +136,7 @@ header .container {
 /* ▼▼▼ .boxの共通スタイル ▼▼▼ */
 .box4 {
     flex: 0 0 calc(50% - 10px);
-    height: 350px;
+    height: 400px;
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -169,6 +169,11 @@ header .container {
     justify-content: center;
 }
 
+.con-text p {
+    text-align: left;
+    line-height: 1.3;
+}
+
 .con-img img {
     width: 100%;
     height: 100%;
@@ -186,15 +191,16 @@ header .container {
     align-items: center;
 }
 .box4 .con-text {
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    /* flex: 1; ← この行を削除 */
+    justify-content: flex-start; /* 上からテキストが始まるように */
+    align-items: stretch; /* 横幅いっぱいに広げる */
+    flex-grow: 1;
 }
 .box4 .con-img {
-    flex: 2;
+    /* flex: 2; ← この行を削除 */
     width: 100%;
-    min-height: 0;
+    height: 150px; /* 画像の高さを固定 */
+    flex-shrink: 0; /* 画像が縮まないように設定 */
 }
 .box4 .con-img img {
     object-fit: cover;
@@ -208,7 +214,6 @@ header .container {
 ================================== */
 footer {
     color: #666666;
-    /* background: linear-gradient(0deg, rgba(22,45,73,1) 0%, rgba(207,211,255,0.29) 100%); */
     background: #fff;
     padding: 40px 0;
 }
@@ -227,27 +232,27 @@ footer .container {
     width: 250px;
     min-width: 150px;
     height: auto;
-    margin-bottom: 30px;
 }
 
-.footA p {
+.footB p {
     margin: 0;
     font-size: 14px;
+    line-height: 1.5;
 }
 
-.footB h3 {
+.footC h3 {
     margin: 0 0 10px;
     border-bottom: solid 1px currentColor;
     font-size: 14px;
 }
 
-.footB ul {
+.footC ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.footB a {
+.footC a {
     display: block;
     padding: 5px;
     color: inherit;
@@ -256,14 +261,13 @@ footer .container {
     transition: background-color 0.3s;
 }
 
-.footB a:hover {
+.footC a:hover {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.footC {
+.copyright {
     font-size: 12px;
     text-align: center;
-    font-family: "Roboto", sans-serif;
 }
 
 
@@ -273,27 +277,30 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
-    footer .container {
+    /* ▼▼▼ フッターのレイアウトを修正 ▼▼▼ */
+    .footer-main {
         display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-    .footA {
-        flex: 1 1 40%;
+        align-items: stretch; /* 住所とナビゲーションの高さを揃える */
     }
     .footB {
+        flex: 1;
         display: flex;
-        flex: 1 1 60%;
+        align-items: center; /* 住所テキストを垂直方向に中央揃え */
     }
     .footC {
-        flex: 1 1 100%;
+        flex: 2; /* ナビゲーションが住所より広い幅を持つように */
+        display: flex;
     }
-    .footB > div {
+    .footC > div {
         flex: 1;
     }
-    .footB > div:not(:first-child) {
+    .footC > div:not(:first-child) {
         margin-left: 40px;
     }
+    .copyright {
+        margin-top: 30px;
+    }
+    /* ▲▲▲ フッターのレイアウトを修正 ▲▲▲ */
 
     .con2 .container {
         justify-content: flex-start; /* PC表示では左揃えにする */
@@ -419,14 +426,17 @@ footer .container {
 
 
     /* --- フッター --- */
-    footer .container, .footB {
+    footer .container, .footC {
         flex-direction: column;
         text-align: center;
     }
-    .footB > div {
+    .footB {
+        margin-bottom: 30px;
+    }
+    .footC > div {
         margin-bottom: 20px;
     }
-    .footB > div:not(:first-child) {
+    .footC > div:not(:first-child) {
         margin-left: 0;
     }
 }
