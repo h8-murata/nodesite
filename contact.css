@@ -1,48 +1,44 @@
 @charset "utf-8";
 
-
+/* ==================================
+   基本設定 (Base)
+================================== */
 body {
-    font-family: "Cairo", serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
+    /* 基本フォント設定 */
+    font-family: "Noto Serif JP", serif;
+    font-weight: 400;
     font-style: normal;
-    font-variation-settings:
-    "slnt" 0;
-    top: 0;
-    left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #01cf79, #ffffff, #fff6c4);
+    
+    /* 背景のグラデーションとアニメーション */
+    background: linear-gradient(45deg, #54bbff, #ffffff, #fff6c6);
     background-size: 200% 200%;
     animation: GradientBackground 20s ease infinite;
-    margin: 0 auto;
 }
 
+/* 背景グラデーションのアニメーション */
 @keyframes GradientBackground {
     0% {
         background-position: 0% 100%;
     }
-
     50% {
         background-position: 100% 0%;
     }
-
     100% {
         background-position: 0% 100%;
     }
 }
 
-
-
 /* ==================================
    ヘッダー (Header)
 ================================== */
 header {
-    /* --- スクロール時にヘッダーを固定するための設定 --- */
-    position: -webkit-sticky; /* Safari用の設定 */
-    position: sticky;         /* ヘッダーを固定 */
-    top: 0;                   /* 画面の最上部に配置 */
-    z-index: 1000;            /* 他の要素より手前に表示 */
-    width: 100%;              /* 横幅を画面全体に広げる */
+    /* スクロール時にヘッダーを画面上部に固定 */
+    position: -webkit-sticky; /* Safari対応 */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* 他の要素より手前に表示 */
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -56,7 +52,8 @@ header .container {
     height: 80px;
 }
 
-.head-img img {
+/* ヘッダーとフッターのロゴ画像を共通化 */
+.head-img img, .foot-img img {
   max-width: 250px;
   min-width: 150px;
   height: auto;
@@ -72,54 +69,69 @@ header .container {
 .head-nav a {
     position: relative;
     display: block;
-    padding: 15px 12px; /* ← 左右の余白を少し小さく調整 */
-    color: #000;
-    font-size: 16px; /* ← フォントサイズを小さく調整 */
+    padding: 15px 12px;
+    color: #154360;
+    font-size: 16px;
     text-decoration: none;
     transition: color 0.3s;
 }
 
+/* ナビゲーションリンクの下線アニメーション */
 .head-nav a::before {
     content: "";
     position: absolute;
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 4px;
-    background: #2a2a2a;
-    transition: width 0.3s;
+    height: 10px;
+    border-radius: 15px;
+    background-color: #154360;
+    transition: width 0.3s, background-color 0.3s;
 }
 
-.head-nav a:hover::before {
+/* 現在表示中のページのリンクは常に下線を表示 */
+.head-nav li.current a::before {
     width: 100%;
 }
 
+/* ホバー時に下線を表示（現在のページを除く） */
+.head-nav li:not(.current) a:hover::before {
+    width: 100%;
+    background-color: rgb(255, 152, 35); /* ホバー時の色 */
+}
 
-
-
-/* ヒーローセクション */
+/* ==================================
+   ヒーローセクション (Hero Section)
+================================== */
 .hero {
     text-align: center;
     background: url('img/contact_0.jpg') no-repeat center/cover;
     color: white;
-    padding: 60px 20px;
+    padding: 120px 20px;
+    /* 画像の下部を滑らかに透過させる */
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari用 */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari対応 */
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 32px;
+    text-shadow: 5px 4px 4px rgba(97, 97, 97, 0.8);
+    background-color: rgba(135, 167, 204, 0.4);
+    backdrop-filter: blur(3px); /* 背景をぼかす */
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: fit-content; /* 文字の幅に合わせる */
+    margin: 0 auto;
 }
 
-/* ここからコンタクトパート */
+/* ==================================
+   お問い合わせセクション (Contact Section)
+================================== */
 .contact {
-    display: block;
     width: 70%;
     max-width: 800px;
     margin: 50px auto;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background-color: white;
     border-radius: 5px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -135,23 +147,14 @@ header .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
+    min-height: 250px;
+    padding: 20px 0;
 }
 
 .con-object {
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
+    padding: 0 50px;
 }
 
-.con-text {
-    display: block;
-    width: 90%;
-    flex: 1;
-}
-
-/* ▼▼▼ ボタン用のスタイルを追加 ▼▼▼ */
 .con-mail, .con-tell {
     width: 100%;
     text-align: center;
@@ -161,7 +164,7 @@ header .container {
     display: inline-block;
     background-color: #154360;
     color: #fff;
-    padding: 10px 10px;
+    padding: 10px;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 200px;
@@ -173,6 +176,7 @@ header .container {
     transition: outline-offset 0.3s, outline-color 0.3s;
 }
 
+/* ボタンホバー時のアニメーション */
 .contact-button:hover {
     animation: light .8s infinite;
 }
@@ -183,8 +187,6 @@ header .container {
         outline-offset: 10px;
     }
 }
-/* ▲▲▲ ボタン用のスタイルを追加 ▲▲▲ */
-
 
 /* ==================================
    フッター (Footer)
@@ -203,12 +205,6 @@ footer .container {
 
 .footA {
     margin-bottom: 30px;
-}
-
-.foot-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
 }
 
 .footB p {
@@ -239,7 +235,7 @@ footer .container {
 }
 
 .footC a:hover {
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .copyright {
@@ -254,18 +250,18 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
-    /* ▼▼▼ フッターのレイアウトを修正 ▼▼▼ */
+    /* フッターのレイアウトを横並びに設定 */
     .footer-main {
         display: flex;
-        align-items: stretch; /* 住所とナビゲーションの高さを揃える */
+        align-items: stretch;
     }
     .footB {
         flex: 1;
         display: flex;
-        align-items: center; /* 住所テキストを垂直方向に中央揃え */
+        align-items: center;
     }
     .footC {
-        flex: 2; /* ナビゲーションが住所より広い幅を持つように */
+        flex: 2;
         display: flex;
     }
     .footC > div {
@@ -277,21 +273,11 @@ footer .container {
     .copyright {
         margin-top: 30px;
     }
-    /* ▲▲▲ フッターのレイアウトを修正 ▲▲▲ */
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-.head-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
-}
-.foot-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
-}
+    /* ナビゲーションリンクの余白と文字サイズを調整 */
     .head-nav a {
         padding: 15px 10px;
         font-size: 15px;
@@ -300,7 +286,7 @@ footer .container {
 
 /* スマホ・タブレット向け (767px以下) */
 @media (max-width: 767px) {
-    /* --- ヘッダー --- */
+    /* ヘッダー：ハンバーガーメニューの設定 */
     header .container {
         height: 70px;
         padding: 0 15px;
@@ -352,34 +338,29 @@ footer .container {
         font-size: 18px;
     }
     .head-nav a::before {
-        display: none;
+        display: none; /* スマホでは下線アニメーションを非表示 */
     }
 
-    /* --- ファーストビュー --- */
+    /* ヒーローセクションのタイトル */
     .hero h1 {
         font-size: 24px;
-        margin-left: 5vw;
-        margin-right: 5vw;
-        text-align: center;
     }
 
-    /* --- コンテンツ --- */
+    /* お問い合わせセクション */
     .contact {
         width: 90%;
     }
-
-    /* ▼▼▼ .con-objectを縦並びにするためのスタイルを追加 ▼▼▼ */
+    
     .contact .container {
-        flex-direction: column;
+        flex-direction: column; /* 縦並びにする */
+        height: auto;
     }
     .con-object {
-        padding: 0 20px;
+        padding: 10px 20px;
     }
-    /* ▲▲▲ .con-objectを縦並びにするためのスタイルを追加 ▲▲▲ */
 
-
-    /* --- フッター --- */
-    footer .container, .footC {
+    /* フッター：要素を縦並びに */
+    .footer-main, .footC {
         flex-direction: column;
         text-align: center;
     }
@@ -400,14 +381,7 @@ footer .container {
         padding: 15px;
         font-size: 16px;
     }
-.head-img img {
-    width: 150px;
-    min-width: 150px;
-    height: auto;
-}
-.foot-img img {
-    width: 150px;
-    min-width: 100px;
-    height: auto;
-}
+    .head-img img, .foot-img img {
+        width: 150px;
+    }
 }

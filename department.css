@@ -1,20 +1,17 @@
 @charset "utf-8";
 
-
+/* ==================================
+   Base Styles
+================================== */
 body {
-    font-family: "Cairo", serif;
+    font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
-    font-variation-settings:
-    "slnt" 0;
-    top: 0;
-    left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #01cf79, #ffffff, #fff6c4);
+    background: linear-gradient(45deg, #54bbff, #ffffff, #fff6c6);
     background-size: 200% 200%;
     animation: GradientBackground 20s ease infinite;
-    margin: 0 auto;
 }
 
 @keyframes GradientBackground {
@@ -31,18 +28,14 @@ body {
     }
 }
 
-
-
 /* ==================================
-   ヘッダー (Header)
+   Header
 ================================== */
 header {
-    /* --- スクロール時にヘッダーを固定するための設定 --- */
-    position: -webkit-sticky; /* Safari用の設定 */
-    position: sticky;         /* ヘッダーを固定 */
-    top: 0;                   /* 画面の最上部に配置 */
-    z-index: 1000;            /* 他の要素より手前に表示 */
-    width: 100%;              /* 横幅を画面全体に広げる */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -72,9 +65,9 @@ header .container {
 .head-nav a {
     position: relative;
     display: block;
-    padding: 15px 12px; /* ← 左右の余白を少し小さく調整 */
-    color: #000;
-    font-size: 16px; /* ← フォントサイズを小さく調整 */
+    padding: 15px 12px;
+    color: #154360;
+    font-size: 16px;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -85,43 +78,61 @@ header .container {
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 4px;
-    background: #2a2a2a;
-    transition: width 0.3s;
+    height: 10px;
+    border-radius: 15px;
+    background-color: #154360;
+    transition: width 0.3s, background-color 0.3s;
 }
 
-.head-nav a:hover::before {
+/* Underline for current page and on hover */
+.head-nav li.current a::before {
     width: 100%;
 }
 
-/* ヒーローセクション */
+.head-nav li:not(.current) a:hover::before {
+    width: 100%;
+    background-color: rgb(255, 152, 35);
+}
+
+/* ==================================
+   Hero Section
+================================== */
 .hero {
     text-align: center;
     background: url('img/department_0.jpg') no-repeat center/cover;
     color: white;
-    padding: 60px 20px;
+    padding: 120px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari用 */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 32px;
+    text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
+    background-color: rgba(135, 167, 204, 0.4);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
+/* ==================================
+   Content Section
+================================== */
 .comment {
     width: 80%;
-    max-width: 900px; /* 横幅が広くなりすぎないように最大幅を指定 */
+    max-width: 900px;
     margin: 80px auto;
     font-size: 18px;
     line-height: 1.6;
     text-align: center;
 }
 
-
-/* その他コンテンツパート */
 .con2 {
     margin: 50px auto;
 }
+
 .con2 .container {
     display: flex;
     flex-wrap: wrap;
@@ -129,15 +140,14 @@ header .container {
     width: 80%;
     max-width: 800px;
     justify-content: center;
-    align-items: stretch; /* 高さを揃える */
+    align-items: stretch;
     margin: 0 auto;
 }
 
-/* ▼▼▼ .boxの共通スタイル ▼▼▼ */
 .box4 {
     flex: 0 0 calc(50% - 10px);
     height: 400px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-radius: 5px;
@@ -161,12 +171,16 @@ header .container {
     gap: 10px;
     flex-grow: 1;
     min-height: 0;
+    flex-direction: column-reverse; /* Display image above text */
+    align-items: center;
 }
 
 .con-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-grow: 1;
 }
 
 .con-text p {
@@ -174,43 +188,22 @@ header .container {
     line-height: 1.3;
 }
 
+.con-img {
+    width: 100%;
+    height: 150px;
+    flex-shrink: 0;
+}
+
 .con-img img {
     width: 100%;
     height: 100%;
     display: block;
-}
-
-/* ==================================
-   各BOXの個別レイアウト
-================================== */
-
-
-/* --- Box4: テキスト上 / 画像下 --- */
-.box4 .con-object {
-    flex-direction: column-reverse;
-    align-items: center;
-}
-.box4 .con-text {
-    /* flex: 1; ← この行を削除 */
-    justify-content: flex-start; /* 上からテキストが始まるように */
-    align-items: stretch; /* 横幅いっぱいに広げる */
-    flex-grow: 1;
-}
-.box4 .con-img {
-    /* flex: 2; ← この行を削除 */
-    width: 100%;
-    height: 150px; /* 画像の高さを固定 */
-    flex-shrink: 0; /* 画像が縮まないように設定 */
-}
-.box4 .con-img img {
     object-fit: cover;
 }
 
 
-
-
 /* ==================================
-   フッター (Footer)
+   Footer
 ================================== */
 footer {
     color: #666666;
@@ -272,23 +265,22 @@ footer .container {
 
 
 /* ==================================
-   レスポンシブ設定 (Media Queries)
+   Media Queries
 ================================== */
 
-/* PC・タブレット向け (768px以上) */
+/* For PC & Tablet (768px and up) */
 @media (min-width: 768px) {
-    /* ▼▼▼ フッターのレイアウトを修正 ▼▼▼ */
     .footer-main {
         display: flex;
-        align-items: stretch; /* 住所とナビゲーションの高さを揃える */
+        align-items: stretch;
     }
     .footB {
         flex: 1;
         display: flex;
-        align-items: center; /* 住所テキストを垂直方向に中央揃え */
+        align-items: center;
     }
     .footC {
-        flex: 2; /* ナビゲーションが住所より広い幅を持つように */
+        flex: 2;
         display: flex;
     }
     .footC > div {
@@ -300,34 +292,25 @@ footer .container {
     .copyright {
         margin-top: 30px;
     }
-    /* ▲▲▲ フッターのレイアウトを修正 ▲▲▲ */
-
     .con2 .container {
-        justify-content: flex-start; /* PC表示では左揃えにする */
+        justify-content: flex-start;
     }
 }
 
-/* タブレット向け中間サイズ (768px - 1024px) */
+/* For Tablet (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
-.head-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
-}
-.foot-img img {
-    width: 250px;
-    min-width: 150px;
-    height: auto;
-}
+    .head-img img, .foot-img img {
+        width: 250px;
+    }
     .head-nav a {
         padding: 15px 10px;
         font-size: 15px;
     }
 }
 
-/* スマホ・タブレット向け (767px以下) */
+/* For Smartphone & Tablet (767px and below) */
 @media (max-width: 767px) {
-    /* --- ヘッダー --- */
+    /* Header */
     header .container {
         height: 70px;
         padding: 0 15px;
@@ -382,27 +365,23 @@ footer .container {
         display: none;
     }
 
-    /* --- ファーストビュー --- */
+    /* Hero */
     .hero h1 {
         font-size: 24px;
-        margin-left: 5vw;
-        margin-right: 5vw;
-        text-align: center;
     }
 
-    /* --- コンテンツ --- */
+    /* Contents */
     .con2 {
         width: 90%;
     }
     
-    .box1, .box2, .box3, .box4, .box5 {
-        flex: 1 1 100%; /* 1列になるように調整 */
-        height: auto; /* 高さを自動調整 */
+    .box4 {
+        flex: 1 1 100%; /* Make it single column */
+        height: auto;
         min-height: 300px;
     }
 
     .con-object {
-        flex-direction: column; 
         height: auto;
         padding-bottom: 15px;
     }
@@ -416,16 +395,7 @@ footer .container {
         margin-top: 15px;
     }
 
-    /* スマホ表示用の個別レイアウト調整 */
-    .box2 .con-object, .box4 .con-object {
-        flex-direction: column-reverse;
-    }
-    .box3 .con-object, .box1 .con-object {
-         flex-direction: column;
-    }
-
-
-    /* --- フッター --- */
+    /* Footer */
     footer .container, .footC {
         flex-direction: column;
         text-align: center;
@@ -441,20 +411,13 @@ footer .container {
     }
 }
 
-/* 特に幅の狭いスマホ向け (375px以下) */
+/* For smaller smartphones (375px and below) */
 @media (max-width: 375px) {
     .head-nav a {
         padding: 15px;
         font-size: 16px;
     }
-.head-img img {
-    width: 150px;
-    min-width: 150px;
-    height: auto;
-}
-.foot-img img {
-    width: 150px;
-    min-width: 100px;
-    height: auto;
-}
+    .head-img img, .foot-img img {
+        width: 150px;
+    }
 }

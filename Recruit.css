@@ -2,16 +2,16 @@
 
 
 body {
-    font-family: "Cairo", serif;
+    font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
-    font-weight: 600;
+    font-weight: 400;
     font-style: normal;
     font-variation-settings:
         "slnt" 0;
     top: 0;
     left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #01cf79, #ffffff, #fff6c4);
+    background: linear-gradient(45deg, #54bbff, #ffffff, #fff6c6);
     background-size: 200% 200%;
     animation: GradientBackground 20s ease infinite;
     margin: 0 auto;
@@ -38,16 +38,11 @@ body {
 ================================== */
 header {
     /* --- スクロール時にヘッダーを固定するための設定 --- */
-    position: -webkit-sticky;
-    /* Safari用の設定 */
-    position: sticky;
-    /* ヘッダーを固定 */
-    top: 0;
-    /* 画面の最上部に配置 */
-    z-index: 1000;
-    /* 他の要素より手前に表示 */
-    width: 100%;
-    /* 横幅を画面全体に広げる */
+    position: -webkit-sticky; /* Safari用の設定 */
+    position: sticky;         /* ヘッダーを固定 */
+    top: 0;                   /* 画面の最上部に配置 */
+    z-index: 1000;            /* 他の要素より手前に表示 */
+    width: 100%;              /* 横幅を画面全体に広げる */
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -62,9 +57,9 @@ header .container {
 }
 
 .head-img img {
-    max-width: 250px;
-    min-width: 150px;
-    height: auto;
+  max-width: 250px;
+  min-width: 150px;
+  height: auto;
 }
 
 .head-nav ul {
@@ -78,10 +73,8 @@ header .container {
     position: relative;
     display: block;
     padding: 15px 12px;
-    /* ← 左右の余白を少し小さく調整 */
-    color: #000;
+    color: #154360;
     font-size: 16px;
-    /* ← フォントサイズを小さく調整 */
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -92,28 +85,46 @@ header .container {
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 4px;
-    background: #2a2a2a;
-    transition: width 0.3s;
+    height: 10px;
+    border-radius: 15px;
+    background-color: #154360;
+    transition: width 0.3s, background-color 0.3s;
 }
 
-.head-nav a:hover::before {
+/* ▼▼▼ ホバー時と現在のページで下線を表示するよう変更 ▼▼▼ */
+/* 現在のページのボタンは常に下線を表示 */
+.head-nav li.current a::before {
     width: 100%;
 }
+
+/* 現在のページ以外のボタンにホバーしたとき、下線の色をオレンジにする */
+.head-nav li:not(.current) a:hover::before {
+    width: 100%;
+    background-color: rgb(255, 152, 35);
+}
+/* ▲▲▲ ホバー時と現在のページで下線を表示するよう変更 ▲▲▲ */
+
 
 /* ヒーローセクション */
 .hero {
     text-align: center;
     background: url('img/recruit_0.jpg') no-repeat center/cover;
-    color: white;
-    padding: 60px 20px;
+    color: white;   
+    padding: 120px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     /* Safari用 */
 }
 
 .hero h1 {
-    font-size: 36px;
+    font-size: 32px;
+    text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
+    background-color: rgba(135, 167, 204, 0.4);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 h2.company-description {
@@ -618,48 +629,8 @@ footer .container {
     /* --- ファーストビュー --- */
     .hero h1 {
         font-size: 24px;
-        margin-left: 5vw;
-        margin-right: 5vw;
+        margin: 0 auto;
         text-align: center;
-    }
-
-    /* --- コンテンツ --- */
-    .con1,
-    .con2,
-    .con3,
-    .con4 {
-        width: 90%;
-    }
-
-    .links {
-        flex-direction: column;
-        height: auto;
-        gap: 1rem;
-        padding: 1rem;
-    }
-
-    .links a {
-        height: 15rem;
-    }
-
-    .links a:hover {
-        flex-grow: 1;
-    }
-
-    .con2 .con-object,
-    .con3 .con-object,
-    .con4 .con-object {
-        flex-direction: column;
-    }
-
-    .con3 p {
-        text-align: center;
-    }
-
-    .con2 .con-img img,
-    .con3 .con-img img {
-        height: auto;
-        max-width: 100%;
     }
 
     /* --- フッター --- */
