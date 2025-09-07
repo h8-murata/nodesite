@@ -416,6 +416,8 @@ table th {
     z-index: 2;
     border-bottom: 1px solid #fff;
     /* 下線を白にしてjob-sectionと繋がる */
+            color: #fff;
+    
 }
 
 /* タブ切替の表示/非表示 */
@@ -438,7 +440,7 @@ table th {
     border: 1px solid #0073e6;
     border-radius: 5px;
     /* 角を丸くする */
-    background-color: #9090e9;
+    background-color: #154360;
     /* 紺色 */
 }
 
