@@ -10,9 +10,9 @@ body {
     font-style: normal;
     margin: 0;
     /* 背景にグラデーションアニメーションを設定 */
-    background: linear-gradient(45deg, #54bbff, #ffffff, #fff6c6);
+    background: linear-gradient(45deg, #00A99D,#ffffff,#41B6E6,#ffffff,#ffffe0);
     background-size: 200% 200%;
-    animation: GradientBackground 20s ease infinite;
+    animation: GradientBackground 15s ease infinite;
 }
 
 /* 背景グラデーションのアニメーション */
@@ -109,7 +109,7 @@ header .container {
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 10px;
+    height: 4px;
     border-radius: 15px;
     background-color: #154360;
     transition: width 0.3s, background-color 0.3s;
@@ -634,4 +634,41 @@ footer .container {
     .foot-img img {
         width: 150px;
     }
+}
+
+/* ==================================
+   トップに戻るボタン
+================================== */
+#to-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #154360;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    text-decoration: none;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* 最初は非表示 */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+}
+
+#to-top-btn.show {
+    /* 表示時のスタイル */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#to-top-btn:hover {
+    background-color: #21618C; /* ホバー時の色 */
 }

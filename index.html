@@ -76,7 +76,7 @@
                     <a href="AboutUs.html" class="read-button">詳しく見る</a>
                 </div>
                 <div class="con-img">
-                    <img src="img/Company_information_0.png" alt="pic" loading="lazy">
+                    <img src="img/LobbySpace.jpg" alt="pic" loading="lazy">
                 </div>
             </div>
         </div>
@@ -86,13 +86,13 @@
             <h2>事業内容</h2>
             <div class="links">
                 <a href="department.html">
-                    <img src="img/system_development_0.jpg" alt="pic" loading="lazy">
+                    <img src="img/dep_img_02.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>システム開発事業部</h3>
                     </div>
                 </a>
                 <a href="department.html">
-                    <img src="img/web_creator_0.jpg" alt="pic" loading="lazy">
+                    <img src="img/dep_img_01.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>Webクリエーター事業部</h3>
                     </div>
@@ -104,19 +104,19 @@
                     </div>
                 </a>
                 <a href="department.html">
-                    <img src="img/cloud_server_0.jpg" alt="pic" loading="lazy">
+                    <img src="img/dep_img_07.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>クラウド・サーバー事業部</h3>
                     </div>
                 </a>
                 <a href="department.html">
-                    <img src="img/entertainment_0.jpg" alt="pic" loading="lazy">
+                    <img src="img/dep_img_04.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>エンタメ事業部</h3>
                     </div>
                 </a>
                                 <a href="department.html">
-                    <img src="img/entertainment_0.jpg" alt="pic" loading="lazy">
+                    <img src="img/dep_img_02.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>データベース事業部</h3>
                     </div>
@@ -140,7 +140,7 @@
                     <a href="Recruit.html" class="read-button">詳しく見る</a>
                 </div>
                 <div class="con-img">
-                    <img src="img/LobbySpace.jpg" alt="pic" loading="lazy">
+                    <img src="img/Company_information_0.png" alt="pic" loading="lazy">
                 </div>
             </div>
         </div>
@@ -220,6 +220,13 @@
             </div>
         </div>
     </footer>
+
+    <!-- ▼▼▼ トップに戻るボタンを追加 ▼▼▼ -->
+    <a href="#" id="to-top-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </a>
+    <!-- ▲▲▲ トップに戻るボタンを追加 ▲▲▲ -->
+
     <script>
         // ハンバーガーメニューのスクリプト
         const navButton = document.querySelector('.nav-button');
@@ -274,6 +281,30 @@
                 }
             });
         });
+
+        // ▼▼▼ トップに戻るボタンのスクリプトを追加 ▼▼▼
+        const toTopBtn = document.getElementById('to-top-btn');
+
+        // スクロールイベントのリスナーを追加
+        window.addEventListener('scroll', () => {
+            // 300px以上スクロールしたらボタンを表示
+            if (window.scrollY > 300) {
+                toTopBtn.classList.add('show');
+            } else {
+                toTopBtn.classList.remove('show');
+            }
+        });
+
+        // クリックイベントのリスナーを追加
+        toTopBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // aタグのデフォルトの挙動をキャンセル
+            // ページのトップへスムーズにスクロール
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        // ▲▲▲ トップに戻るボタンのスクリプトを追加 ▲▲▲
     </script>
 </body>
 </html>
