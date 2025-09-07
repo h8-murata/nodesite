@@ -11,9 +11,9 @@ body {
     top: 0;
     left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #54bbff, #ffffff, #fff6c6);
+    background: linear-gradient(45deg, #00A99D, #ffffff, #41B6E6, #ffffff, #ffffe0);
     background-size: 200% 200%;
-    animation: GradientBackground 20s ease infinite;
+    animation: GradientBackground 15s ease infinite;
     margin: 0 auto;
 }
 
@@ -38,11 +38,16 @@ body {
 ================================== */
 header {
     /* --- スクロール時にヘッダーを固定するための設定 --- */
-    position: -webkit-sticky; /* Safari用の設定 */
-    position: sticky;         /* ヘッダーを固定 */
-    top: 0;                   /* 画面の最上部に配置 */
-    z-index: 1000;            /* 他の要素より手前に表示 */
-    width: 100%;              /* 横幅を画面全体に広げる */
+    position: -webkit-sticky;
+    /* Safari用の設定 */
+    position: sticky;
+    /* ヘッダーを固定 */
+    top: 0;
+    /* 画面の最上部に配置 */
+    z-index: 1000;
+    /* 他の要素より手前に表示 */
+    width: 100%;
+    /* 横幅を画面全体に広げる */
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -57,9 +62,9 @@ header .container {
 }
 
 .head-img img {
-  max-width: 250px;
-  min-width: 150px;
-  height: auto;
+    max-width: 250px;
+    min-width: 150px;
+    height: auto;
 }
 
 .head-nav ul {
@@ -85,7 +90,7 @@ header .container {
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 10px;
+    height: 4px;
     border-radius: 15px;
     background-color: #154360;
     transition: width 0.3s, background-color 0.3s;
@@ -102,6 +107,7 @@ header .container {
     width: 100%;
     background-color: rgb(255, 152, 35);
 }
+
 /* ▲▲▲ ホバー時と現在のページで下線を表示するよう変更 ▲▲▲ */
 
 
@@ -109,16 +115,17 @@ header .container {
 /* ヒーローセクション */
 .hero {
     text-align: center;
-    background: url('img/Company_information_0.png') no-repeat center/cover;
+    background: url('img/LobbySpace.jpg') no-repeat center/cover;
     color: white;
     padding: 120px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari用 */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    /* Safari用 */
 }
 
 .hero h1 {
     font-size: 32px;
-    text-shadow:5px 4px 4px     rgba(97, 97, 97, 0.8);
+    text-shadow: 5px 4px 4px rgba(97, 97, 97, 0.8);
     background-color: rgba(135, 167, 204, 0.4);
     backdrop-filter: blur(3px);
     border-radius: 10px;
@@ -147,7 +154,7 @@ h2 {
 .job-section {
     max-width: 800px;
     margin: 40px auto;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: #fff;
     /* 白色を80%の透明度に */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -156,8 +163,6 @@ h2 {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    /* 軽い影 */
 }
 
 table {
@@ -168,25 +173,35 @@ table {
 
 table th,
 table td {
-    border: 1px solid #ddd;
     padding: 10px;
+    border: 1px solid #0073e6;
+    /* ここだけで青い枠線 */
+    line-height: 2;
+    /* 行間を広げる */
+    letter-spacing: 0.05em;
+    /* 文字の横の間隔 */
 }
 
 table th {
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(100px);
-    -webkit-backdrop-filter: blur(100px);
     text-align: left;
     width: 25%;
 }
 
 table td {
-    background-color: rgba(255, 255, 255, 0.3);
+    line-height: 1.8;
+    padding: 10px;
+    margin-bottom: 7px;
+    /* 各段落の下に余白 */
 }
+.station {
+  margin-bottom: 0;   /* 駅とアクセスの間隔をゼロに */
+}
+
 
 iframe {
     border-radius: 10px;
     margin: 10px;
+
 }
 
 /* ==================================
@@ -257,29 +272,39 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
+
     /* ▼▼▼ フッターのレイアウトを修正 ▼▼▼ */
     .footer-main {
         display: flex;
-        align-items: stretch; /* 住所とナビゲーションの高さを揃える */
+        align-items: stretch;
+        /* 住所とナビゲーションの高さを揃える */
     }
+
     .footB {
         flex: 1;
         display: flex;
-        align-items: center; /* 住所テキストを垂直方向に中央揃え */
+        align-items: center;
+        /* 住所テキストを垂直方向に中央揃え */
     }
+
     .footC {
-        flex: 2; /* ナビゲーションが住所より広い幅を持つように */
+        flex: 2;
+        /* ナビゲーションが住所より広い幅を持つように */
         display: flex;
     }
-    .footC > div {
+
+    .footC>div {
         flex: 1;
     }
-    .footC > div:not(:first-child) {
+
+    .footC>div:not(:first-child) {
         margin-left: 40px;
     }
+
     .copyright {
         margin-top: 30px;
     }
+
     /* ▲▲▲ フッターのレイアウトを修正 ▲▲▲ */
 }
 
@@ -379,17 +404,21 @@ footer .container {
     }
 
     /* --- フッター --- */
-    footer .container, .footC {
+    footer .container,
+    .footC {
         flex-direction: column;
         text-align: center;
     }
+
     .footB {
         margin-bottom: 30px;
     }
-    .footC > div {
+
+    .footC>div {
         margin-bottom: 20px;
     }
-    .footC > div:not(:first-child) {
+
+    .footC>div:not(:first-child) {
         margin-left: 0;
     }
 }
@@ -426,23 +455,17 @@ footer .container {
         width: 100%;
     }
 
-    .job-section th {
-        background-color: #f5f5f5;
-        padding: 10px;
-        font-weight: bold;
-        border-bottom: 1px solid #ccc;
-    }
 
     .job-section td {
         padding: 10px;
-        border-bottom: 1px solid #ccc;
     }
 
     .job-section tr {
         margin-bottom: 15px;
+        
     }
 
     h2.company-description br {
-            display: none;
+        display: none;
     }
 }

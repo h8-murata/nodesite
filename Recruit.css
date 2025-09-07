@@ -11,9 +11,9 @@ body {
     top: 0;
     left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #54bbff, #ffffff, #fff6c6);
+    background: linear-gradient(45deg, #00A99D, #ffffff, #41B6E6, #ffffff, #ffffe0);
     background-size: 200% 200%;
-    animation: GradientBackground 20s ease infinite;
+    animation: GradientBackground 15s ease infinite;
     margin: 0 auto;
 }
 
@@ -38,11 +38,16 @@ body {
 ================================== */
 header {
     /* --- スクロール時にヘッダーを固定するための設定 --- */
-    position: -webkit-sticky; /* Safari用の設定 */
-    position: sticky;         /* ヘッダーを固定 */
-    top: 0;                   /* 画面の最上部に配置 */
-    z-index: 1000;            /* 他の要素より手前に表示 */
-    width: 100%;              /* 横幅を画面全体に広げる */
+    position: -webkit-sticky;
+    /* Safari用の設定 */
+    position: sticky;
+    /* ヘッダーを固定 */
+    top: 0;
+    /* 画面の最上部に配置 */
+    z-index: 1000;
+    /* 他の要素より手前に表示 */
+    width: 100%;
+    /* 横幅を画面全体に広げる */
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -57,9 +62,9 @@ header .container {
 }
 
 .head-img img {
-  max-width: 250px;
-  min-width: 150px;
-  height: auto;
+    max-width: 250px;
+    min-width: 150px;
+    height: auto;
 }
 
 .head-nav ul {
@@ -85,7 +90,7 @@ header .container {
     left: 0;
     bottom: -4px;
     width: 0;
-    height: 10px;
+    height: 4px;
     border-radius: 15px;
     background-color: #154360;
     transition: width 0.3s, background-color 0.3s;
@@ -102,14 +107,15 @@ header .container {
     width: 100%;
     background-color: rgb(255, 152, 35);
 }
+
 /* ▲▲▲ ホバー時と現在のページで下線を表示するよう変更 ▲▲▲ */
 
 
 /* ヒーローセクション */
 .hero {
     text-align: center;
-    background: url('img/recruit_0.jpg') no-repeat center/cover;
-    color: white;   
+    background: url('img/dep_img_03.jpg') no-repeat center/cover;
+    color: white;
     padding: 120px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
@@ -118,7 +124,7 @@ header .container {
 
 .hero h1 {
     font-size: 32px;
-    text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
+    text-shadow: 5px 4px 4px rgba(97, 97, 97, 0.8);
     background-color: rgba(135, 167, 204, 0.4);
     backdrop-filter: blur(3px);
     border-radius: 10px;
@@ -314,12 +320,14 @@ table th {
 }
 
 .application-form textarea {
-        width: 100%;
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    min-height: 100px; /* 好きな高さに調整 */
-    resize: vertical;  /* ユーザーが高さ変更可能 */
+    min-height: 100px;
+    /* 好きな高さに調整 */
+    resize: vertical;
+    /* ユーザーが高さ変更可能 */
 }
 
 .application-form button[type="submit"] {
@@ -381,9 +389,10 @@ table th {
     user-select: none;
     cursor: pointer;
     padding: 10px 14px;
+    width: 100%;
     border: 1px solid #ddd;
-    border-bottom: none;
-    border-radius: 8px 8px 0 0;
+    /* border-bottom: none; */
+    border-radius: 5px;
     background: rgba(255, 255, 255, 0.3);
     /* ← 未選択はグレーっぽく */
     backdrop-filter: blur(10px);
@@ -393,6 +402,7 @@ table th {
     top: 1px;
     /* 枠線がズレないように調整 */
     z-index: 0;
+    text-align: center;
 }
 
 .tab.active {
@@ -419,14 +429,17 @@ table th {
 
 /* タブの余白調整 */
 .tabs {
-    border-radius: 12px; /* 角を丸くする */
+    border-radius: 5px;
+    /* 角を丸くする */
 }
 
 /* タブとセクションを繋げる */
 .tab.active {
     border: 1px solid #0073e6;
-    
-    border-radius: 12px; /* 角を丸くする */
+    border-radius: 5px;
+    /* 角を丸くする */
+    background-color: #9090e9;
+    /* 紺色 */
 }
 
 /* セクション上部の余白をタブに合わせて微調整 */
@@ -436,6 +449,7 @@ table th {
     padding-top: 10px;
     /* 必要に応じて調整 */
 }
+
 
 
 /* ==================================
@@ -506,29 +520,39 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
+
     /* ▼▼▼ フッターのレイアウトを修正 ▼▼▼ */
     .footer-main {
         display: flex;
-        align-items: stretch; /* 住所とナビゲーションの高さを揃える */
+        align-items: stretch;
+        /* 住所とナビゲーションの高さを揃える */
     }
+
     .footB {
         flex: 1;
         display: flex;
-        align-items: center; /* 住所テキストを垂直方向に中央揃え */
+        align-items: center;
+        /* 住所テキストを垂直方向に中央揃え */
     }
+
     .footC {
-        flex: 2; /* ナビゲーションが住所より広い幅を持つように */
+        flex: 2;
+        /* ナビゲーションが住所より広い幅を持つように */
         display: flex;
     }
-    .footC > div {
+
+    .footC>div {
         flex: 1;
     }
-    .footC > div:not(:first-child) {
+
+    .footC>div:not(:first-child) {
         margin-left: 40px;
     }
+
     .copyright {
         margin-top: 30px;
     }
+
     /* ▲▲▲ フッターのレイアウトを修正 ▲▲▲ */
 }
 
@@ -634,17 +658,21 @@ footer .container {
     }
 
     /* --- フッター --- */
-    footer .container, .footC {
+    footer .container,
+    .footC {
         flex-direction: column;
         text-align: center;
     }
+
     .footB {
         margin-bottom: 30px;
     }
-    .footC > div {
+
+    .footC>div {
         margin-bottom: 20px;
     }
-    .footC > div:not(:first-child) {
+
+    .footC>div:not(:first-child) {
         margin-left: 0;
     }
 }
