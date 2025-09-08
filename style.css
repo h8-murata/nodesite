@@ -4,10 +4,12 @@
    基本設定
 ================================== */
 body {
-    font-family: "Noto Serif JP", serif;
+    /* font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal;
+    font-style: normal; */
+    font-family: "source-han-serif-variable", sans-serif;
+    font-variation-settings: "wght" 250;
     margin: 0;
     /* 背景にグラデーションアニメーションを設定 */
     background: linear-gradient(45deg, #00A99D,#ffffff,#41B6E6,#ffffff,#ffffe0);
