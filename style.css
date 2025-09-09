@@ -4,12 +4,10 @@
    基本設定
 ================================== */
 body {
-    /* font-family: "Noto Serif JP", serif;
+    font-family: "Noto Serif JP", serif;
     font-optical-sizing: auto;
     font-weight: 400;
-    font-style: normal; */
-    font-family: "source-han-serif-variable", sans-serif;
-    font-variation-settings: "wght" 250;
+    font-style: normal;
     margin: 0;
     /* 背景にグラデーションアニメーションを設定 */
     background: linear-gradient(45deg, #00A99D,#ffffff,#41B6E6,#ffffff,#ffffe0);
@@ -196,8 +194,8 @@ header .container {
     height: 100%;
 }
 
-.hero h1 {
-    font-size: 42px;
+/* ▼▼▼ 既存のh1スタイルを削除し、新しいタイトルスタイルに変更 ▼▼▼ */
+.hero .hero-title {
     color: #154360;
     text-shadow:8px 8px 5px rgba(205, 217, 250, 0.8);
     /* すりガラス効果 */
@@ -205,8 +203,45 @@ header .container {
     backdrop-filter: blur(3px);
     border-radius: 3px;
     padding: 10px 20px;
+    width: fit-content;
     margin-left: 15vw;
 }
+
+.hero-title .line {
+    display: flex;
+    align-items: center; /* 上下のセンタリング */
+    margin-bottom: 0.8em;
+}
+
+/* 最後のlineにはマージン不要 */
+.hero-title .line:last-of-type {
+    margin-bottom: 0;
+}
+
+.hero-title .large-char {
+    font-size: 6rem; /* 「人」の文字サイズ */
+    font-weight: 600;
+    margin-right: 0.2em;
+    line-height: 1; /* 行の高さを調整 */
+}
+
+.hero-title .small-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    line-height: 1.5;
+    font-weight: 500;
+}
+
+.hero-title .bottom-line {
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-top: 0.8em;
+    padding-bottom: 10px;
+}
+/* ▲▲▲ 新しいタイトルスタイル ▲▲▲ */
+
 
 /* ==================================
    メインコンテンツ
@@ -226,7 +261,7 @@ header .container {
 
 .con1 h2, .con2 h2, .con3 h2, .con4 h2 {
     font-size: 28px;
-    margin: 10px 0 30px;
+    margin: 10px 0 10px;
 }
 
 /* --- 事業内容 (con1) --- */
@@ -331,7 +366,7 @@ header .container {
 .con3 p {
     text-align: left;
     line-height: 1.8;
-    white-space: nowrap;
+    white-space: wrap;
 }
 
 /* お問い合わせ欄のテキストは常に折り返しを許可 */
@@ -357,9 +392,13 @@ header .container {
     object-fit: contain; /* 画像の比率を維持 */
 }
 
+/* con2セクションのレイアウト比率を調整 (テキスト3:画像2) */
+.con2 .con-text { flex: 5; }
+.con2 .con-img { flex: 4; }
+
 /* con3セクションのレイアウト比率を調整 (テキスト3:画像2) */
-.con3 .con-text { flex: 3; }
-.con3 .con-img { flex: 2; }
+.con3 .con-text { flex: 5; }
+.con3 .con-img { flex: 4; }
 
 /* con4セクションの固有スタイル */
 .con4 .con-text h3 {
@@ -575,11 +614,36 @@ footer .container {
     .head-nav a::before { display: none; }
 
     /* --- ファーストビュー --- */
-    .hero h1 {
-        font-size: 26px;
-        margin: 0 5vw;
-        text-align: center;
+    /* ▼▼▼ スマホ表示用にタイトルスタイルを変更 ▼▼▼ */
+    .hero .hero-title {
+        margin: 0 10vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* 中央揃えから左揃えに変更 */
+        text-align: left; /* 中央揃えから左揃えに変更 */
     }
+
+    .hero-title .line {
+        justify-content: flex-start; /* 中央揃えから左揃えに変更 */
+        margin-bottom: 0.5em;
+    }
+
+    .hero-title .large-char {
+        font-size: 4rem;
+        margin-right: 0.3em;
+    }
+
+    .hero-title .small-text {
+        font-size: 1.2rem;
+        text-align: left;
+    }
+
+    .hero-title .bottom-line {
+        font-size: 1.3rem;
+        margin-top: 1em;
+    }
+    /* ▲▲▲ スマホ表示用にタイトルスタイルを変更 ▲▲▲ */
+
 
     /* --- コンテンツ --- */
     .con1, .con2, .con3, .con4 { width: 90%; }
@@ -608,11 +672,22 @@ footer .container {
         flex-direction: column;
     }
     
+    .con2 h2,
+    .con3 h2,
+    .con4 h2 {
+    padding-bottom: 20px;
+    }
+
     .con2 .con-img img,
     .con3 .con-img img {
         height: auto;
         max-width: 100%;
     }
+
+    .con2 .con-text,
+    .con3 .con-text {
+    padding-bottom: 30px;
+}
 
     .contact-arrow { display: none; } /* 矢印を非表示 */
 

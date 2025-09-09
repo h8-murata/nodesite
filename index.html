@@ -20,16 +20,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
-    <script>
-  (function(d) {
-    var config = {
-      kitId: 'vnh2zxp',
-      scriptTimeout: 3000,
-      async: true
-    },
-    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-  })(document);
-</script>
 </head>
 
 <body>
@@ -68,7 +58,26 @@
         <div class="slide"></div>
         <div class="slide"></div>
         <div class="container">
-            <h1>人と人、人と企業、<br>人と技術、人とアイデア、<br>人とビジネスを繋ぐ。</h1>
+            <!-- 画像レイアウトに合わせてh1からdivベースの構造に変更 -->
+            <div class="hero-title">
+                <div class="line">
+                    <span class="large-char">人</span>
+                    <div class="small-text">
+                        <span>と人</span>
+                        <span>と企業</span>
+                    </div>
+                </div>
+                <div class="line">
+                    <span class="large-char">人</span>
+                    <div class="small-text">
+                        <span>と技術</span>
+                        <span>とアイデア</span>
+                    </div>
+                </div>
+                <div class="bottom-line">
+                    人とビジネスを繋ぐ
+                </div>
+            </div>
         </div>
     </section>
     <!-- ▲▲▲ ファーストビューの構造を変更 ▲▲▲ -->
@@ -78,17 +87,17 @@
             <div class="con-object">
                 <div class="con-text">
                     <p>
-                        顧客が求める製品・サービスを提供することが<br>
-                        企業の使命であり、常に新しい発想を創造し、<br>
-                        革新的な技術とサービスを以って顧客満足を追求し、<br>
-                        それによって社会貢献が実現することを目指します。
+                        私たちの使命は、単に製品やサービスを提供することではなく
+                        新しい発想と革新的な技術で、「感動」を創造すること。
+                        その一つひとつの満足が、社会を豊かにする力になると信じて。
+                        私たちは未来のために、挑戦し続けます。
                     </p>
-                    <a href="AboutUs.html" class="read-button">詳しく見る</a>
                 </div>
                 <div class="con-img">
                     <img src="img/LobbySpace.jpg" alt="pic" loading="lazy">
                 </div>
             </div>
+            <a href="AboutUs.html" class="read-button">詳しく見る</a>
         </div>
     </section>
     <section class="con1">
@@ -141,18 +150,18 @@
             <div class="con-object">
                 <div class="con-text">
                     <p>
-                        未来を創る！私たちと一緒に、<br>IT業界を牽引するSES企業で成長しませんか？<br>
-                        当社は、最新技術を駆使したプロジェクトに携わり、<br>エンジニアとしてのスキルを最大限に活かせる環境を提供します。<br>
-                        充実した研修制度やサポート体制で、<br>経験の浅い方でも安心してステップアップ可能。<br>
-                        社員同士のコミュニケーションも活発で、<br>チームワークを大切にしています。<br>
-                        あなたのチャレンジ精神をお待ちしています！<br>魅力的な待遇と働きやすさを実感してください。
+                        IT業界を牽引するSES企業で、未来を創る仲間を募集中です。<br>
+                        最新技術プロジェクトでスキルを最大限に活かせます。
+                        充実の研修とサポートで、経験が浅い方も安心。
+                        チームワークを大切にする社風で、あなたをお待ちしています。
+                        魅力的な待遇と働きやすさが自慢です。
                     </p>
-                    <a href="Recruit.html" class="read-button">詳しく見る</a>
                 </div>
                 <div class="con-img">
                     <img src="img/dep_img_03_f.jpg" alt="pic" loading="lazy">
                 </div>
             </div>
+            <a href="Recruit.html" class="read-button">詳しく見る</a>
         </div>
     </section>
     <section class="con4">
@@ -233,7 +242,7 @@
 
     <!-- ▼▼▼ トップに戻るボタンを追加 ▼▼▼ -->
     <a href="#" id="to-top-btn">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-up"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </a>
     <!-- ▲▲▲ トップに戻るボタンを追加 ▲▲▲ -->
 
