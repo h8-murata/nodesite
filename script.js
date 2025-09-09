@@ -95,22 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// ===== リクルート入力欄 =====
-document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.querySelector('.accordion-toggle');
-    const content = document.querySelector('.accordion-content');
 
-    toggleBtn.addEventListener('click', () => {
-        const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
-        if (isOpen) {
-            content.style.maxHeight = "0";
-            toggleBtn.textContent = "応募フォームを開く";
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-            toggleBtn.textContent = "応募フォームを閉じる";
-        }
-    });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
     const toggle = document.querySelector(".accordion-toggle");
@@ -169,3 +154,20 @@ function showPopup(message, type) {
         popup.classList.add('hidden');
     }, 3000); // 3秒後に非表示
 }
+
+// ===== リクルート入力欄 =====
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.accordion-toggle');
+    const content = document.querySelector('.accordion-content');
+
+    toggleBtn.addEventListener('click', () => {
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== "0px";
+        if (isOpen) {
+            content.style.maxHeight = "0";
+            toggleBtn.textContent = "応募フォームを開く";
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            toggleBtn.textContent = "応募フォームを閉じる";
+        }
+    });
+});

@@ -223,7 +223,7 @@ table th {
 }
 
 .application-process ul::before {
-    content: "";
+    content: ""; 
     position: absolute;
     top: 0;
     left: 25px;
@@ -233,8 +233,81 @@ table th {
 }
 
 .application-process li {
+    content: "";
     position: relative;
     padding-left: 60px;
+}
+
+.application-process .step-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #0073e6;
+    color: #0073e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}   
+
+.application-process .step-content h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2em;
+}
+
+.application-process .step-content p {
+    margin: 0;
+    color: #555;
+    line-height: 1.5;
+}
+.application-process {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.application-process h2 {
+    margin-bottom: 30px;
+    font-size: 26px;
+    border-bottom: 2px solid #0073e6;
+    padding-bottom: 8px;
+}
+
+.application-process ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.application-process li {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 40px; /* ステップ間のスペース */
+}
+
+/* 縦線は各liの左側に作る */
+.application-process li::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 2px;
+    height: 100%;
+    background: #ccc;
+}
+
+/* 最後のステップは線を半分にする */
+.application-process li:last-child::before {
+    height: 50%;
 }
 
 .application-process .step-number {
@@ -264,7 +337,15 @@ table th {
     color: #555;
     line-height: 1.5;
 }
-
+.application-process ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 2px;
+    height: calc(100% - 50px); /* 最後のステップの高さ分だけ減らす */
+    background: #ccc;
+}
 /* リクルート入力欄 */
 /* セクション幅をjob-sectionと統一 */
 .recruit-form {
@@ -712,7 +793,7 @@ footer .container {
     }
 
     .job-section th {
-        background-color: #f5f5f5;
+        /* background-color: #f5f5f5; */
         padding: 10px;
         font-weight: bold;
         width: auto;

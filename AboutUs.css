@@ -198,11 +198,28 @@ table td {
 }
 
 
+
 iframe {
     border-radius: 10px;
     margin: 10px;
 
 }
+
+.cert-item {
+    margin-bottom: 10px;  /* 項目ごとの間隔を調整 */
+}
+
+.cert-item .station {
+    font-weight: bold;
+    margin-right: 8px;   /* 資格名と人数の間にちょっと余白 */
+}
+
+.access-item {
+    margin-bottom: 10px;  /* 各アクセスの間隔を調整 */
+}
+
+
+
 
 /* ==================================
 フッター (Footer)
