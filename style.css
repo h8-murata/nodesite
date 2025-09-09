@@ -280,6 +280,7 @@ header .container {
     position: relative;
     transition: flex-grow .4s ease-in-out; /* flex-growの変化をアニメーション */
     cursor: pointer;
+    width: 40vw;
 }
 
 .links img {
@@ -653,7 +654,10 @@ footer .container {
         gap: 1rem;
         padding: 1rem;
     }
-    .links a { height: 15rem; }
+    .links a {
+        height: 15rem; 
+        width: 100%;
+    }
 
     /* スマホではテキストを常に表示 */
     .links a::after { opacity: 1; }
