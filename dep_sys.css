@@ -99,14 +99,14 @@ header .container {
 ================================== */
 .hero {
     text-align: center;
-    background: url('img/dep_img_05.jpg') no-repeat center/cover;
+    background: url('img/dep_img_02.jpg') no-repeat center/cover;
     color: white;
     padding: 120px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
 
-.hero h1 {
+/* .hero h1 {
     font-size: 32px;
     text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
     background-color: rgba(135, 167, 204, 0.4);
@@ -115,7 +115,57 @@ header .container {
     padding: 20px 30px;
     width: fit-content;
     margin: 0 auto;
+} */
+
+h1 {
+    font-size: 32px;
+    text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
+    /* background-color: rgba(135, 167, 204, 0.4);
+    backdrop-filter: blur(3px); */
+    border-radius: 10px;
+    padding: 20px 30px;
+    width: fit-content;
+    margin: 50px auto 0;
 }
+
+/* ==================================
+   Breadcrumb
+================================== */
+.breadcrumb {
+    max-width: 1000px;
+    margin: 20px auto 0;
+    padding: 0 30px;
+    font-size: 14px;
+}
+
+.breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumb li:not(:first-child)::before {
+    content: '>';
+    margin: 0 0.5em;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #154360;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb [aria-current="page"] {
+    color: #333;
+    font-weight: normal;
+}
+
 
 /* ==================================
    Content Section
@@ -134,7 +184,7 @@ header .container {
 }
 
 .con2 .container {
-    display: flex;
+    display: block;
     flex-wrap: wrap;
     gap: 20px;
     width: 80%;
@@ -157,21 +207,34 @@ header .container {
     flex-direction: column;
     padding: 15px;
     box-sizing: border-box;
+    margin-bottom: 50px;
 }
 
 .box4 h2 {
     font-size: 20px;
     flex-shrink: 0;
-    text-align: center;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+/* .box4 h2::before {
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    background: url('img/jisseki_icon.png') no-repeat center center;
+    background-size: contain;
+} */
+
 .con-object {
-    display: flex;
+    display: inline-block;
     gap: 10px;
     flex-grow: 1;
+    height: fit-content;
     min-height: 0;
-    flex-direction: column-reverse; /* Display image above text */
     align-items: center;
 }
 
@@ -181,53 +244,16 @@ header .container {
     justify-content: flex-start;
     align-items: stretch;
     flex-grow: 1;
+    margin-bottom: 20px;
+}
+
+.con-text h3 {
+    margin-bottom: 10px;
 }
 
 .con-text p {
     text-align: left;
     line-height: 1.3;
-}
-
-.con-img {
-    width: 100%;
-    height: 150px;
-    flex-shrink: 0;
-}
-
-.con-img img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-
-/* ==================================
-   汎用コンポーネント
-================================== */
-.read-button {
-    display: inline-block;
-    background-color: #154360;
-    color: #fff;
-    padding: 10px 20px;
-    margin: 20px auto;
-    border-radius: 3px;
-    text-decoration: none;
-    font-size: 1em;
-    outline: 0.5px solid #10354d;
-    outline-offset: 0px;
-    transition: outline-offset 0.3s, outline-color 0.3s;
-}
-
-.read-button:hover {
-    animation: light .8s infinite;
-}
-
-/* ボタンホバー時のアウトラインアニメーション */
-@keyframes light {
-    100% {
-        outline-color: transparent;
-        outline-offset: 10px;
-    }
 }
 
 

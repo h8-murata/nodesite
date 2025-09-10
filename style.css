@@ -261,6 +261,7 @@ header .container {
 
 .con1 h2, .con2 h2, .con3 h2, .con4 h2 {
     font-size: 28px;
+    padding-bottom: 20px;
     margin: 10px 0 10px;
 }
 
@@ -344,6 +345,11 @@ header .container {
     white-space: normal;
 }
 
+.con1,.con2,.con3,.con4 {
+    width: 80%;
+    max-width: 1000px;
+    height: fit-content;
+}
 
 /* --- 会社案内 (con2), 採用情報 (con3), お問い合わせ(con4) --- */
 .con2 .con-object,
@@ -384,12 +390,13 @@ header .container {
 .con2 .con-img,
 .con3 .con-img {
     flex: 1;
+    margin-left: 40px;
 }
 
 .con2 .con-img img,
 .con3 .con-img img {
     width: 100%;
-    height: 50vh;
+    height: 100%;
     object-fit: contain; /* 画像の比率を維持 */
 }
 
@@ -431,7 +438,7 @@ header .container {
     background-color: #154360;
     color: #fff;
     padding: 10px 30px;
-    margin: 20px 0;
+    margin: 40px 0 20px;
     border-radius: 3px;
     text-decoration: none;
     font-size: 1em;
@@ -556,6 +563,24 @@ footer .container {
     .links a:hover {
         flex-grow: 10; /* ホバーされた要素を大きく表示 */
     }
+
+    /* ▼▼▼ スクロールアニメーション ▼▼▼ */
+    /* アニメーション前のスタイル */
+    .con1 h2, .con2 h2, .con3 h2, .con4 h2 {
+        transform: translateX(-100px); /* 左に100px移動 */
+        opacity: 0; /* 透明にする */
+        transition: transform 1s ease-out, opacity 1s ease-out;
+    }
+
+    /* アニメーション後のスタイル（クラスを付与して適用） */
+    .con1 h2.slide-in,
+    .con2 h2.slide-in,
+    .con3 h2.slide-in,
+    .con4 h2.slide-in {
+        transform: translateX(0); /* 元の位置に戻す */
+        opacity: 1; /* 不透明にする */
+    }
+    /* ▲▲▲ スクロールアニメーション ▲▲▲ */
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
@@ -753,3 +778,4 @@ footer .container {
 #to-top-btn:hover {
     background-color: #21618C; /* ホバー時の色 */
 }
+
