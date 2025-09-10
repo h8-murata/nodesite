@@ -9,9 +9,9 @@ body {
     font-weight: 400;
     font-style: normal;
     margin: 0;
-    
+
     /* 背景のグラデーションとアニメーション */
-    background: linear-gradient(45deg, #00A99D,#ffffff,#41B6E6,#ffffff,#ffffe0);
+    background: linear-gradient(45deg, #00A99D, #ffffff, #41B6E6, #ffffff, #ffffe0);
     background-size: 200% 200%;
     animation: GradientBackground 15s ease infinite;
 }
@@ -21,9 +21,11 @@ body {
     0% {
         background-position: 0% 100%;
     }
+
     50% {
         background-position: 100% 0%;
     }
+
     100% {
         background-position: 0% 100%;
     }
@@ -34,10 +36,12 @@ body {
 ================================== */
 header {
     /* スクロール時にヘッダーを画面上部に固定 */
-    position: -webkit-sticky; /* Safari対応 */
+    position: -webkit-sticky;
+    /* Safari対応 */
     position: sticky;
     top: 0;
-    z-index: 1000; /* 他の要素より手前に表示 */
+    z-index: 1000;
+    /* 他の要素より手前に表示 */
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
 }
@@ -53,10 +57,11 @@ header .container {
 }
 
 /* ヘッダーとフッターのロゴ画像を共通化 */
-.head-img img, .foot-img img {
-  max-width: 250px;
-  min-width: 150px;
-  height: auto;
+.head-img img,
+.foot-img img {
+    max-width: 250px;
+    min-width: 150px;
+    height: auto;
 }
 
 .head-nav ul {
@@ -84,7 +89,7 @@ header .container {
     bottom: -4px;
     width: 0;
     height: 4px;
-    border-radius: 15px;
+    border-radius: 30px;
     background-color: #154360;
     transition: width 0.3s, background-color 0.3s;
 }
@@ -97,7 +102,105 @@ header .container {
 /* ホバー時に下線を表示（現在のページを除く） */
 .head-nav li:not(.current) a:hover::before {
     width: 100%;
-    background-color: rgb(255, 152, 35); /* ホバー時の色 */
+    background-color: rgb(255, 152, 35);
+    /* ホバー時の色 */
+}
+
+/* お問い合わせ入力欄 */
+.contact-form {
+    max-width: 800px;
+    /* タブと同じ幅 */
+    margin: 0 auto 60px;
+    /* 中央揃え＋下余白 */
+    padding: 20px;
+    background: #fff;
+    /* 背景色を統一 */
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-content {
+    margin-top: 10px;
+}
+
+.contact-application-form label {
+    
+    font-weight: bold;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.contact-application-form input {
+    
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-application-form textarea {
+        width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    min-height: 100px;
+    max-height: 300px;
+    resize: none;
+    overflow-y: hidden;
+}
+
+
+/* 送信結果ポップアップ */
+.contact-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+.contact-popup.success {
+    background-color: #28a745;
+}
+
+.contact-popup.error {
+    background-color: #dc3545;
+}
+
+.contact-popup.show {
+    opacity: 1;
+    top: 50px;
+}
+
+.hidden {
+    display: none;
+}
+
+.contact-application-form button[type="submit"] {
+    padding: 10px 15px;
+    background: #0073e6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-application-form button[type="submit"]:hover {
+    background: #005bb5;
 }
 
 /* ==================================
@@ -110,17 +213,20 @@ header .container {
     padding: 120px 20px;
     /* 画像の下部を滑らかに透過させる */
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); /* Safari対応 */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    /* Safari対応 */
 }
 
 .hero h1 {
     font-size: 32px;
     text-shadow: 5px 4px 4px rgba(97, 97, 97, 0.8);
     background-color: rgba(135, 167, 204, 0.4);
-    backdrop-filter: blur(3px); /* 背景をぼかす */
+    backdrop-filter: blur(3px);
+    /* 背景をぼかす */
     border-radius: 10px;
     padding: 20px 30px;
-    width: fit-content; /* 文字の幅に合わせる */
+    width: fit-content;
+    /* 文字の幅に合わせる */
     margin: 0 auto;
 }
 
@@ -155,7 +261,8 @@ header .container {
     padding: 0 50px;
 }
 
-.con-mail, .con-tell {
+.con-mail,
+.con-tell {
     width: 100%;
     text-align: center;
 }
@@ -250,26 +357,32 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
+
     /* フッターのレイアウトを横並びに設定 */
     .footer-main {
         display: flex;
         align-items: stretch;
     }
+
     .footB {
         flex: 1;
         display: flex;
         align-items: center;
     }
+
     .footC {
         flex: 2;
         display: flex;
     }
-    .footC > div {
+
+    .footC>div {
         flex: 1;
     }
-    .footC > div:not(:first-child) {
+
+    .footC>div:not(:first-child) {
         margin-left: 40px;
     }
+
     .copyright {
         margin-top: 30px;
     }
@@ -277,6 +390,7 @@ footer .container {
 
 /* タブレット向け中間サイズ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
+
     /* ナビゲーションリンクの余白と文字サイズを調整 */
     .head-nav a {
         padding: 15px 10px;
@@ -286,11 +400,13 @@ footer .container {
 
 /* スマホ・タブレット向け (767px以下) */
 @media (max-width: 767px) {
+
     /* ヘッダー：ハンバーガーメニューの設定 */
     header .container {
         height: 70px;
         padding: 0 15px;
     }
+
     .nav-button {
         display: block;
         width: 40px;
@@ -300,6 +416,7 @@ footer .container {
         cursor: pointer;
         z-index: 101;
     }
+
     .nav-button-bar {
         display: block;
         width: 100%;
@@ -308,9 +425,18 @@ footer .container {
         margin: 8px 0;
         transition: transform 0.3s, opacity 0.3s;
     }
-    .nav-open .nav-button-bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .nav-open .nav-button-bar:nth-child(2) { opacity: 0; }
-    .nav-open .nav-button-bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    .nav-open .nav-button-bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .nav-open .nav-button-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-open .nav-button-bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
 
     .nav-wrapper {
         display: none;
@@ -323,22 +449,28 @@ footer .container {
         z-index: 100;
         padding-top: 80px;
     }
+
     .nav-open .nav-wrapper {
         display: block;
     }
+
     .head-nav {
         width: 100%;
         text-align: center;
     }
+
     .head-nav ul {
         flex-direction: column;
     }
+
     .head-nav a {
         padding: 20px;
         font-size: 18px;
     }
+
     .head-nav a::before {
-        display: none; /* スマホでは下線アニメーションを非表示 */
+        display: none;
+        /* スマホでは下線アニメーションを非表示 */
     }
 
     /* ヒーローセクションのタイトル */
@@ -350,27 +482,33 @@ footer .container {
     .contact {
         width: 90%;
     }
-    
+
     .contact .container {
-        flex-direction: column; /* 縦並びにする */
+        flex-direction: column;
+        /* 縦並びにする */
         height: auto;
     }
+
     .con-object {
         padding: 10px 20px;
     }
 
     /* フッター：要素を縦並びに */
-    .footer-main, .footC {
+    .footer-main,
+    .footC {
         flex-direction: column;
         text-align: center;
     }
+
     .footB {
         margin-bottom: 30px;
     }
-    .footC > div {
+
+    .footC>div {
         margin-bottom: 20px;
     }
-    .footC > div:not(:first-child) {
+
+    .footC>div:not(:first-child) {
         margin-left: 0;
     }
 }
@@ -381,7 +519,9 @@ footer .container {
         padding: 15px;
         font-size: 16px;
     }
-    .head-img img, .foot-img img {
+
+    .head-img img,
+    .foot-img img {
         width: 150px;
     }
 }

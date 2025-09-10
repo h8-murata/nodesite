@@ -346,6 +346,8 @@ table th {
     height: calc(100% - 50px); /* 最後のステップの高さ分だけ減らす */
     background: #ccc;
 }
+
+
 /* リクルート入力欄 */
 /* セクション幅をjob-sectionと統一 */
 .recruit-form {
@@ -389,6 +391,8 @@ table th {
 }
 
 .application-form label {
+    
+    font-weight: bold;
     display: block;
     margin-bottom: 15px;
 }

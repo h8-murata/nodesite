@@ -24,29 +24,29 @@
 
 <body>
     <!-- ここからヘッダー -->
-<header>
-    <div class="container">
-        <div class="head-img">
-            <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
+    <header>
+        <div class="container">
+            <div class="head-img">
+                <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
             </div>
-        <button class="nav-button" type="button" aria-label="メニュー">
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-        </button>
-        <div class="nav-wrapper">
-            <nav class="head-nav">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="AboutUs.html">会社案内</a></li>
-                    <li><a href="department.html">事業内容</a></li>
-                    <li><a href="Recruit.html">募集要項</a></li>
-                    <li class="current"><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </nav>
+            <button class="nav-button" type="button" aria-label="メニュー">
+                <span class="nav-button-bar"></span>
+                <span class="nav-button-bar"></span>
+                <span class="nav-button-bar"></span>
+            </button>
+            <div class="nav-wrapper">
+                <nav class="head-nav">
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="AboutUs.html">会社案内</a></li>
+                        <li><a href="department.html">事業内容</a></li>
+                        <li><a href="Recruit.html">募集要項</a></li>
+                        <li class="current"><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
     <section class="hero">
         <h1>お問い合わせ</h1>
     </section>
@@ -68,6 +68,45 @@
             </div>
         </div>
     </section>
+
+    <section class="contact-form">
+        <h2>お問い合わせ入力フォーム</h2>
+        <div class="contact-content">
+            <form class="contact-application-form">
+                <label>
+                    お問い合わせ内容：
+                    <textarea id="message" name="message" placeholder="例）お問い合わせ内容をご入力ください"></textarea>
+                </label>
+
+                <label>
+                    会社・団体名：
+                    <input type="text" name="company" placeholder="例）株式会社Union Point Systems">
+                </label>
+
+                <label>
+                    ご担当者様名：
+                    <input type="text" name="name" placeholder="例）山田 太郎">
+                </label>
+
+                <label>
+                    電話番号：
+                    <input type="tel" name="phone" placeholder="例）XXX-XXX-XXXX">
+                </label>
+
+                <label>
+                    メールアドレス：
+                    <input type="email" name="email" placeholder="例）example@mail.com">
+                </label>
+
+                <button type="submit">送信する</button>
+            </form>
+        </div>
+
+        <!-- 送信結果ポップアップ -->
+        <div id="popup" class="contact-popup hidden"></div>
+
+    </section>
+
 
     <!-- ここからフッター -->
     <footer>
@@ -143,7 +182,7 @@
             if (link) {
                 // new URL() を使わずに直接 pathname を取得するように修正
                 const linkPath = link.pathname;
-                
+
                 // 現在のパスとリンクのパスが一致するか、
                 // または現在のパスがルート("/")でリンクが"index.html"の場合に 'current' クラスを追加
                 if (linkPath === currentPath || (currentPath === '/' && linkPath.endsWith('/index.html'))) {
@@ -155,7 +194,9 @@
             }
         });
     </script>
+
+    <script src="contact.js"></script>
+
 </body>
 
 </html>
-
