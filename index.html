@@ -324,6 +324,29 @@
             });
         });
         // ▲▲▲ トップに戻るボタンのスクリプトを追加 ▲▲▲
+
+        // ▼▼▼ スクロールアニメーションのスクリプトを追加 ▼▼▼
+        const targets = document.querySelectorAll('.con1 h2, .con2 h2, .con3 h2, .con4 h2');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // isIntersectingプロパティで、要素がビューポート内に入ったか判定
+                if (entry.isIntersecting) {
+                    // .slide-inクラスを付与
+                    entry.target.classList.add('slide-in');
+                    // 一度アニメーションしたら、監視を停止
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1 // 要素が10%見えたらトリガー
+        });
+
+        // 各ターゲット要素の監視を開始
+        targets.forEach(target => {
+            observer.observe(target);
+        });
+        // ▲▲▲ スクロールアニメーションのスクリプトを追加 ▲▲▲
     </script>
 </body>
 </html>
