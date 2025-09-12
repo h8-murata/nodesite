@@ -87,6 +87,7 @@ header .container {
 
 .head-nav ul {
     display: flex;
+    align-items: center; /* 中央揃えを追加 */
     margin: 0;
     padding: 0;
     list-style: none;
@@ -107,9 +108,9 @@ header .container {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: 2px;
     width: 0;
-    height: 4px;
+    height: 2px;
     border-radius: 15px;
     background-color: #154360;
     transition: width 0.3s, background-color 0.3s;
@@ -125,6 +126,29 @@ header .container {
     width: 100%;
     background-color: rgb(255, 152, 35);
 }
+
+/* ▼▼▼ お問い合わせリンクのスタイルを追加 ▼▼▼ */
+.head-nav .contact-link a {
+    background-color: #154360; /* ベースカラー */
+    color: #fff; /* 白文字 */
+    border-radius: 5px; /* 角を丸くする */
+    margin-left: 10px; /* 左側に少し余白 */
+    padding: 10px 20px; /* 内側の余白を調整 */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* お問い合わせリンクのホバー効果 */
+.head-nav .contact-link a:hover {
+    background-color: #21618C; /* ホバー時の色を少し明るく */
+    transform: translateY(-2px); /* 少し上に動かす */
+    color: #fff; /* ホバー時も白文字 */
+}
+
+/* お問い合わせリンクの下線アニメーションを無効化 */
+.head-nav .contact-link a::before {
+    content: none;
+}
+/* ▲▲▲ お問い合わせリンクのスタイルを追加 ▲▲▲ */
 
 
 /* ==================================
@@ -639,6 +663,13 @@ footer .container {
     .head-nav ul { flex-direction: column; }
     .head-nav a { padding: 20px; font-size: 18px; }
     .head-nav a::before { display: none; }
+    
+    /* スマホ表示時のお問い合わせボタンの調整 */
+    .head-nav .contact-link a {
+        margin: 10px auto; /* 上下に余白を追加 */
+        width: 80%; /* 幅を調整 */
+    }
+
 
     /* --- ファーストビュー --- */
     /* ▼▼▼ スマホ表示用にタイトルスタイルを変更 ▼▼▼ */

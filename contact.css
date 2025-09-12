@@ -86,9 +86,9 @@ header .container {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: 2px;
     width: 0;
-    height: 4px;
+    height: 2px;
     border-radius: 30px;
     background-color: #154360;
     transition: width 0.3s, background-color 0.3s;
@@ -218,15 +218,13 @@ header .container {
 }
 
 .hero h1 {
-    font-size: 32px;
-    text-shadow: 5px 4px 4px rgba(97, 97, 97, 0.8);
-    background-color: rgba(135, 167, 204, 0.4);
-    backdrop-filter: blur(3px);
-    /* 背景をぼかす */
+    font-size: 38px;
+    text-shadow:5px 4px 4px rgba(44, 44, 59, 0.8);
+    /* background-color: rgba(135, 167, 204, 0.4);
+    backdrop-filter: blur(3px); */
     border-radius: 10px;
     padding: 20px 30px;
     width: fit-content;
-    /* 文字の幅に合わせる */
     margin: 0 auto;
 }
 

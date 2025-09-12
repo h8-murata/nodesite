@@ -38,9 +38,9 @@
                 <ul>
                     <li><a href="index.html">ホーム</a></li>
                     <li><a href="AboutUs.html">会社案内</a></li>
-                    <li><a href="department.html">事業内容</a></li>
+                    <li class="current"><a href="department.html">事業内容</a></li>
                     <li><a href="Recruit.html">募集要項</a></li>
-                    <li><a href="contact.html">お問い合わせ</a></li>
+                    <li class="contact-link"><a href="contact.html">お問い合わせ</a></li>
                 </ul>
             </nav>
         </div>
@@ -67,9 +67,6 @@
                         <p>
                             お客様のビジネス課題を解決するシステムを企画から開発、運用までサポートします。
                             業務効率化や新規事業に貢献するシステムを、お客様のニーズに合わせて開発します。
-                            <!-- <br>
-                            若手PGが多く、詳細設計以降やテスト支援などは複数名体制での一括受注が可能です。<br>
-                            近年はAI教育に力を入れ、スピード・品質・拡張性を意識した業務支援を進めいています。 -->
                         </p>
                     </div>
                     <div class="con-img">
@@ -85,9 +82,6 @@
                         <p>
                             小規模ビジネスや個人活動向けWebサイトを構築します
                             コンサルティング、SEO対策、運用保守等、ワンストップで対応しています。
-                            <!-- <br>
-                            生成AIの活用にてサイト制作の時間数も従来より削減しての提供が可能になりました。<br>
-                            UI,UX共にデザインやアイデアの幅が広がり、更なる迅速かつ柔軟なサイト構築を目指しています。 -->
                         </p>
                     </div>
                     <div class="con-img">
@@ -133,9 +127,6 @@
                         <p>
                             ゲーム関連業務のオンサイト支援業務並びに自社アプリ開発してます。
                             開発やデザイン、テスト、運用まで受注実績があります。
-                            <!-- <br>
-                            また現在は生成ＡＩを用いたプログラマー、デザイナーの育成と<br>
-                            自社ゲームアプリの高速開発を進めている。 -->
                         </p>
                     </div>
                     <div class="con-img">
@@ -217,10 +208,69 @@
         </div>
     </footer>
 
-    <script src="department.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Navigation Slider ---
+        const nav = document.querySelector('.head-nav ul');
+        
+        // Check if it's PC view using media query
+        if (nav && window.matchMedia('(min-width: 768px)').matches) {
+            const currentItem = nav.querySelector('.current');
 
+            const setSliderPosition = (targetItem) => {
+                if (!targetItem) return;
+                const rect = targetItem.getBoundingClientRect();
+                const navRect = nav.getBoundingClientRect();
 
+                const height = 40; // Height of the ellipse
+
+                nav.style.setProperty('--slider-width', `${rect.width}px`);
+                nav.style.setProperty('--slider-left', `${rect.left - navRect.left}px`);
+                nav.style.setProperty('--slider-height', `${height}px`);
+            };
+
+            // Set initial position
+            if (currentItem) {
+                setTimeout(() => setSliderPosition(currentItem), 100);
+            }
+            
+            // Hover events for items that are NOT the contact link
+            nav.querySelectorAll('li:not(.contact-link)').forEach(item => {
+                item.addEventListener('mouseover', () => {
+                    setSliderPosition(item);
+                });
+            });
+
+            // Mouseleave event
+            nav.addEventListener('mouseleave', () => {
+                 if (currentItem) {
+                    setSliderPosition(currentItem);
+                 } else {
+                    // If no current item, hide the slider
+                    nav.style.setProperty('--slider-width', `0px`);
+                 }
+            });
+
+            // Recalculate on window resize
+            window.addEventListener('resize', () => {
+                 if (currentItem) {
+                    setSliderPosition(currentItem);
+                 }
+            });
+        }
+
+        // --- Hamburger Menu ---
+        const navButton = document.querySelector('.nav-button');
+        const body = document.body;
+        if(navButton) {
+            navButton.addEventListener('click', () => {
+                body.classList.toggle('nav-open');
+            });
+        }
+    });
+    </script>
     <script src="style.js"></script>
 </body>
 
 </html>
+

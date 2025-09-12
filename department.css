@@ -9,7 +9,7 @@ body {
     font-weight: 400;
     font-style: normal;
     margin: 0;
-    background: linear-gradient(45deg, #00A99D,#ffffff,#41B6E6,#ffffff,#ffffe0);
+    background: linear-gradient(45deg, #a2daf7,#eff9fe,#dce9ad,#7fc8b8);
     background-size: 200% 200%;
     animation: GradientBackground 15s ease infinite;
 }
@@ -55,44 +55,71 @@ header .container {
   height: auto;
 }
 
+/* --- Navigation Styles --- */
 .head-nav ul {
+    position: relative; /* Base for the sliding element */
     display: flex;
+    align-items: center; /* Vertically align items */
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+/* Sliding ellipse background */
+.head-nav ul::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    /* Position and size are set by JavaScript via CSS variables */
+    left: var(--slider-left, 0);
+    width: var(--slider-width, 0);
+    height: var(--slider-height, 0);
+    background-color: rgba(135, 167, 204, 0.4);
+    border-radius: 9999px; /* To make it an ellipse */
+    transform: translateY(-50%);
+    transition: left 0.3s ease-out, width 0.3s ease-out;
+    z-index: 0;
+}
+
+.head-nav li {
+    position: relative; /* To ensure text is above the background */
+    z-index: 1;
+}
+
 .head-nav a {
-    position: relative;
     display: block;
-    padding: 15px 12px;
+    padding: 10px 20px; /* Adjust padding for ellipse size */
     color: #154360;
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
-.head-nav a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 4px;
-    border-radius: 15px;
-    background-color: #154360;
-    transition: width 0.3s, background-color 0.3s;
+/* Text color for current and hovered items (excluding contact link) */
+.head-nav li.current a,
+.head-nav ul:hover li:not(.contact-link):hover a {
+    color: rgb(50, 50, 63);;
 }
 
-/* Underline for current page and on hover */
-.head-nav li.current a::before {
-    width: 100%;
+/* --- Contact Link Styles --- */
+.head-nav li.contact-link a {
+    background-color: rgb(255, 136, 0); /* Teal color for emphasis */
+    color: #fff;
+    border: 2px;
+    border-radius: 5px;
+    margin-left: 15px; /* Add some space */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.head-nav li:not(.current) a:hover::before {
-    width: 100%;
-    background-color: rgb(255, 152, 35);
+.head-nav li.contact-link a:hover {
+    background-color: rgb(223, 130, 23); /* Darker teal on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+    color: #fff; /* Ensure color stays white on hover */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
+
 
 /* ==================================
    Hero Section
@@ -107,10 +134,10 @@ header .container {
 }
 
 .hero h1 {
-    font-size: 32px;
-    text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
-    background-color: rgba(135, 167, 204, 0.4);
-    backdrop-filter: blur(3px);
+    font-size: 38px;
+    text-shadow:5px 4px 4px rgba(44, 44, 59, 0.8);
+    /* background-color: rgba(135, 167, 204, 0.4);
+    backdrop-filter: blur(3px); */
     border-radius: 10px;
     padding: 20px 30px;
     width: fit-content;
@@ -299,6 +326,9 @@ footer .container {
 
 /* For PC & Tablet (768px and up) */
 @media (min-width: 768px) {
+    .nav-button {
+        display: none;
+    }
     .footer-main {
         display: flex;
         align-items: stretch;
@@ -361,9 +391,9 @@ footer .container {
         margin: 8px 0;
         transition: transform 0.3s, opacity 0.3s;
     }
-    .nav-open .nav-button-bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .nav-open .nav-button-bar:nth-child(2) { opacity: 0; }
-    .nav-open .nav-button-bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+    body.nav-open .nav-button-bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+    body.nav-open .nav-button-bar:nth-child(2) { opacity: 0; }
+    body.nav-open .nav-button-bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
 
     .nav-wrapper {
         display: none;
@@ -376,7 +406,7 @@ footer .container {
         z-index: 100;
         padding-top: 80px;
     }
-    .nav-open .nav-wrapper {
+    body.nav-open .nav-wrapper {
         display: block;
     }
     .head-nav {
@@ -385,14 +415,24 @@ footer .container {
     }
     .head-nav ul {
         flex-direction: column;
+        align-items: center;
+    }
+    .head-nav li {
+        margin-bottom: 10px;
     }
     .head-nav a {
         padding: 20px;
         font-size: 18px;
+        color: #154360 !important; /* Reset color */
     }
-    .head-nav a::before {
-        display: none;
+    .head-nav ul::before {
+        display: none; /* Hide slider on mobile */
     }
+    .head-nav li.contact-link a {
+        margin-left: 0;
+        padding: 10px 30px;
+    }
+
 
     /* Hero */
     .hero h1 {
@@ -450,3 +490,4 @@ footer .container {
         width: 150px;
     }
 }
+
