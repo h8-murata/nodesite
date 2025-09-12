@@ -11,7 +11,7 @@
     <!-- Reset CSS -->
     <link rel="stylesheet" href="destyle.css">
     <!-- Style CSS -->
-    <link rel="stylesheet" href="dep.css">
+    <link rel="stylesheet" href="dep_sys.css">
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.typekit.net/rxl1nhd.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +47,8 @@
     </div>
 </header>
     <!-- Hero Section -->
-    <section class="hero" style="background: url('img/dep_img_02.jpg') no-repeat center/cover;">
+    <section class="hero">
+        <!-- <h1>システム開発事業部</h1> -->
     </section>
 
     <!-- Breadcrumb -->
@@ -178,31 +179,9 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Script for hamburger menu
-        const navButton = document.querySelector('.nav-button');
-        const body = document.querySelector('body');
 
-        navButton.addEventListener('click', () => {
-            body.classList.toggle('nav-open');
-        });
-
-        // Script to apply style to the current page's navigation item
-        const currentPath = window.location.pathname;
-        const navItems = document.querySelectorAll('.head-nav ul li');
-
-        navItems.forEach(item => {
-            const link = item.querySelector('a');
-            if (link) {
-                const linkPath = link.pathname;
-                // Add 'current' class if the link's path matches the current page's path.
-                // Handle the case where the root path "/" should match "index.html".
-                if (linkPath === currentPath || (currentPath === '/' && linkPath.endsWith('/index.html'))) {
-                    item.classList.add('current');
-                }
-            }
-        });
-    </script>
+    <script src="style.js"></script>
+    
 </body>
 
 </html>

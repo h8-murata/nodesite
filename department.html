@@ -216,31 +216,11 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Script for hamburger menu
-        const navButton = document.querySelector('.nav-button');
-        const body = document.querySelector('body');
 
-        navButton.addEventListener('click', () => {
-            body.classList.toggle('nav-open');
-        });
+    <script src="department.js"></script>
 
-        // Script to apply style to the current page's navigation item
-        const currentPath = window.location.pathname;
-        const navItems = document.querySelectorAll('.head-nav ul li');
 
-        navItems.forEach(item => {
-            const link = item.querySelector('a');
-            if (link) {
-                const linkPath = link.pathname;
-                // Add 'current' class if the link's path matches the current page's path.
-                // Handle the case where the root path "/" should match "index.html".
-                if (linkPath === currentPath || (currentPath === '/' && linkPath.endsWith('/index.html'))) {
-                    item.classList.add('current');
-                }
-            }
-        });
-    </script>
+    <script src="style.js"></script>
 </body>
 
 </html>

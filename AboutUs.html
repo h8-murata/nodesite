@@ -239,32 +239,10 @@
             </div>
         </div>
     </footer>
-    <script>
-        // ハンバーガーメニューのスクリプト
-        const navButton = document.querySelector('.nav-button');
-        const body = document.querySelector('body');
 
-        navButton.addEventListener('click', () => {
-            body.classList.toggle('nav-open');
-        });
-
-        // ▼▼▼ 現在のページを示すナビゲーションのスタイルを適用するスクリプトを修正 ▼▼▼
-        const currentPath = window.location.pathname;
-        const navItems = document.querySelectorAll('.head-nav ul li');
-
-        navItems.forEach(item => {
-            const link = item.querySelector('a');
-            if (link) {
-                const linkPath = link.pathname; // new URL() を使わずに直接 pathname を取得
-                // If the link's path matches the current page's path, add the 'current' class.
-                // Also, handle the case where the root path "/" should match "index.html".
-                if (linkPath === currentPath || (currentPath === '/' && linkPath.endsWith('/index.html'))) {
-                    item.classList.add('current');
-                }
-            }
-        });
-        // ▲▲▲ 現在のページを示すナビゲーションのスタイルを適用するスクリプトを修正 ▲▲▲
-    </script>
+    
+    <script src="style.js"></script>
+    
 </body>
 
 </html>
