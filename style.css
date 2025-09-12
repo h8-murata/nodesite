@@ -565,18 +565,19 @@ footer .container {
     }
 
     /* ▼▼▼ スクロールアニメーション ▼▼▼ */
+    /* アニメーションの対象をh2から.con1, .con2などに変更 */
     /* アニメーション前のスタイル */
-    .con1 h2, .con2 h2, .con3 h2, .con4 h2 {
+    .con1, .con2, .con3, .con4 {
         transform: translateX(-100px); /* 左に100px移動 */
         opacity: 0; /* 透明にする */
         transition: transform 1s ease-out, opacity 1s ease-out;
     }
 
     /* アニメーション後のスタイル（クラスを付与して適用） */
-    .con1 h2.slide-in,
-    .con2 h2.slide-in,
-    .con3 h2.slide-in,
-    .con4 h2.slide-in {
+    .con1.slide-in,
+    .con2.slide-in,
+    .con3.slide-in,
+    .con4.slide-in {
         transform: translateX(0); /* 元の位置に戻す */
         opacity: 1; /* 不透明にする */
     }

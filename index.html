@@ -110,31 +110,31 @@
                         <h3>システム開発事業部</h3>
                     </div>
                 </a>
-                <a href="department.html">
+                <a href="dep_web.html">
                     <img src="img/dep_img_01.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>Webクリエーター事業部</h3>
                     </div>
                 </a>
-                <a href="department.html">
+                <a href="dep_net.html">
                     <img src="img/network_0.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>ネットワーク事業部</h3>
                     </div>
                 </a>
-                <a href="department.html">
+                <a href="dep_sys.html">
                     <img src="img/dep_img_07.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>クラウド・サーバー事業部</h3>
                     </div>
                 </a>
-                <a href="department.html">
+                <a href="dep_sys.html">
                     <img src="img/dep_img_04.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>エンタメ事業部</h3>
                     </div>
                 </a>
-                                <a href="department.html">
+                <a href="dep_sys.html">
                     <img src="img/dep_img_08.jpg" alt="pic" loading="lazy">
                     <div class="link-text">
                         <h3>データベース事業部</h3>
@@ -164,7 +164,7 @@
             <a href="Recruit.html" class="read-button">詳しく見る</a>
         </div>
     </section>
-    <section class="con4">
+    <!-- <section class="con4">
         <div class="container">
             <h2>お問い合わせ</h2>
             <div class="con-object">
@@ -184,7 +184,7 @@
             </div>
             <a href="contact.html" class="read-button">お問い合わせはこちら</a>
         </div>
-    </section>
+    </section> -->
     <!-- ここからフッター -->
     <footer>
         <div class="container">
@@ -325,28 +325,39 @@
         });
         // ▲▲▲ トップに戻るボタンのスクリプトを追加 ▲▲▲
 
-        // ▼▼▼ スクロールアニメーションのスクリプトを追加 ▼▼▼
-        const targets = document.querySelectorAll('.con1 h2, .con2 h2, .con3 h2, .con4 h2');
+        // ▼▼▼ スクロールアニメーションのスクリプトを修正 ▼▼▼
+        const targets = document.querySelectorAll('.con1, .con2, .con3, .con4');
 
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                // isIntersectingプロパティで、要素がビューポート内に入ったか判定
-                if (entry.isIntersecting) {
-                    // .slide-inクラスを付与
-                    entry.target.classList.add('slide-in');
-                    // 一度アニメーションしたら、監視を停止
-                    observer.unobserve(entry.target);
-                }
+        const navigationType = performance.navigation.type;
+        const hasVisited = sessionStorage.getItem('visited');
+
+        // 初回アクセス時、またはリフレッシュ時にアニメーションを実行
+        if (!hasVisited || navigationType === 1) {
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // isIntersectingプロパティで、要素がビューポート内に入ったか判定
+                    if (entry.isIntersecting) {
+                        // .slide-inクラスを付与
+                        entry.target.classList.add('slide-in');
+                        // 一度アニメーションしたら、監視を停止
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // 要素が10%見えたらトリガー
             });
-        }, {
-            threshold: 0.1 // 要素が10%見えたらトリガー
-        });
 
-        // 各ターゲット要素の監視を開始
-        targets.forEach(target => {
-            observer.observe(target);
-        });
-        // ▲▲▲ スクロールアニメーションのスクリプトを追加 ▲▲▲
+            // 各ターゲット要素の監視を開始
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        } else {
+            // 他のページから遷移してきた場合は、アニメーションなしで要素を即時表示
+            targets.forEach(target => {
+                target.classList.add('slide-in');
+            });
+        }
+        // ▲▲▲ スクロールアニメーションのスクリプトを修正 ▲▲▲
     </script>
 </body>
 </html>
