@@ -414,7 +414,6 @@ header .container {
 .con2 .con-img,
 .con3 .con-img {
     flex: 1;
-    margin-left: 40px;
 }
 
 .con2 .con-img img,
