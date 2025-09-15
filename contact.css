@@ -149,7 +149,8 @@ header .container {
 }
 
 /* タイトル */
-.contact-title {
+.contact-intro-title,
+.contact-recruit-title {
     font-weight: bold;
     margin-top: 80px;
     /* 上の余白 */
@@ -159,16 +160,18 @@ header .container {
     /* タイトルと線の隙間 */
     border-bottom: 2px solid #007bff;
     /* 横いっぱいの線 */
-    text-align: left !important;
-    padding-left: 90px;
-    /* ← 少し右に寄せる */
-
+    text-align: left;
+    /* 左寄せに変更 */
+    padding-left: 94px;
+    /* PC版のパディングを適用 */
     letter-spacing: 4px;
     /* 大きめに広げる */
+    font-size: 26px;
 }
 
 /* お問い合わせフォーム用タイトル */
-.contact-form-title {
+.contact-form-title,
+.contact-tel-title {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
@@ -179,7 +182,6 @@ header .container {
     /* 線との間隔 */
     color: #21435e;
     /* 紺色 */
-
     letter-spacing: 4px;
     /* 大きめに広げる */
 }
@@ -206,14 +208,7 @@ header .container {
 
 
 
-.contact-section h2 {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-size: 24px;
-    text-align: center;
-    font-weight: bold;
-    /* 太字 */
-}
+
 
 
 .contact-content {
@@ -423,19 +418,6 @@ header .container {
 
 
 /* 電話案内用タイトル */
-.contact-tel-title {
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    /* 真ん中 */
-    margin-bottom: 10px;
-    color: #21435e;
-    /* 紺色 */
-
-    letter-spacing: 4px;
-    /* 大きめに広げる */
-}
-
 .contact-tel .tel-time {
     font-size: 14px;
     margin-bottom: 15px;
@@ -475,13 +457,6 @@ header .container {
     padding-top: 20px;
 }
 
-/* タイトル */
-.contact-recruit-title {
-    font-weight: bold;
-    font-size: 26px;
-    margin-bottom: 20px;
-    text-align: center;
-}
 
 /* 文章 */
 .recruit-text {
@@ -788,6 +763,19 @@ footer .container {
 ================================== */
 @media (max-width: 767px) {
 
+    .contact-intro-title,
+    .contact-recruit-title {
+        padding-left: 0;
+        /* 左寄せのパディングをリセット */
+        text-align: center;
+        /* 中央寄せにする場合 */
+        font-size: 20px;
+        /* PCサイズより小さく */
+        letter-spacing: 2px;
+        /* 文字間隔を調整 */
+    }
+
+
     .contact-section,
     .contact-tel {
         width: 90%;
@@ -798,7 +786,7 @@ footer .container {
         /* 上下20px、左右自動で中央揃え */
         padding: 15px;
         /* 内側の余白 */
-    
+
     }
 
     .contact-section .contact-title {
@@ -821,18 +809,9 @@ footer .container {
         font-size: 14px;
     }
 
-    .contact-tel .tel-btn {
-        width: 90%;
-        max-width: none;
-        padding: 12px 0;
-        font-size: 16px;
-        letter-spacing: 2px;
-        margin: 0 auto;
-        display: block;
-        text-align: center;
-    }
-        .contact-recruit .recruit-btn {
-        width: 75%;
+    .contact-tel .tel-btn,
+    .contact-recruit .recruit-btn {
+        width: 250px;
         max-width: none;
         padding: 12px 0;
         font-size: 16px;
@@ -862,6 +841,7 @@ footer .container {
         font-size: 16px;
     }
 }
+
 /* ==================================
    スマホ向け (768px以下)
 ================================== */
@@ -875,20 +855,13 @@ footer .container {
 
         /* 角丸＋影 */
         border-radius: 5px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         background-color: #fff;
     }
 
     .contact-section .contact-title {
-        font-size: 20px;
+        font-size: 22px;
         padding-left: 0;
-        letter-spacing: 2px;
-    }
-
-    .contact-form-title {
-        font-size: 16px;
-        margin-top: 30px;
-        margin-bottom: 30px;
         letter-spacing: 2px;
     }
 
@@ -911,7 +884,7 @@ footer .container {
 
         /* 角丸＋影 */
         border-radius: 5px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         background-color: #fff;
     }
 
