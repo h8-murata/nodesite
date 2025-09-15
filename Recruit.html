@@ -251,8 +251,7 @@
 
 
 
-
-    <section class="recruit-form">
+    <section id="recruit-form" class="recruit-form" >
         <h2>リクルート入力</h2>
         <p>以下のボタンから応募フォームを開いて必要事項をご記入ください。</p>
 
@@ -260,18 +259,22 @@
 
         <div class="accordion-content">
             <form class="application-form">
+
                 <label>
                     お名前：
-                    <input type="text" name="name" placeholder="例）山田 太郎">
+                    <input type="text" id="name-input" name="name" placeholder="例）山田 太郎">
                 </label>
+
                 <label>
                     メールアドレス：
                     <input type="email" name="email" placeholder="例）example@mail.com">
                 </label>
+
                 <label>
                     志望動機：
                     <textarea name="motivation" rows="6" placeholder="例）志望動機をご記入ください"></textarea>
                 </label>
+
                 <button type="submit">送信する</button>
             </form>
         </div>

@@ -51,52 +51,84 @@
         <h1>お問い合わせ</h1>
     </section>
 
-    <!-- ココから問い合わせ -->
-    <section class="contact">
-        <div class="container">
-            <div class="con-object">
-                <h2>メールの方はこちら</h2>
-                <div class="con-mail">
-                    <a href="mailto:aaaaaa@unelma-ltd.jp" class="contact-button">メールでのご連絡</a>
-                </div>
-            </div>
-            <div class="con-object">
-                <h2>電話の方はこちら</h2>
-                <div class="con-tell">
-                    <a href="tel:03-6279-4673" class="contact-button">電話でのご連絡</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="contact-form">
-        <h2>お問い合わせ入力フォーム</h2>
+    <section class="contact-section">
+
+        <!-- 上の説明文 -->
+        <div class="contact-intro">
+            <h2 class="contact-title">当社に関するお問い合わせ</h2>
+
+            <p class="contact-text">
+                下記に関するお問い合わせは、フォームまたは電話にてご連絡ください。
+            </p>
+
+            <ul class="contact-list">
+                <li>・協業依頼に関するお問い合わせ</li>
+                <li>・派遣、業務委託などのご相談、見積りのご照会</li>
+            </ul>
+
+        </div>
+
+
+        <!-- お問い合わせフォーム -->
+        <p class="contact-form-title">お問い合わせ入力フォーム</p>
         <div class="contact-content">
             <form class="contact-application-form">
+
+                <!-- 共通：お問い合わせ内容 -->
                 <label>
                     お問い合わせ内容：
                     <textarea id="message" name="message" placeholder="例）お問い合わせ内容をご入力ください"></textarea>
                 </label>
 
-                <label>
-                    会社・団体名：
-                    <input type="text" name="company" placeholder="例）株式会社Union Point Systems">
-                </label>
+                <!-- 個人/法人の選択 -->
+                <div class="form-type">
+                    <p class="form-label">個人・法人：</p>
+                    <div class="radio-group">
+                        <input type="radio" id="personal" name="type" value="personal" checked>
+                        <label for="personal">個人</label>
+                        <input type="radio" id="corporate" name="type" value="corporate">
+                        <label for="corporate">法人</label>
+                    </div>
+                </div>
 
-                <label>
-                    ご担当者様名：
-                    <input type="text" name="name" placeholder="例）山田 太郎">
-                </label>
+                <!-- 個人フォーム -->
+                <div id="form-personal">
+                    <label>お名前：
+                        <input type="text" name="name" placeholder="例）山田 太郎">
+                    </label>
+                    <label>お名前（カナ）：
+                        <input type="text" name="name-kana" placeholder="例）ヤマダ タロウ">
+                    </label>
+                    <label>電話番号：
+                        <input type="tel" name="phone" placeholder="例）03-1234-1234">
+                    </label>
+                    <label>メールアドレス：
+                        <input type="email" name="email" placeholder="例）unionpoint@systems.co.jp">
+                    </label>
+                </div>
 
-                <label>
-                    電話番号：
-                    <input type="tel" name="phone" placeholder="例）XXX-XXX-XXXX">
-                </label>
-
-                <label>
-                    メールアドレス：
-                    <input type="email" name="email" placeholder="例）example@mail.com">
-                </label>
+                <!-- 法人フォーム -->
+                <div id="form-corporate" style="display:none;">
+                    <label>会社名：
+                        <input type="text" name="company" placeholder="例）株式会社ユニオンポイントシステムズ">
+                    </label>
+                    <label>部署名：
+                        <input type="text" name="department" placeholder="例）ヤマダ部">
+                    </label>
+                    <label>ご担当者様名：
+                        <input type="text" name="name" placeholder="例）山田 太郎">
+                    </label>
+                    <label>お名前（カナ）：
+                        <input type="text" name="name-kana" placeholder="例）ヤマダ タロウ">
+                    </label>
+                    <label>電話番号：
+                        <input type="tel" name="phone" placeholder="例）03-1234-1234">
+                    </label>
+                    <label>メールアドレス：
+                        <input type="email" name="email" placeholder="例）unionpoint@systems.co.jp">
+                    </label>
+                </div>
 
                 <button type="submit">送信する</button>
             </form>
@@ -105,7 +137,34 @@
         <!-- 送信結果ポップアップ -->
         <div id="popup" class="contact-popup hidden"></div>
 
+
+        <!-- 電話案内 -->
+        <div class="contact-tel">
+            <p class="contact-tel-title">電話でのお問い合わせはこちら</p>
+            <p class="tel-time">[ 受付時間 ] 平日10:00〜19:00</p>
+            <a href="tel:0362619388" class="tel-btn">03-6261-9388</a>
+
+
+        </div>
+
+
+        <!-- リクルート案内 -->
+        <div class="contact-recruit">
+            <h2 class="contact-title">求人採用に関するお問い合わせ</h2>
+
+            <p class="contact-text">
+                求人採用につきましては募集要項下のリクルート入力フォームより受け付けております。
+            </p>
+
+            <a href="Recruit.html#recruit-form" class="recruit-btn">リクルートフォームへ</a>
+
+        </div>
+
+
+
     </section>
+
+
 
 
     <!-- ここからフッター -->
@@ -166,7 +225,7 @@
 
     <script src="contact.js"></script>
 
-    
+
     <script src="style.js"></script>
 </body>
 

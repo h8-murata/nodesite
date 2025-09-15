@@ -172,3 +172,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+window.addEventListener("DOMContentLoaded", function () {
+    // URLに #recruit-form がついていたら処理する
+    if (window.location.hash === "#recruit-form") {
+        const toggleBtn = document.querySelector(".accordion-toggle");
+        const content = document.querySelector(".accordion-content");
+        const target = document.querySelector("#name-input");
+
+        // アコーディオンを開く
+        if (toggleBtn && content) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            toggleBtn.classList.add("active");
+            toggleBtn.textContent = "応募フォームを閉じる";
+        }
+
+        // 少し遅らせてスクロール＋フォーカス
+        setTimeout(() => {
+            if (target) {
+                target.focus();
+                target.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        }, 300);
+    }
+});
+
+
