@@ -821,9 +821,18 @@ footer .container {
         font-size: 14px;
     }
 
-    .contact-tel .tel-btn,
-    .contact-recruit .recruit-btn {
+    .contact-tel .tel-btn {
         width: 90%;
+        max-width: none;
+        padding: 12px 0;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+    }
+        .contact-recruit .recruit-btn {
+        width: 75%;
         max-width: none;
         padding: 12px 0;
         font-size: 16px;
@@ -871,7 +880,7 @@ footer .container {
     }
 
     .contact-section .contact-title {
-        font-size: 22px;
+        font-size: 20px;
         padding-left: 0;
         letter-spacing: 2px;
     }
