@@ -124,7 +124,7 @@ header .container {
 
 .hero h1 {
     font-size: 38px;
-    text-shadow:5px 4px 4px rgba(44, 44, 59, 0.8);
+    text-shadow: 5px 4px 4px rgba(44, 44, 59, 0.8);
     /* background-color: rgba(135, 167, 204, 0.4);
     backdrop-filter: blur(3px); */
     border-radius: 10px;
@@ -223,7 +223,7 @@ table th {
 }
 
 .application-process ul::before {
-    content: ""; 
+    content: "";
     position: absolute;
     top: 0;
     left: 25px;
@@ -253,7 +253,7 @@ table th {
     justify-content: center;
     font-weight: bold;
     font-size: 1.2em;
-}   
+}
 
 .application-process .step-content h3 {
     margin: 0 0 5px 0;
@@ -265,6 +265,7 @@ table th {
     color: #555;
     line-height: 1.5;
 }
+
 .application-process {
     max-width: 800px;
     margin: 40px auto;
@@ -291,7 +292,8 @@ table th {
 .application-process li {
     position: relative;
     padding-left: 60px;
-    margin-bottom: 40px; /* ステップ間のスペース */
+    margin-bottom: 40px;
+    /* ステップ間のスペース */
 }
 
 /* 縦線は各liの左側に作る */
@@ -337,13 +339,15 @@ table th {
     color: #555;
     line-height: 1.5;
 }
+
 .application-process ul::before {
     content: "";
     position: absolute;
     top: 0;
     left: 25px;
     width: 2px;
-    height: calc(100% - 50px); /* 最後のステップの高さ分だけ減らす */
+    height: calc(100% - 50px);
+    /* 最後のステップの高さ分だけ減らす */
     background: #ccc;
 }
 
@@ -391,7 +395,7 @@ table th {
 }
 
 .application-form label {
-    
+
     font-weight: bold;
     display: block;
     margin-bottom: 15px;
@@ -501,8 +505,8 @@ table th {
     z-index: 2;
     border-bottom: 1px solid #fff;
     /* 下線を白にしてjob-sectionと繋がる */
-            color: #fff;
-    
+    color: #fff;
+
 }
 
 /* タブ切替の表示/非表示 */
@@ -786,6 +790,27 @@ footer .container {
 
 /* スマホ表示用（768px以下） 横並び変更*/
 @media (max-width: 768px) {
+
+    .job-section {
+        width: 90%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .application-process {
+        width: 90%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .recruit-form {
+        width: 90%;
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 15px;
+    }
 
     .job-section table,
     .job-section tbody,
