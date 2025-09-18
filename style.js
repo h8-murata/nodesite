@@ -1,14 +1,5 @@
 // style.js
 document.addEventListener("DOMContentLoaded", () => {
-    // ======================
-    // ハンバーガーメニュー
-    // ======================
-    const navButton = document.querySelector(".nav-button");
-    if (navButton) {
-        navButton.addEventListener("click", () => {
-            document.body.classList.toggle("nav-open");
-        });
-    }
 
     // ======================
     // ローディング画面
@@ -66,43 +57,43 @@ document.addEventListener("DOMContentLoaded", () => {
     toTopBtn.href = "#";
     toTopBtn.innerHTML = `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-      viewBox="0 0 24 24" fill="none" stroke="currentColor"
-      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-      class="feather feather-arrow-up">
-      <line x1="12" y1="19" x2="12" y2="5"></line>
-      <polyline points="5 12 12 5 19 12"></polyline>
+    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+    class="feather feather-arrow-up">
+    <line x1="12" y1="19" x2="12" y2="5"></line>
+    <polyline points="5 12 12 5 19 12"></polyline>
     </svg>
-  `;
+`;
     document.body.appendChild(toTopBtn);
 
     // ボタン用のスタイルをJSで追加
     const style = document.createElement("style");
     style.textContent = `
     #to-top-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      border-radius: 50%;
-      padding: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 9999;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
     }
     #to-top-btn.show {
-      opacity: 1;
-      pointer-events: auto;
+    opacity: 1;
+    pointer-events: auto;
     }
     #to-top-btn svg {
-      stroke: #fff;
+    stroke: #fff;
     }
-  `;
+`;
     document.head.appendChild(style);
 
     // スクロールで表示/非表示
@@ -120,30 +111,64 @@ document.addEventListener("DOMContentLoaded", () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // ======================
-    // スクロールアニメーション（修正版）
-    // ======================
-    const targets = document.querySelectorAll(".con1, .con2, .con3, .con4");
-    const hasVisitedScroll = sessionStorage.getItem("visited");
+    // === ナビゲーションスライダー (PC版) ===
+    const nav = document.querySelector('.head-nav ul');
 
-    if (!hasVisitedScroll || navigationType === 1) {
-        // 初回アクセス or リロード時のみアニメーション実行
-        const observer = new IntersectionObserver(
-            (entries, obs) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("slide-in");
-                        obs.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1 }
-        );
-        targets.forEach((target) => observer.observe(target));
-    } else {
-        // 2回目以降のアクセスは即表示
-        targets.forEach((target) => {
-            target.classList.add("slide-in");
+    // PC表示の時だけ機能を有効にする
+    if (nav && window.matchMedia('(min-width: 768px)').matches) {
+        const currentItem = nav.querySelector('.current');
+
+        const setSliderPosition = (targetItem) => {
+            if (!targetItem) {
+                return;
+            }
+            const rect = targetItem.getBoundingClientRect();
+            const navRect = nav.getBoundingClientRect();
+
+            const height = 40; // スライダーの高さ
+            nav.style.setProperty('--slider-width', `${rect.width}px`);
+            nav.style.setProperty('--slider-left', `${rect.left - navRect.left}px`);
+            nav.style.setProperty('--slider-height', `${height}px`);
+        };
+
+        // 初期位置を設定
+        if (currentItem) {
+            setTimeout(() => setSliderPosition(currentItem), 100);
+        }
+
+        // ホバー時のイベント
+        nav.querySelectorAll('li:not(.contact-link)').forEach(item => {
+            item.addEventListener('mouseover', () => {
+                setSliderPosition(item);
+            });
+        });
+
+        // マウスが離れた時のイベント
+        nav.addEventListener('mouseleave', () => {
+            if (currentItem) {
+                setSliderPosition(currentItem);
+            } else {
+                // `current`クラスがない場合はスライダーを非表示にする
+                nav.style.setProperty('--slider-width', `0px`);
+            }
+        });
+
+        // ウィンドウのリサイズ時に再計算
+        window.addEventListener('resize', () => {
+            if (currentItem) {
+                setSliderPosition(currentItem);
+            }
+        });
+    }
+
+    // === ハンバーガーメニュー (モバイル版) ===
+    const navButton = document.querySelector('.nav-button');
+    const body = document.body;
+    
+    if (navButton) {
+        navButton.addEventListener('click', () => {
+            body.classList.toggle('nav-open');
         });
     }
 });
+

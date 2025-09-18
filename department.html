@@ -23,29 +23,29 @@
 
 <body>
     <!-- Header -->
-<header>
-    <div class="container">
-        <div class="head-img">
-            <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
+    <header>
+        <div class="container">
+            <div class="head-img">
+                <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
             </div>
-        <button class="nav-button" type="button" aria-label="メニュー">
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-        </button>
-        <div class="nav-wrapper">
-            <nav class="head-nav">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="AboutUs.html">会社案内</a></li>
-                    <li class="current"><a href="department.html">事業内容</a></li>
-                    <li><a href="Recruit.html">募集要項</a></li>
-                    <li class="contact-link"><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </nav>
+            <button class="nav-button" type="button" aria-label="メニュー">
+                <span class="nav-button-bar"></span>
+                <span class="nav-button-bar"></span>
+                <span class="nav-button-bar"></span>
+            </button>
+            <div class="nav-wrapper">
+                <nav class="head-nav">
+                    <ul>
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="AboutUs.html">会社案内</a></li>
+                        <li><a href="department.html">事業内容</a></li>
+                        <li class="current"><a href="Recruit.html">募集要項</a></li>
+                        <li class="contact-link"><a href="contact.html">お問い合わせ</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
     <!-- Hero Section -->
     <section class="hero">
         <h1>事業内容</h1>
@@ -208,69 +208,9 @@
         </div>
     </footer>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // --- Navigation Slider ---
-        const nav = document.querySelector('.head-nav ul');
-        
-        // Check if it's PC view using media query
-        if (nav && window.matchMedia('(min-width: 768px)').matches) {
-            const currentItem = nav.querySelector('.current');
 
-            const setSliderPosition = (targetItem) => {
-                if (!targetItem) return;
-                const rect = targetItem.getBoundingClientRect();
-                const navRect = nav.getBoundingClientRect();
-
-                const height = 40; // Height of the ellipse
-
-                nav.style.setProperty('--slider-width', `${rect.width}px`);
-                nav.style.setProperty('--slider-left', `${rect.left - navRect.left}px`);
-                nav.style.setProperty('--slider-height', `${height}px`);
-            };
-
-            // Set initial position
-            if (currentItem) {
-                setTimeout(() => setSliderPosition(currentItem), 100);
-            }
-            
-            // Hover events for items that are NOT the contact link
-            nav.querySelectorAll('li:not(.contact-link)').forEach(item => {
-                item.addEventListener('mouseover', () => {
-                    setSliderPosition(item);
-                });
-            });
-
-            // Mouseleave event
-            nav.addEventListener('mouseleave', () => {
-                 if (currentItem) {
-                    setSliderPosition(currentItem);
-                 } else {
-                    // If no current item, hide the slider
-                    nav.style.setProperty('--slider-width', `0px`);
-                 }
-            });
-
-            // Recalculate on window resize
-            window.addEventListener('resize', () => {
-                 if (currentItem) {
-                    setSliderPosition(currentItem);
-                 }
-            });
-        }
-
-        // --- Hamburger Menu ---
-        const navButton = document.querySelector('.nav-button');
-        const body = document.body;
-        if(navButton) {
-            navButton.addEventListener('click', () => {
-                body.classList.toggle('nav-open');
-            });
-        }
-    });
-    </script>
+    <script src="department.js"></script>
     <script src="style.js"></script>
 </body>
 
 </html>
-
