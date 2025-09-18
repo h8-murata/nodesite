@@ -1,131 +1,167 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Union Point Systems | system dep</title>
-    <link rel="icon" href="img\favicon.ico" sizes="32x32">
-    <link rel="icon" href="img\rogo_only.png" type="image/png" sizes="192x192">
-    <link rel="apple-touch-icon" href="img\rogo_only.png" sizes="180x180">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img\favicon.ico" sizes="32x32" />
+    <link
+      rel="icon"
+      href="img\rogo_only.png"
+      type="image/png"
+      sizes="192x192"
+    />
+    <link rel="apple-touch-icon" href="img\rogo_only.png" sizes="180x180" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="destyle.css">
+    <link rel="stylesheet" href="destyle.css" />
     <!-- Style CSS -->
-    <link rel="stylesheet" href="dep.css">
+    <link rel="stylesheet" href="dep.css" />
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://use.typekit.net/rxl1nhd.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="https://use.typekit.net/rxl1nhd.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Header -->
-<header>
-    <div class="container">
+    <header>
+      <div class="container">
         <div class="head-img">
-            <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
-            </div>
+          <a href="index.html"
+            ><img src="img/rogo_outline.png" alt="logo_mark"
+          /></a>
+        </div>
         <button class="nav-button" type="button" aria-label="メニュー">
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
+          <span class="nav-button-bar"></span>
+          <span class="nav-button-bar"></span>
+          <span class="nav-button-bar"></span>
         </button>
         <div class="nav-wrapper">
-            <nav class="head-nav">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="AboutUs.html">会社案内</a></li>
-                    <li><a href="department.html">事業内容</a></li>
-                    <li><a href="Recruit.html">募集要項</a></li>
-                    <li><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </nav>
+          <nav class="head-nav">
+            <ul>
+              <li><a href="index.html">ホーム</a></li>
+              <li><a href="AboutUs.html">会社案内</a></li>
+              <li class="current"><a href="department.html">事業内容</a></li>
+              <li><a href="Recruit.html">募集要項</a></li>
+              <li class="contact-link">
+                <a href="contact.html">お問い合わせ</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
     <!-- Hero Section -->
-    <section class="hero" style="background: url('img/dep_img_02.jpg') no-repeat center/cover;">
-    </section>
+    <section
+      class="hero"
+      style="background: url('img/dep_img_01.jpg') no-repeat center/cover"
+    ></section>
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="パンくずリスト">
-        <ol>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="department.html">事業内容</a></li>
-            <li aria-current="page">Webクリエーター事業部</li>
-        </ol>
+      <ol>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="department.html">事業内容</a></li>
+        <li aria-current="page">Webクリエーター事業部</li>
+      </ol>
     </nav>
 
-    <h1>Webクリエーター事業部</h1>
-    <!-- Introduction Comment -->
-    <div class="comment">
+    <div class="parent_container">
+      <h1 class="fade-in">Webクリエーター事業部</h1>
+      <!-- Introduction Comment -->
+      <div class="comment">
         <h3>
-            小規模ビジネス向けにWebサイトをワンストップで構築。コンサルティングから運用保守まで対応します。
-            AI活用により制作時間を削減し、デザインの幅を広げ、より迅速で柔軟なサイト制作を実現します。
+          小規模ビジネス向けにWebサイトをワンストップで構築。コンサルティングから運用保守まで対応します。
+          AI活用により制作時間を削減し、デザインの幅を広げ、より迅速で柔軟なサイト制作を実現します。
         </h3>
+      </div>
+
+      <!-- Department Contents -->
+      <section class="con2">
+        <div class="container">
+          <div class="box4">
+            <h2>実績１</h2>
+            <div class="con-object">
+              <div class="con-text">
+                <h3>業務内容</h3>
+                <ul class="work-list">
+                  <li>自社向け研修用Webサイト構築</li>
+                  <li>
+                    ブログサイトの形式でWebクリエーターとして必要な学習内容をまとめたサイトを作成。
+                  </li>
+                  <li>
+                    未経験者からでも一目でわかりやすいサイトデザインを意識し、順序通りに進める事で最小限度の必要な技術やノウハウ、素材などを管理するサイトを構築しました。
+                  </li>
+                </ul>
+              </div>
+              <div class="con-text">
+                <h3>主なツール・技術</h3>
+                <ul class="tech-list">
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Javascript</li>
+                  <li>FTPServer</li>
+                  <li>Github</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="box4">
+            <h2>実績２</h2>
+            <div class="con-object">
+              <div class="con-text">
+                <h3>業務内容</h3>
+                <ul class="work-list">
+                  <li>
+                    小企業向けホームページサイト制作
+                  </li>
+                  <li>
+                    コンサルティングから設計構築、運用保守まで対応中（制作期間は2週間）
+                  </li>
+                </ul>
+              </div>
+              <div class="con-text">
+                <h3>主なツール・技術</h3>
+                <ul class="tech-list">
+                  <li>>WordPress</li>
+                  <li>PHP</li>
+                  <li>HTML</li>
+                  <li>CSS</li>
+                  <li>Javascript</li>
+                  <li>FTPServer</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 社内実績 -->
+      <section class="con2">
+        <div class="container">
+          <div class="box4">
+            <h2>社内活動</h2>
+            <div class="con-object">
+              <div class="con-text">
+                <p>ウェブサイト作成の勉強会を開催しています。<br>また、個人のポートフォリオサイトの作成やコーポレートサイト、<br>社内イベントのサイトもチームに分かれて作成しています。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-
-    <!-- Department Contents -->
-    <section class="con2">
-        <div class="container">
-            <div class="box4">
-                <h2>実績１</h2>
-                <div class="con-object">
-                    <div class="con-text">
-                        <h3>◆業務内容</h3>
-                        <p>
-                            自社向け研修用Webサイト構築
-                            ブログサイトの形式でWebクリエーターとして必要な学習内容をまとめたサイトを作成。
-                            未経験者からでも一目でわかりやすいサイトデザインを意識し、
-                            順序通りに進める事で最小限度の必要な技術やノウハウ、素材などを管理するサイトを構築しました。
-                        </p>
-                    </div>
-                    <div class="con-text">
-                        <h3>◇主なツール・技術</h3>
-                        <p>HTML、CSS、Javascript、FTPServer、Github</p>
-                    </div>
-                </div>
-            </div>
-            <div class="box4">
-                <h2>実績２</h2>
-                <div class="con-object">
-                    <div class="con-text">
-                        <h3>◆業務内容</h3>
-                        <p>
-                            小企業向けホームページサイト制作
-                            コンサルティングから設計構築、運用保守まで対応中<br>
-                            制作期間は2週間
-                        </p>
-                    </div>
-                    <div class="con-text">
-                        <h3>◇主なツール・技術</h3>
-                        <p>WordPress、PHP、HTML、CSS、Javascript、FTPServer</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 社内実績 -->
-    <section class="con2">
-        <div class="container">
-            <div class="box4">
-                <h2>社内活動</h2>
-                <div class="con-object">
-                    <div class="con-text">
-                        <p>
-                            ウェブサイト作成の勉強会を開催しています。
-                            <br>また、個人のポートフォリオサイトの作成やコーポレートサイト、<br>社内イベントのサイトもチームに分かれて作成しています。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -180,31 +216,7 @@
             </div>
         </div>
     </footer>
-    <script>
-        // Script for hamburger menu
-        const navButton = document.querySelector('.nav-button');
-        const body = document.querySelector('body');
 
-        navButton.addEventListener('click', () => {
-            body.classList.toggle('nav-open');
-        });
-
-        // Script to apply style to the current page's navigation item
-        const currentPath = window.location.pathname;
-        const navItems = document.querySelectorAll('.head-nav ul li');
-
-        navItems.forEach(item => {
-            const link = item.querySelector('a');
-            if (link) {
-                const linkPath = link.pathname;
-                // Add 'current' class if the link's path matches the current page's path.
-                // Handle the case where the root path "/" should match "index.html".
-                if (linkPath === currentPath || (currentPath === '/' && linkPath.endsWith('/index.html'))) {
-                    item.classList.add('current');
-                }
-            }
-        });
-    </script>
-</body>
-
+    <script src="style.js"></script>
+  </body>
 </html>

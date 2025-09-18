@@ -62,10 +62,9 @@ body {
    ヘッダー
 ================================== */
 header {
-    position: -webkit-sticky; /* Safari対応 */
-    position: sticky; /* スクロール時にヘッダーを固定 */
+    position: sticky;
     top: 0;
-    z-index: 1000; /* 他の要素より手前に表示 */
+    z-index: 1000;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.9);
 }
@@ -81,75 +80,112 @@ header .container {
 }
 
 .head-img img {
-  max-width: 250px;
-  height: auto;
+    max-width: 250px;
+    min-width: 150px;
+    height: auto;
 }
 
+/* --- Navigation Styles --- */
 .head-nav ul {
+    position: relative;
+    /* Base for the sliding element */
     display: flex;
-    align-items: center; /* 中央揃えを追加 */
+    align-items: center;
+    /* Vertically align items */
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.head-nav a {
+/* Sliding ellipse background */
+.head-nav ul::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    /* Position and size are set by JavaScript via CSS variables */
+    left: var(--slider-left, 0);
+    width: var(--slider-width, 0);
+    height: var(--slider-height, 0);
+    background-color: rgba(135, 167, 204, 0.4);
+    border-radius: 9999px;
+    /* To make it an ellipse */
+    transform: translateY(-50%);
+    transition: left 0.3s ease-out, width 0.3s ease-out;
+    z-index: 0;
+}
+
+.head-nav li {
     position: relative;
+    /* To ensure text is above the background */
+    z-index: 1;
+}
+
+.head-nav a {
     display: block;
-    padding: 15px 12px;
+    padding: 10px 20px;
+    /* Adjust padding for ellipse size */
     color: #154360;
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s;
+    white-space: nowrap;
+    /* Prevent text wrapping */
 }
 
-/* ナビゲーションリンクの下線アニメーション */
-.head-nav a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 2px;
-    width: 0;
-    height: 2px;
-    border-radius: 15px;
-    background-color: #154360;
-    transition: width 0.3s, background-color 0.3s;
+/* Text color for current and hovered items (excluding contact link) */
+.head-nav li.current a,
+.head-nav ul:hover li:not(.contact-link):hover a {
+    color: rgb(50, 50, 63);
+    ;
 }
 
-/* 現在表示中のページのリンクは常に下線を表示 */
-.head-nav li.current a::before {
+/* --- Contact Link Styles --- */
+.head-nav li.contact-link a {
+    background-color: rgb(255, 136, 0);
+    /* Teal color for emphasis */
+    color: #fff;
+    border: 2px;
+    border-radius: 5px;
+    margin-left: 15px;
+    /* Add some space */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.head-nav li.contact-link a:hover {
+    background-color: rgb(223, 130, 23);
+    /* Darker teal on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+    color: #fff;
+    /* Ensure color stays white on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- ハンバーガーメニュー --- */
+.nav-button {
+    display: none;
+    /* PCでは非表示 */
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.nav-button-bar {
+    display: block;
     width: 100%;
+    height: 3px;
+    background-color: #333;
+    margin: 8px 0;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-/* ホバー時に下線を表示（現在のページ以外） */
-.head-nav li:not(.current) a:hover::before {
-    width: 100%;
-    background-color: rgb(255, 152, 35);
+.nav-wrapper {
+    display: block;
 }
-
-/* ▼▼▼ お問い合わせリンクのスタイルを追加 ▼▼▼ */
-.head-nav .contact-link a {
-    background-color: #154360; /* ベースカラー */
-    color: #fff; /* 白文字 */
-    border-radius: 5px; /* 角を丸くする */
-    margin-left: 10px; /* 左側に少し余白 */
-    padding: 10px 20px; /* 内側の余白を調整 */
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-/* お問い合わせリンクのホバー効果 */
-.head-nav .contact-link a:hover {
-    background-color: #21618C; /* ホバー時の色を少し明るく */
-    transform: translateY(-2px); /* 少し上に動かす */
-    color: #fff; /* ホバー時も白文字 */
-}
-
-/* お問い合わせリンクの下線アニメーションを無効化 */
-.head-nav .contact-link a::before {
-    content: none;
-}
-/* ▲▲▲ お問い合わせリンクのスタイルを追加 ▲▲▲ */
-
 
 /* ==================================
    ファーストビュー (スライドショー)
@@ -289,85 +325,99 @@ header .container {
     margin: 10px 0 10px;
 }
 
-/* --- 事業内容 (con1) --- */
-.links {
+/* --- h2の共通スタイル --- */
+/* h2の左右に線を追加 */
+.con1 h2, .con2 h2, .con3 h2 {
     display: flex;
-    padding: 2rem;
-    gap: 1rem;
-    height: 20rem;
-    transition: gap .4s ease-in-out;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: #555;
+    font-weight: 600;
 }
 
-.links a {
-    flex-grow: 1;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    position: relative;
-    transition: flex-grow .4s ease-in-out; /* flex-growの変化をアニメーション */
-    cursor: pointer;
-    width: 40vw;
-}
-
-.links img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform .4s ease-in-out;
-}
-
-.links a:hover img {
-    transform: scale(1.05); /* ホバー時に画像を少し拡大 */
-}
-
-/* ホバー時にグラデーションのオーバーレイを追加 */
-.links a::after {
+.con1 h2::before,
+.con1 h2::after,
+.con2 h2::before,
+.con2 h2::after,
+.con3 h2::before,
+.con3 h2::after {
     content: '';
+    display: block;
+    width: 200px;
+    height: 1px;
+    background-color: #154360;
+}
+
+.business-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 20px; /* 縦横の隙間 */
+    padding: 30px 0;
+    text-align: center;
+}
+
+.business-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.business-item:hover .business-name {
+    color: #41B6E6; /* ホバー時のテキストの色 */
+    font-weight: 800; /* ホバー時にテキストを太字にする */
+}
+
+/* ▼▼▼ アイコンのスタイルを画像用に変更 ▼▼▼ */
+.business-icon {
+    position: relative; /* 子要素の絶対配置の基準 */
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease; /* スムーズな拡大のためのtransitionを追加 */
+}
+
+/* ホバー時にアイコンを拡大するスタイルを追加 */
+.business-item:hover .business-icon {
+    transform: scale(1.3);
+}
+
+
+.business-icon img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    object-fit: contain; /* 画像の比率を維持 */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.business-icon .icon-hover {
     opacity: 0;
-    transition: opacity .4s ease-in-out;
 }
 
-.links a:hover::after {
+.business-item:hover .business-icon .icon-default {
+    opacity: 0;
+}
+
+.business-item:hover .business-icon .icon-hover {
     opacity: 1;
 }
+/* ▲▲▲ アイコンのスタイルを画像用に変更 ▲▲▲ */
 
-.link-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem;
-    color: #fff;
-    z-index: 1; /* オーバーレイより手前に表示 */
-    opacity: 1;
-    transform: translateY(20px);
-    transition: opacity .4s ease-in-out .2s, transform .4s ease-in-out .2s; /* 少し遅れて表示 */
-    box-sizing: border-box;
-}
-
-.links a:hover .link-text {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.link-text h3 {
-    margin: 0 0 0.5rem;
+.business-name {
     font-size: 1rem;
-    text-align: left;
-}
-
-.link-text p {
+    font-weight: 500;
+    color: #555;
     margin: 0;
-    font-size: 1rem;
-    line-height: 1.4;
-    text-align: left;
-    white-space: normal;
+    transition: color 0.3s ease, font-weight 0.3s ease; /* font-weightの変化もアニメーション対象に */
 }
+
 
 .con1,.con2,.con3,.con4 {
     width: 80%;
@@ -421,6 +471,7 @@ header .container {
     width: 100%;
     height: 100%;
     object-fit: contain; /* 画像の比率を維持 */
+    border-radius: 5px;
 }
 
 /* con2セクションのレイアウト比率を調整 (テキスト3:画像2) */
@@ -558,6 +609,9 @@ footer .container {
 
 /* PC・タブレット向け (768px以上) */
 @media (min-width: 768px) {
+        .nav-button {
+        display: none;
+    }
     /* --- フッターレイアウト --- */
     .footer-main {
         display: flex;
@@ -581,34 +635,16 @@ footer .container {
     .copyright {
         margin-top: 30px;
     }
-    
-    /* --- 事業内容 ホバーエフェクト --- */
-    .links a:hover {
-        flex-grow: 10; /* ホバーされた要素を大きく表示 */
-    }
-
-    /* ▼▼▼ スクロールアニメーション ▼▼▼ */
-    /* アニメーションの対象をh2から.con1, .con2などに変更 */
-    /* アニメーション前のスタイル */
-    .con1, .con2, .con3, .con4 {
-        transform: translateX(-100px); /* 左に100px移動 */
-        opacity: 0; /* 透明にする */
-        transition: transform 1s ease-out, opacity 1s ease-out;
-    }
-
-    /* アニメーション後のスタイル（クラスを付与して適用） */
-    .con1.slide-in,
-    .con2.slide-in,
-    .con3.slide-in,
-    .con4.slide-in {
-        transform: translateX(0); /* 元の位置に戻す */
-        opacity: 1; /* 不透明にする */
-    }
-    /* ▲▲▲ スクロールアニメーション ▲▲▲ */
 }
 
 /* タブレット向け中間サイズ (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
+
+    .head-img img,
+    .foot-img img {
+        width: 250px;
+    }
+
     .head-nav a {
         padding: 15px 10px;
         font-size: 15px;
@@ -617,11 +653,12 @@ footer .container {
 
 /* スマホ・タブレット向け (767px以下) */
 @media (max-width: 767px) {
-    /* --- ヘッダー（ハンバーガーメニュー） --- */
+    /* Header */
     header .container {
         height: 70px;
         padding: 0 15px;
     }
+
     .nav-button {
         display: block;
         width: 40px;
@@ -631,6 +668,7 @@ footer .container {
         cursor: pointer;
         z-index: 101;
     }
+
     .nav-button-bar {
         display: block;
         width: 100%;
@@ -639,9 +677,18 @@ footer .container {
         margin: 8px 0;
         transition: transform 0.3s, opacity 0.3s;
     }
-    .nav-open .nav-button-bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .nav-open .nav-button-bar:nth-child(2) { opacity: 0; }
-    .nav-open .nav-button-bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    body.nav-open .nav-button-bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    body.nav-open .nav-button-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.nav-open .nav-button-bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
 
     .nav-wrapper {
         display: none;
@@ -654,19 +701,59 @@ footer .container {
         z-index: 100;
         padding-top: 80px;
     }
-    .nav-open .nav-wrapper { display: block; }
+
+    body.nav-open .nav-wrapper {
+        display: block;
+    }
+
     .head-nav {
         width: 100%;
         text-align: center;
     }
-    .head-nav ul { flex-direction: column; }
-    .head-nav a { padding: 20px; font-size: 18px; }
-    .head-nav a::before { display: none; }
-    
-    /* スマホ表示時のお問い合わせボタンの調整 */
-    .head-nav .contact-link a {
-        margin: 10px auto; /* 上下に余白を追加 */
-        width: 80%; /* 幅を調整 */
+
+    .head-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .head-nav li {
+        margin-bottom: 10px;
+    }
+
+    .head-nav a {
+        padding: 20px;
+        font-size: 18px;
+        color: #154360 !important;
+        /* Reset color */
+    }
+
+    .head-nav ul::before {
+        display: none;
+        /* Hide slider on mobile */
+    }
+
+    .head-nav li.contact-link a {
+        margin-left: 0;
+        padding: 10px 30px;
+    }
+
+
+    /* nav-openクラスがbodyに付与された時のスタイル */
+    .nav-open .nav-wrapper {
+        display: block;
+    }
+
+    /* ハンバーガーアイコンのアニメーション */
+    .nav-open .nav-button-bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .nav-open .nav-button-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-open .nav-open .nav-button-bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
     }
 
 
@@ -704,27 +791,36 @@ footer .container {
 
     /* --- コンテンツ --- */
     .con1, .con2, .con3, .con4 { width: 90%; }
-    .links {
-        flex-direction: column;
-        height: auto;
-        gap: 1rem;
-        padding: 1rem;
-    }
-    .links a {
-        height: 15rem; 
-        width: 100%;
+
+    /* 事業内容(con1)の新しいレスポンシブスタイル */
+    .con1 h2, .con2 h2, .con3 h2 {
+        font-size: 1.5rem;
     }
 
-    /* スマホではテキストを常に表示 */
-    .links a::after { opacity: 1; }
-    .link-text {
-        opacity: 1;
-        transform: translateY(0);
-        transition: none;
-        padding: 1rem;
+    .con1 h2::before,
+    .con1 h2::after,
+    .con2 h2::before,
+    .con2 h2::after,
+    .con3 h2::before,
+    .con3 h2::after {
+        width: 20%;
     }
-    .link-text h3 { font-size: 1.2rem; }
-    .link-text p { font-size: 0.9rem; }
+
+    .business-grid {
+        grid-template-columns: repeat(2, 1fr); /* スマホでは2列に */
+        gap: 30px 15px;
+        padding: 2rem 0;
+    }
+
+    .business-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+
+    .business-name {
+        font-size: 0.9rem;
+    }
 
     .con2 .con-object,
     .con3 .con-object,

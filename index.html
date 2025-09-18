@@ -43,13 +43,11 @@
         <div class="nav-wrapper">
             <nav class="head-nav">
                 <ul>
-                    <li><a href="index.html">ホーム</a></li>
+                    <li class="current"><a href="index.html">ホーム</a></li>
                     <li><a href="AboutUs.html">会社案内</a></li>
                     <li><a href="department.html">事業内容</a></li>
                     <li><a href="Recruit.html">募集要項</a></li>
-                    <!-- ▼▼▼ 「お問い合わせ」にクラスを追加 ▼▼▼ -->
                     <li class="contact-link"><a href="contact.html">お問い合わせ</a></li>
-                    <!-- ▲▲▲ 「お問い合わせ」にクラスを追加 ▲▲▲ -->
                 </ul>
             </nav>
         </div>
@@ -102,50 +100,70 @@
             <a href="AboutUs.html" class="read-button">詳しく見る</a>
         </div>
     </section>
+    <!-- ▼▼▼ 事業内容(con1)のレイアウトを変更 ▼▼▼ -->
     <section class="con1">
         <div class="container">
-            <h2>事業内容</h2>
-            <div class="links">
-                <a href="dep_sys.html">
-                    <img src="img/dep_img_02.jpg" alt="pic" loading="lazy">
-                    <div class="link-text">
-                        <h3>システム開発事業部</h3>
+            <h2>私たちの６つの事業部</h2>
+            <div class="business-grid">
+                <a href="dep_sys.html" class="business-item">
+                    <div class="business-icon">
+                        <!-- ▼▼▼ アイコンを画像に変更 ▼▼▼ -->
+                        <img src="img/sys_icon_1.png" alt="システム開発事業部" class="icon-default">
+                        <img src="img/sys_icon_2.png" alt="システム開発事業部 ホバー" class="icon-hover">
+                        <!-- ▲▲▲ アイコンを画像に変更 ▲▲▲ -->
                     </div>
+                    <p class="business-name">システム開発事業部</p>
                 </a>
-                <a href="dep_web.html">
-                    <img src="img/dep_img_01.jpg" alt="pic" loading="lazy">
-                    <div class="link-text">
-                        <h3>Webクリエーター事業部</h3>
+                <a href="dep_web.html" class="business-item">
+                    <div class="business-icon">
+                        <!-- ▼▼▼ アイコンを画像に変更 ▼▼▼ -->
+                        <img src="img/web_icon_1.png" alt="webクリエーター事業部" class="icon-default">
+                        <img src="img/web_icon_2.png" alt="webクリエーター事業部 ホバー" class="icon-hover">
+                        <!-- ▲▲▲ アイコンを画像に変更 ▲▲▲ -->
                     </div>
+                    <p class="business-name">webクリエーター事業部</p>
                 </a>
-                <a href="dep_net.html">
-                    <img src="img/network_0.jpg" alt="pic" loading="lazy">
-                    <div class="link-text">
-                        <h3>ネットワーク事業部</h3>
+                <a href="dep_net.html" class="business-item">
+                    <div class="business-icon">
+                        <!-- ▼▼▼ アイコンを画像に変更 ▼▼▼ -->
+                        <img src="img/net_icon_1.png" alt="ネットワーク事業部" class="icon-default">
+                        <img src="img/net_icon_2.png" alt="ネットワーク事業部 ホバー" class="icon-hover">
+                        <!-- ▲▲▲ アイコンを画像に変更 ▲▲▲ -->
                     </div>
+                    <p class="business-name">ネットワーク事業部</p>
                 </a>
-                <a href="dep_sys.html">
-                    <img src="img/dep_img_07.jpg" alt="pic" loading="lazy">
-                    <div class="link-text">
-                        <h3>クラウド・サーバー事業部</h3>
+                <a href="dep_cloud.html" class="business-item">
+                    <div class="business-icon">
+                        <!-- ▼▼▼ アイコンを画像に変更 ▼▼▼ -->
+                        <img src="img/clo_icon_1.png" alt="クラウド・サーバー事業部" class="icon-default">
+                        <img src="img/clo_icon_2.png" alt="クラウド・サーバー事業部 ホバー" class="icon-hover">
+                        <!-- ▲▲▲ アイコンを画像に変更 ▲▲▲ -->
                     </div>
+                    <p class="business-name">クラウド・サーバー事業部</p>
                 </a>
-                <a href="dep_sys.html">
-                    <img src="img/dep_img_04.jpg" alt="pic" loading="lazy">
-                    <div class="link-text">
-                        <h3>エンタメ事業部</h3>
+                <a href="dep_ent.html" class="business-item">
+                    <div class="business-icon">
+                        <!-- ▼▼▼ アイコンを画像に変更 ▼▼▼ -->
+                        <img src="img/ent_icon_1.png" alt="エンタメ事業部" class="icon-default">
+                        <img src="img/ent_icon_2.png" alt="エンタメ事業部 ホバー" class="icon-hover">
+                        <!-- ▲▲▲ アイコンを画像に変更 ▲▲▲ -->
                     </div>
+                    <p class="business-name">エンタメ事業部</p>
                 </a>
-                <a href="dep_sys.html">
-                    <img src="img/dep_img_08.jpg" alt="pic" loading="lazy">
-                    <div class="link-text">
-                        <h3>データベース事業部</h3>
+                <a href="dep_db.html" class="business-item">
+                    <div class="business-icon">
+                        <!-- ▼▼▼ アイコンを画像に変更 ▼▼▼ -->
+                        <img src="img/db_icon_1.png" alt="データベース事業部" class="icon-default">
+                        <img src="img/db_icon_2.png" alt="データベース事業部 ホバー" class="icon-hover">
+                        <!-- ▲▲▲ アイコンを画像に変更 ▲▲▲ -->
                     </div>
+                    <p class="business-name">データベース事業部</p>
                 </a>
             </div>
             <a href="department.html" class="read-button">詳しく見る</a>
         </div>
     </section>
+    <!-- ▲▲▲ 事業内容(con1)のレイアウトを変更 ▲▲▲ -->
     <section class="con3">
         <div class="container">
             <h2>採用情報</h2>
@@ -244,3 +262,4 @@
     <script src="style.js"></script>
 </body>
 </html>
+

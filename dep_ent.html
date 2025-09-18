@@ -1,196 +1,218 @@
 <!DOCTYPE html>
 <html lang="ja">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Union Point Systems | system dep</title>
-    <link rel="icon" href="img\favicon.ico" sizes="32x32">
-    <link rel="icon" href="img\rogo_only.png" type="image/png" sizes="192x192">
-    <link rel="apple-touch-icon" href="img\rogo_only.png" sizes="180x180">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img\favicon.ico" sizes="32x32" />
+    <link
+      rel="icon"
+      href="img\rogo_only.png"
+      type="image/png"
+      sizes="192x192"
+    />
+    <link rel="apple-touch-icon" href="img\rogo_only.png" sizes="180x180" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Reset CSS -->
-    <link rel="stylesheet" href="destyle.css">
+    <link rel="stylesheet" href="destyle.css" />
     <!-- Style CSS -->
-    <link rel="stylesheet" href="dep_ent.css">
+    <link rel="stylesheet" href="dep.css" />
     <!-- Fonts -->
-    <link rel="stylesheet" href="https://use.typekit.net/rxl1nhd.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="https://use.typekit.net/rxl1nhd.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<body>
+  <body>
     <!-- Header -->
-<header>
-    <div class="container">
+    <header>
+      <div class="container">
         <div class="head-img">
-            <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
-            </div>
+          <a href="index.html"
+            ><img src="img/rogo_outline.png" alt="logo_mark"
+          /></a>
+        </div>
         <button class="nav-button" type="button" aria-label="メニュー">
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
-            <span class="nav-button-bar"></span>
+          <span class="nav-button-bar"></span>
+          <span class="nav-button-bar"></span>
+          <span class="nav-button-bar"></span>
         </button>
         <div class="nav-wrapper">
-            <nav class="head-nav">
-                <ul>
-                    <li><a href="index.html">ホーム</a></li>
-                    <li><a href="AboutUs.html">会社案内</a></li>
-                    <li><a href="department.html">事業内容</a></li>
-                    <li><a href="Recruit.html">募集要項</a></li>
-                    <li><a href="contact.html">お問い合わせ</a></li>
-                </ul>
-            </nav>
+          <nav class="head-nav">
+            <ul>
+              <li><a href="index.html">ホーム</a></li>
+              <li><a href="AboutUs.html">会社案内</a></li>
+              <li class="current"><a href="department.html">事業内容</a></li>
+              <li><a href="Recruit.html">募集要項</a></li>
+              <li class="contact-link">
+                <a href="contact.html">お問い合わせ</a>
+              </li>
+            </ul>
+          </nav>
         </div>
-    </div>
-</header>
+      </div>
+    </header>
     <!-- Hero Section -->
-    <section class="hero">
-        <!-- <h1>システム開発事業部</h1> -->
-    </section>
+    <section
+      class="hero"
+      style="background: url('img/dep_img_04.jpg') no-repeat center/cover"
+    ></section>
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="パンくずリスト">
-        <ol>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="department.html">事業内容</a></li>
-            <li aria-current="page">エンタメ事業部</li>
-        </ol>
+      <ol>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="department.html">事業内容</a></li>
+        <li aria-current="page">エンタメ事業部</li>
+      </ol>
     </nav>
 
-
-    <h1 class="fade-in">エンタメ事業部</h1>
-    <!-- Introduction Comment -->
-    <div class="comment">
+    <div class="parent_container">
+      <h1 class="fade-in">エンタメ事業部</h1>
+      <!-- Introduction Comment -->
+      <div class="comment">
         <h3>
-            ゲーム関連業務のオンサイト支援業務並びに自社アプリ開発です。コンシューマー、ソーシャルゲーム問わず、開発やデザイン、テスト、運用まで受注実績があります。現在は生成ＡＩを用いたプログラマー、デザイナーの育成と自社ゲームアプリの高速開発を進めています。
+          ゲーム関連業務のオンサイト支援業務並びに自社アプリ開発です。コンシューマー、ソーシャルゲーム問わず、開発やデザイン、テスト、運用まで受注実績があります。現在は生成ＡＩを用いたプログラマー、デザイナーの育成と自社ゲームアプリの高速開発を進めています。
         </h3>
-    </div>
+      </div>
 
-    <!-- Department Contents -->
-    <section class="con2">
+      <!-- Department Contents -->
+      <section class="con2">
         <div class="container">
-            <div class="box4">
-                <h2>実績１</h2>
-                <div class="con-object">
-<div class="con-text">
-    <h3>業務内容</h3>
-    <ul class="work-list">
-        <li>某スポーツシュミレーションゲームの運用プランナー</li>
-        <li>キャンペーンやイベント企画、分析や障害対応等、幅広く対応</li>
-    </ul>
-</div>
-<div class="con-text">
-    <h3>主なツール・技術</h3>
-    <ul class="tech-list">
-        <li>開発プランニング</li>
-        <li>運用プランニング</li>
-        <li>JIRA</li>
-        <li>Excelでの分析、解析</li>
-    </ul>
-</div>
-</div>
-</div><div class="box4">
-                <h2>実績２</h2>
-                <div class="con-object">
-                     <div class="con-text">
-        <h3>業務内容</h3>
-        <ul class="work-list">
-            <li>某アニメメーションのRPGソーシャルゲームの開発支援</li>
-            <li>ADVパートやシステムボイス関連の開発進行と進捗管理</li>
-            <li>スクリプト演出全体での調整やレギュレーションの作成</li>
-            <li>音声の発注、納品確認、加工対応、デバック対応</li>
-        </ul>
-    </div>
-    <div class="con-text">
-        <h3>主なツール・技術</h3>
-        <ul class="tech-list">
-            <li>Github</li>
-            <li>Photoshop</li>
-            <li>SourceTree</li>
-            <li>Adobe Audition</li>
-        </ul>
-    </div>
-</div>
+          <div class="box4">
+            <h2>実績１</h2>
+            <div class="con-object">
+              <div class="con-text">
+                <h3>業務内容</h3>
+                <ul class="work-list">
+                  <li>某スポーツシュミレーションゲームの運用プランナー</li>
+                  <li>
+                    キャンペーンやイベント企画、分析や障害対応等、幅広く対応
+                  </li>
+                </ul>
+              </div>
+              <div class="con-text">
+                <h3>主なツール・技術</h3>
+                <ul class="tech-list">
+                  <li>開発プランニング</li>
+                  <li>運用プランニング</li>
+                  <li>JIRA</li>
+                  <li>Excelでの分析、解析</li>
+                </ul>
+              </div>
             </div>
+          </div>
+          <div class="box4">
+            <h2>実績２</h2>
+            <div class="con-object">
+              <div class="con-text">
+                <h3>業務内容</h3>
+                <ul class="work-list">
+                  <li>某アニメメーションのRPGソーシャルゲームの開発支援</li>
+                  <li>ADVパートやシステムボイス関連の開発進行と進捗管理</li>
+                  <li>スクリプト演出全体での調整やレギュレーションの作成</li>
+                  <li>音声の発注、納品確認、加工対応、デバック対応</li>
+                </ul>
+              </div>
+              <div class="con-text">
+                <h3>主なツール・技術</h3>
+                <ul class="tech-list">
+                  <li>Github</li>
+                  <li>Photoshop</li>
+                  <li>SourceTree</li>
+                  <li>Adobe Audition</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- 社内実績 -->
-    <section class="con2">
+      <!-- 社内実績 -->
+      <section class="con2">
         <div class="container">
-            <div class="box4">
-                <h2>社内活動</h2>
-                <div class="con-object">
-                    <div class="con-text">
-                        <p>
-                            定期的に資格取得のための勉強会を実施しています。
-                        </p>
-                    </div>
-                </div>
+          <div class="box4">
+            <h2>社内活動</h2>
+            <div class="con-object">
+              <div class="con-text">
+                <p>
+                  チームに分かれて企画から設計まで一貫したゲーム制作などを行っています。
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footA">
-                <div class="foot-img">
-                    <a href="index.html"><img src="img/rogo_outline.png" alt="logo_mark"></a>
-                </div>
-            </div>
-            <div class="footer-main">
-                <div class="footB">
-                    <p>
-                        〒102-0073<br>
-                        東京都千代田区九段北１丁目９−１６<br>
-                        九段ＫＡビル５階９<br>
-                        TEL : 03-6279-4673<br>
-                        FAX : 03-6279-4674<br>
-                    </p>
-                </div>
-                <nav class="footC">
-                    <div>
-                        <h3>会社案内</h3>
-                        <ul>
-                            <li><a href="#">テキストテキスト</a></li>
-                            <li><a href="#">テキストテキスト</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>事業内容</h3>
-                        <ul>
-                            <li><a href="#">テキストテキスト</a></li>
-                            <li><a href="#">テキストテキスト</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>募集要項</h3>
-                        <ul>
-                            <li><a href="#">テキストテキスト</a></li>
-                            <li><a href="#">テキストテキスト</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>問い合わせ</h3>
-                        <ul>
-                            <li><a href="#">テキストテキスト</a></li>
-                            <li><a href="#">テキストテキスト</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-            <div class="copyright">
-                Copyright © Union Point Systems Inc. All Rights Reserved.
-            </div>
+      <div class="container">
+        <div class="footA">
+          <div class="foot-img">
+            <a href="index.html"
+              ><img src="img/rogo_outline.png" alt="logo_mark"
+            /></a>
+          </div>
         </div>
+        <div class="footer-main">
+          <div class="footB">
+            <p>
+              〒102-0073<br />
+              東京都千代田区九段北１丁目９−１６<br />
+              九段ＫＡビル５階９<br />
+              TEL : 03-6279-4673<br />
+              FAX : 03-6279-4674<br />
+            </p>
+          </div>
+          <nav class="footC">
+            <div>
+              <h3>会社案内</h3>
+              <ul>
+                <li><a href="#">テキストテキスト</a></li>
+                <li><a href="#">テキストテキスト</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>事業内容</h3>
+              <ul>
+                <li><a href="#">テキストテキスト</a></li>
+                <li><a href="#">テキストテキスト</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>募集要項</h3>
+              <ul>
+                <li><a href="#">テキストテキスト</a></li>
+                <li><a href="#">テキストテキスト</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3>問い合わせ</h3>
+              <ul>
+                <li><a href="#">テキストテキスト</a></li>
+                <li><a href="#">テキストテキスト</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="copyright">
+          Copyright © Union Point Systems Inc. All Rights Reserved.
+        </div>
+      </div>
     </footer>
 
     <script src="style.js"></script>
-    
-</body>
-
+  </body>
 </html>

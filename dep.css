@@ -50,48 +50,111 @@ header .container {
 }
 
 .head-img img {
-  max-width: 250px;
-  min-width: 150px;
-  height: auto;
+    max-width: 250px;
+    min-width: 150px;
+    height: auto;
 }
 
+/* --- Navigation Styles --- */
 .head-nav ul {
+    position: relative;
+    /* Base for the sliding element */
     display: flex;
+    align-items: center;
+    /* Vertically align items */
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-.head-nav a {
+/* Sliding ellipse background */
+.head-nav ul::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    /* Position and size are set by JavaScript via CSS variables */
+    left: var(--slider-left, 0);
+    width: var(--slider-width, 0);
+    height: var(--slider-height, 0);
+    background-color: rgba(135, 167, 204, 0.4);
+    border-radius: 9999px;
+    /* To make it an ellipse */
+    transform: translateY(-50%);
+    transition: left 0.3s ease-out, width 0.3s ease-out;
+    z-index: 0;
+}
+
+.head-nav li {
     position: relative;
+    /* To ensure text is above the background */
+    z-index: 1;
+}
+
+.head-nav a {
     display: block;
-    padding: 15px 12px;
+    padding: 10px 20px;
+    /* Adjust padding for ellipse size */
     color: #154360;
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s;
+    white-space: nowrap;
+    /* Prevent text wrapping */
 }
 
-.head-nav a::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0;
-    height: 4px;
-    border-radius: 15px;
-    background-color: #154360;
-    transition: width 0.3s, background-color 0.3s;
+/* Text color for current and hovered items (excluding contact link) */
+.head-nav li.current a,
+.head-nav ul:hover li:not(.contact-link):hover a {
+    color: rgb(50, 50, 63);
+    ;
 }
 
-/* Underline for current page and on hover */
-.head-nav li.current a::before {
+/* --- Contact Link Styles --- */
+.head-nav li.contact-link a {
+    background-color: rgb(255, 136, 0);
+    /* Teal color for emphasis */
+    color: #fff;
+    border: 2px;
+    border-radius: 5px;
+    margin-left: 15px;
+    /* Add some space */
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.head-nav li.contact-link a:hover {
+    background-color: rgb(223, 130, 23);
+    /* Darker teal on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+    color: #fff;
+    /* Ensure color stays white on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- ハンバーガーメニュー --- */
+.nav-button {
+    display: none;
+    /* PCでは非表示 */
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.nav-button-bar {
+    display: block;
     width: 100%;
+    height: 3px;
+    background-color: #333;
+    margin: 8px 0;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-.head-nav li:not(.current) a:hover::before {
-    width: 100%;
-    background-color: rgb(255, 152, 35);
+.nav-wrapper {
+    display: block;
 }
 
 /* ==================================
@@ -99,14 +162,12 @@ header .container {
 ================================== */
 .hero {
     text-align: center;
-    /* background: url('img/dep_img_02.jpg') no-repeat center/cover; */
+    background: url('img/dep_img_02.jpg') no-repeat center/cover;
     color: white;
-    padding: 120px 20px;
+    padding: 150px 20px;
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
     -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
 }
-
-
 
 /* .hero h1 {
     font-size: 32px;
@@ -118,16 +179,24 @@ header .container {
     width: fit-content;
     margin: 0 auto;
 } */
-
+.parent_container {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(3px);
+    border-radius: 8px;
+    padding: 0 0 5px;
+    margin: 20px auto;
+    width: fit-content;
+}
 h1 {
     font-size: 32px;
     text-shadow:5px 4px 4px rgba(97, 97, 97, 0.8);
     /* background-color: rgba(135, 167, 204, 0.4);
     backdrop-filter: blur(3px); */
-    border-radius: 10px;
-    padding: 20px 30px;
+    /* border-radius: 10px; */
+    padding: 20px 30px 10px;
     width: fit-content;
-    margin: 50px auto 0;
+    margin: 0 auto;
+    border-bottom: 2px solid #007bff;
 }
 
 /* ==================================
@@ -175,14 +244,14 @@ h1 {
 .comment {
     width: 80%;
     max-width: 900px;
-    margin: 80px auto;
+    margin: 30px auto 40px;
     font-size: 18px;
     line-height: 1.6;
     text-align: center;
 }
 
 .con2 {
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 .con2 .container {
@@ -209,16 +278,22 @@ h1 {
     flex-direction: column;
     padding: 15px;
     box-sizing: border-box;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .box4 h2 {
     font-size: 20px;
     flex-shrink: 0;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    
+    /* 枠線を追加 */
+    border: 1px solid #154360; 
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    /* 枠の幅を文字の長さに合わせる */
+    width: fit-content;
 }
 
 /* .box4 h2::before {
@@ -249,15 +324,71 @@ h1 {
     margin-bottom: 20px;
 }
 
+/*
+ * 見出しのスタイル
+ */
 .con-text h3 {
-    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px; /* テキストを右にずらす */
+    margin-bottom: 20px;
+}
+
+/*「◇」記号をCSSで追加 */
+.con-text h3::before {
+    content: '◇';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #21435e;
+}
+
+/* 「主なツール・技術」の見出しに「◇」を適用 */
+/* h3:nth-of-type(2) は、con-text内の2番目のh3要素を指定 */
+.con-text h3:nth-of-type(2)::before {
+    content: '◇';
+}
+
+/*
+ * 箇条書きリストのスタイル
+ */
+.work-list,
+.tech-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap; /* 画面幅が狭いときに折り返す */
+    gap: 15px;
+}
+
+.work-list li,
+.tech-list li {
+    position: relative;
+    padding-left: 35px; /* テキストを右にずらし、アイコンとの間にスペース */
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+/* 箇条書きのアイコン（丸） */
+.work-list li::before,
+.tech-list li::before {
+    content: '';
+    position: absolute;
+    left: 20px; /* liの左端から20pxの位置にアイコンを配置 */
+    top: 5px;
+    width: 5px;
+    height: 5px;
+    background-color: #21435e;
+    border-radius: 50%;
 }
 
 .con-text p {
     text-align: left;
     line-height: 1.3;
 }
-
 
 /* ==================================
    Footer
@@ -327,6 +458,10 @@ footer .container {
 
 /* For PC & Tablet (768px and up) */
 @media (min-width: 768px) {
+        .nav-button {
+        display: none;
+    }
+
     .footer-main {
         display: flex;
         align-items: stretch;
@@ -372,6 +507,7 @@ footer .container {
         height: 70px;
         padding: 0 15px;
     }
+
     .nav-button {
         display: block;
         width: 40px;
@@ -381,6 +517,7 @@ footer .container {
         cursor: pointer;
         z-index: 101;
     }
+
     .nav-button-bar {
         display: block;
         width: 100%;
@@ -389,9 +526,18 @@ footer .container {
         margin: 8px 0;
         transition: transform 0.3s, opacity 0.3s;
     }
-    .nav-open .nav-button-bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .nav-open .nav-button-bar:nth-child(2) { opacity: 0; }
-    .nav-open .nav-button-bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+    body.nav-open .nav-button-bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    body.nav-open .nav-button-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.nav-open .nav-button-bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
+    }
 
     .nav-wrapper {
         display: none;
@@ -404,22 +550,59 @@ footer .container {
         z-index: 100;
         padding-top: 80px;
     }
-    .nav-open .nav-wrapper {
+
+    body.nav-open .nav-wrapper {
         display: block;
     }
+
     .head-nav {
         width: 100%;
         text-align: center;
     }
+
     .head-nav ul {
         flex-direction: column;
+        align-items: center;
     }
+
+    .head-nav li {
+        margin-bottom: 10px;
+    }
+
     .head-nav a {
         padding: 20px;
         font-size: 18px;
+        color: #154360 !important;
+        /* Reset color */
     }
-    .head-nav a::before {
+
+    .head-nav ul::before {
         display: none;
+        /* Hide slider on mobile */
+    }
+
+    .head-nav li.contact-link a {
+        margin-left: 0;
+        padding: 10px 30px;
+    }
+
+
+    /* nav-openクラスがbodyに付与された時のスタイル */
+    .nav-open .nav-wrapper {
+        display: block;
+    }
+
+    /* ハンバーガーアイコンのアニメーション */
+    .nav-open .nav-button-bar:nth-child(1) {
+        transform: translateY(11px) rotate(45deg);
+    }
+
+    .nav-open .nav-button-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-open .nav-open .nav-button-bar:nth-child(3) {
+        transform: translateY(-11px) rotate(-45deg);
     }
 
     /* Hero */
@@ -477,4 +660,18 @@ footer .container {
     .head-img img, .foot-img img {
         width: 150px;
     }
+}
+
+.fade-in {
+  /* 最初は非表示にして、アニメーションの準備をする */
+  opacity: 0;
+  transform: translateY(20px); /* 下から少しずらしておく */
+  animation: fadeInEffect 2s forwards; /* アニメーションを適用 */
+}
+
+@keyframes fadeInEffect {
+  to {
+    opacity: 1; /* 最終的に不透明にする */
+    transform: translateY(0); /* 元の位置に戻す */
+  }
 }
