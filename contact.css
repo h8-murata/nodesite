@@ -94,7 +94,7 @@ header .container {
 }
 
 /* Sliding ellipse background */
-.head-nav ul::before:not(.contact) .contact-limk{
+.head-nav ul::before:not(.contact-limk) .contact-limk {
     content: '';
     position: absolute;
     top: 50%;
@@ -227,7 +227,7 @@ header .container {
 .contact-intro-title,
 .contact-recruit-title {
     font-weight: bold;
-    margin-top: 80px;
+    margin-top: 30px;
     /* 上の余白 */
     margin-bottom: 20px;
     /* 線との間隔 */
@@ -267,7 +267,7 @@ header .container {
     text-align: left;
     padding-left: 94px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .contact-list li {
@@ -275,20 +275,11 @@ header .container {
     text-align: left;
     padding-left: 90px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 
 
-
-
-
-
-
-
-.contact-content {
-    margin-top: 10px;
-}
 
 .contact-application-form label {
 
@@ -396,49 +387,6 @@ header .container {
     cursor: pointer;
     color: #333;
     transition: color 0.3s;
-}
-
-/* 外側の○ */
-.radio-group label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    /* 縦中央に固定 */
-    width: 18px;
-    height: 18px;
-    border: 0.5px solid #007bff;
-    border-radius: 30%;
-    background: #fff;
-}
-
-/* 内側の●（◎の真ん中） */
-.radio-group input[type="radio"]:checked+label::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    /* 外枠のど真ん中に配置 */
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #007bff;
-}
-
-/* 選択時の文字色 */
-.radio-group input[type="radio"]:checked+label {
-    color: #007bff;
-}
-
-.radio-group label {
-    position: relative;
-    padding-left: 28px;
-    /* ボタン分の余白 */
-    cursor: pointer;
-    color: #333;
-    transition: color 0.3s;
     line-height: 1.5;
     /* 文字高さに合わせて自然に配置 */
     font-size: 16px;
@@ -478,19 +426,14 @@ header .container {
     color: #007bff;
 }
 
-
-
 .contact-tel {
     text-align: center;
     /* 中央揃え */
-    margin-top: 40px;
     max-width: 800px;
-    margin: 40px auto;
     background-color: #fff;
     padding: 20px;
 
 }
-
 
 /* 電話案内用タイトル */
 .contact-tel .tel-time {
@@ -525,6 +468,21 @@ header .container {
 
 
 
+/* ホバー時のアニメーション設定 */
+.contact-tel .tel-btn,
+.contact-recruit .recruit-btn {
+/* ここから追加するコード */
+transition: transform 0.3s ease;
+/* 動きを0.3秒かけて滑らかにする */
+}
+
+/* ホバー時のスタイル */
+.contact-tel .tel-btn:hover,
+.contact-recruit .recruit-btn:hover {
+    transform: translateY(-5px);
+    /* Y軸方向に-5px（上方向）に移動 */
+}
+
 /* リクルートセクション全体 */
 .contact-recruit {
     text-align: center;
@@ -547,7 +505,7 @@ header .container {
     display: inline-block;
     padding: 15px 60px;
     /* ← 縦(15px) × 横(40px)を広めに */
-    background-color: #21435e;
+    background-color: #ff8c00;
     /* 色はそのまま */
     color: #fff;
     text-decoration: none;
