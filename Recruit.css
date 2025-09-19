@@ -11,7 +11,7 @@ body {
     top: 0;
     left: 0;
     margin: 0;
-    background: linear-gradient(45deg, #00A99D, #ffffff, #41B6E6, #ffffff, #ffffe0);
+    background: linear-gradient(45deg, #dce9ad,#eff9fe,#a2daf7,#7fc8b8);
     background-size: 200% 200%;
     animation: GradientBackground 15s ease infinite;
     margin: 0 auto;
@@ -116,7 +116,7 @@ header .container {
 
 /* --- Contact Link Styles --- */
 .head-nav li.contact-link a {
-    background-color: rgb(255, 136, 0);
+    background-color: #ff8c00;
     /* Teal color for emphasis */
     color: #fff;
     border: 2px;
@@ -429,7 +429,7 @@ table th {
     font-weight: 600;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background: #fdc200;
+    background-color: #ff8c00;
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
@@ -437,7 +437,7 @@ table th {
 }
 
 .accordion-toggle:hover {
-    background: #ffe17e;
+    background-color: #f3b365;
 }
 
 .accordion-content {

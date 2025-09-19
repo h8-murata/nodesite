@@ -9,7 +9,7 @@ body {
     font-weight: 400;
     font-style: normal;
     margin: 0;
-    background: linear-gradient(45deg, #a2daf7, #eff9fe, #dce9ad, #7fc8b8);
+    background: linear-gradient(45deg, #dce9ad,#eff9fe,#a2daf7,#7fc8b8);
     background-size: 200% 200%;
     animation: GradientBackground 15s ease infinite;
 }
