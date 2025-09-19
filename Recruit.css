@@ -430,14 +430,16 @@ table th {
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #ff8c00;
+    
     cursor: pointer;
     text-align: center;
     margin-top: 20px;
     /* 下に20px余白 */
+    color:#fff;
 }
 
 .accordion-toggle:hover {
-    background-color: #f3b365;
+    background-color: rgb(223, 130, 23);
 }
 
 .accordion-content {
